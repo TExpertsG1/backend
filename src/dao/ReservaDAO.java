@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import infra.FabricaDeConexao;
-import modelo.Cargo;
-import modelo.Funcionario;
 import modelo.Reserva;
 
 public class ReservaDAO {
@@ -19,7 +17,7 @@ public class ReservaDAO {
 	public void insere(Reserva reserva) throws SQLException {
 		Connection conn = FabricaDeConexao.CriaConexao();
 
-		String sql = "insert into reserva(idquarto,hospede_cpf,quantidade_adulto,quantidade_crianca,data_check_in,data_check_out) values(?,?,?,?,?,?,?)";
+		String sql = "insert into reserva(idquarto,hospede_cpf,quantidade_adulto,quantidade_crianca,data_check_in,data_check_out) values(?,?,?,?,?,?)";
 		PreparedStatement st = conn.prepareStatement(sql);
 
 		st.setInt(1, reserva.getIdquarto());
@@ -44,9 +42,9 @@ public class ReservaDAO {
 		st.setInt(1, reserva.getIdquarto());
 		st.setInt(2, reserva.getQuantidade_adulto());
 		st.setInt(3, reserva.getQuantidade_crianca());
-		st.setDate(5, Date.valueOf(reserva.getData_check_in()));
-		st.setDate(6, Date.valueOf(reserva.getData_check_out()));
-		st.setInt(7, reserva.getIdreserva());
+		st.setDate(4, Date.valueOf(reserva.getData_check_in()));
+		st.setDate(5, Date.valueOf(reserva.getData_check_out()));
+		st.setInt(6, reserva.getIdreserva());
 		st.execute();
 		System.out.println("Reserva Alterada com Sucesso");
 
@@ -110,21 +108,14 @@ public class ReservaDAO {
 		Connection conn = FabricaDeConexao.CriaConexao();
 		String sql = "select * from reserva where idreserva = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
+		st.setInt(1, idreserva);
 		ResultSet rs = st.executeQuery();
 
-		st.setInt(1,reserva.getIdquarto());
-		st.setString(2, reserva.getHospede_cpf());
-		st.setInt(3, reserva.getQuantidade_adulto());
-		st.setInt(4, reserva.getQuantidade_crianca());
-		st.setDate(5, Date.valueOf(reserva.getData_check_in()));
-		st.setDate(6, Date.valueOf(reserva.getData_check_out()));
-
-				
+					
 		if (rs.next()) {
 			
 			LocalDate checkIn = rs.getDate("data_check_in").toLocalDate();
 			LocalDate checkOut = rs.getDate("data_check_out").toLocalDate();
-			
 			reserva = new Reserva(
 					rs.getInt("idreserva"), 
 					rs.getInt("idquarto"),

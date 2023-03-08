@@ -26,7 +26,6 @@ public class Reserva {
 
 	public Reserva(int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
 			LocalDate data_check_in, LocalDate data_check_out) {
-		idreserva = null;
 		this.idquarto = idquarto;
 		this.hospede_cpf = hospede_cpf;
 		this.quantidade_adulto = quantidade_adulto;
@@ -34,6 +33,7 @@ public class Reserva {
 		this.data_check_in = data_check_in;
 		this.data_check_out = data_check_out;
 	}
+	
 
 	public int getIdreserva() {
 		return idreserva;
@@ -86,6 +86,7 @@ public class Reserva {
 	public void setData_check_out(LocalDate data_check_out) {
 		this.data_check_out = data_check_out;
 	}
+
 
 	@Override
 	public String toString() {

@@ -9,17 +9,15 @@ public class Hotel {
 	private String uf;
 	private String cidade;
 	
-	
-	public Hotel(String cnpj, String nome_hotel, String logradouro, String cep, String uf, String estado) {
-	
+
+	public Hotel(String cnpj, String nome_hotel, String logradouro, String cep, String uf, String cidade) {
 		this.cnpj = cnpj;
 		this.nome_hotel = nome_hotel;
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.uf = uf;
-		this.estado = estado;
+		this.cidade = cidade;
 	}
-
 
 	public String getCnpj() {
 		return cnpj;
@@ -85,7 +83,6 @@ public class Hotel {
 		return "CNPJ: " + cnpj + "\nNome do Hotel: " + nome_hotel + "\nLogradouro: " + logradouro + ", CEP: " + cep
 				+ ", UF: " + uf + ", Cidade: " + cidade;
 	}
-	
-	
+
 
 }

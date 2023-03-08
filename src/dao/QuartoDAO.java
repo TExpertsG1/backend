@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,14 +15,15 @@ public class QuartoDAO {
 	public void insere(Quarto quarto) throws SQLException {
 		Connection conn = FabricaDeConexao.CriaConexao();
 
-		String sql = "insert into quarto(hotel_cnpj,nomeQuarto,numero,capacidade,diaria) values(?,?,?,?,?)";
+		String sql = "insert into quarto(idquarto,hotel_cnpj,nomeQuarto,numero,capacidade,diaria) values(?,?,?,?,?,?)";
 		PreparedStatement st = conn.prepareStatement(sql);
-
-		st.setString(1, quarto.getHotel_cnpj());
-		st.setString(2, quarto.getNomeQuarto());
-		st.setInt(3, quarto.getNumero());
-		st.setInt(4, quarto.getCapacidade());
-		st.setDouble(5, quarto.getDiaria());
+		
+		st.setInt(1, quarto.getIdquarto());
+		st.setString(2, quarto.getHotel_cnpj());
+		st.setString(3, quarto.getNomeQuarto());
+		st.setInt(4, quarto.getNumero());
+		st.setInt(5, quarto.getCapacidade());
+		st.setDouble(6, quarto.getDiaria());
 		
 		System.out.println("Quarto " + quarto + " adicionado");
 		st.close();
@@ -33,18 +33,18 @@ public class QuartoDAO {
 	public void update(Quarto quarto) throws SQLException  {
 		Connection conn = FabricaDeConexao.CriaConexao();
 				
-		String sql = "update quarto set idquarto = ?, idquarto = ?, quantidade_adulto = ?, quantidade_crianca=?, data_check_in = ?, data_check_out = ?  where idquarto = ?";
+		String sql = "update quarto set idquarto = ?, hotel_cnpj=?, nomeQuarto = ?, numero=?, capacidade = ?, diaria = ?  where idquarto = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
 		
 		st.setInt(1, quarto.getIdquarto());
-		st.setInt(2, quarto.getIdquarto());
-		st.setString(3, quarto.getHospede_cpf());
-		st.setInt(4, quarto.getQuantidade_adulto());
-		st.setInt(5, quarto.getQuantidade_crianca());
-		st.setDate(6, Date.valueOf(quarto.getData_check_in()));
-		st.setDate(7, Date.valueOf(quarto.getData_check_out()));
+		st.setString(2, quarto.getHotel_cnpj());
+		st.setString(3, quarto.getNomeQuarto());
+		st.setInt(4, quarto.getNumero());
+		st.setInt(5, quarto.getCapacidade());
+		st.setDouble(6, quarto.getDiaria());
+		st.setInt(7, quarto.getIdquarto());
 		st.execute();
-		System.out.println("Quarto Alterada com Sucesso");
+		System.out.println("Quarto Alterado com Sucesso");
 		
 		st.close();
 		conn.close();
@@ -58,20 +58,18 @@ public class QuartoDAO {
 		PreparedStatement st = conn.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 
-		List<quarto> quartos = new ArrayList<>();
+		List<Quarto> quartos = new ArrayList<>();
 
 		while (rs.next()) {
-			LocalDate dataCheckIn = rs.getDate("data_check_in").toLocalDate();
-			LocalDate dataCheckOut = rs.getDate("data_check_out").toLocalDate();
-
+			
 			Quarto quarto = new Quarto(
 				rs.getInt("idquarto"),
-				rs.getInt("idquarto"),
-				rs.getrsring("hospede_cpf"),
-				rs.getInt("quantidade_adulto"),
-				rs.getInt("quantidade_crianca"),
-				dataCheckIn,
-				dataCheckOut
+				rs.getString("hotel_cnpj"),
+				rs.getString("nomeQuarto"),
+				rs.getInt("numero"),
+				rs.getInt("capacidade"),
+				rs.getDouble("diaria")
+				
 				);
 
 			quartos.add(quarto);
@@ -110,8 +108,15 @@ public class QuartoDAO {
 		ResultSet rs = st.executeQuery();
 
 		if (rs.next()) {
-			quarto = new quarto(rs.getInt("idquarto"), rs.getInt("idquarto"),rs.getStrint("cpf"),
-			);
+			quarto = new Quarto(
+					rs.getInt("idquarto"),
+					rs.getString("hotel_cnpj"),
+					rs.getString("nomeQuarto"),
+					rs.getInt("numero"),
+					rs.getInt("capacidade"),
+					rs.getDouble("diaria")
+					
+					);
 		}
 		rs.close();
 		st.close();

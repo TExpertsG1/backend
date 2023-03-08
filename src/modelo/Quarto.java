@@ -28,6 +28,10 @@ public class Quarto {
 	
 	
 
+	public Quarto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getIdquarto() {
 		return idquarto;
 	}

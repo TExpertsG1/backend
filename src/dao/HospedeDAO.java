@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import infra.FabricaDeConexao;
-import modelo.Cargo;
 import modelo.Hospede;
 
 public class HospedeDAO {

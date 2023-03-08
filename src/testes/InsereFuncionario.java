@@ -3,7 +3,6 @@ package testes;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import dao.FuncionarioDAO;
 import modelo.Funcionario;
@@ -13,7 +12,7 @@ public class InsereFuncionario {
 	public static void main(String[] args) throws SQLException {
 				
 		Funcionario func = new Funcionario(
-				"32539752180",
+				"32539752191",
 				5,
 				"39792157000132",
 				"Jose",
