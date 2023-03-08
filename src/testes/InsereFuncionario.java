@@ -13,7 +13,7 @@ public class InsereFuncionario {
 	public static void main(String[] args) throws SQLException {
 				
 		Funcionario func = new Funcionario(
-				"32539752192",
+				"32539752180",
 				5,
 				"39792157000132",
 				"Jose",

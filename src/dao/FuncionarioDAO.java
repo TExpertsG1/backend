@@ -77,7 +77,7 @@ public class FuncionarioDAO {
 		PreparedStatement st = conn.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 
-		List<Funcionario> funcionario = new ArrayList<>();
+		List<Funcionario> funcionarios = new ArrayList<>();
 
 		while (rs.next()) {
 			
@@ -95,15 +95,15 @@ public class FuncionarioDAO {
 					rs.getString("complemento"), rs.getString("bairro"), rs.getString("cidade"), rs.getString("uf"),
 					rs.getString("cep"));
 
-			funcionario.add(func);
+			funcionarios.add(func);
 		}
 
-		funcionario.forEach(quarto -> System.out.println(quarto));
+		funcionarios.forEach(quarto -> System.out.println(quarto));
 
 		rs.close();
 		st.close();
 		conn.close();
-		return funcionario;
+		return funcionarios;
 
 	}
 

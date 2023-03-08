@@ -38,12 +38,13 @@ public class HospedeDAO {
 	public void update(Hospede hospede) throws SQLException  {
 		Connection conn = FabricaDeConexao.CriaConexao();
 				
-		String sql = "update hospede set nome = ?, data_nascimento=?, tefone=?, email=?  where cpf = ?";
+		String sql = "update hospede set nome = ?, data_nascimento=?, telefone=?, email=?  where cpf = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
 		st.setString(1, hospede.getNome());
 		st.setDate(2, Date.valueOf(hospede.getData_nascimento()));
 		st.setString(3, hospede.getTelefone());
 		st.setString(4, hospede.getEmail());
+		st.setString(5, hospede.getCpf());
 		st.execute();
 		System.out.println("Hospede Alterado com Sucesso");
 		
@@ -59,7 +60,7 @@ public class HospedeDAO {
 		PreparedStatement st = conn.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 
-		List<Hospede> hospede = new ArrayList<>();
+		List<Hospede> hospedes = new ArrayList<>();
 
 		while (rs.next()) {
 			LocalDate nascimento = rs.getDate("data_nascimento").toLocalDate();
@@ -70,15 +71,15 @@ public class HospedeDAO {
 					rs.getString("telefone"),
 					rs.getString("email")
 					);
-			hospede.add(hosp);
+			hospedes.add(hosp);
 		}
 
-		hospede.forEach(hospede1 -> System.out.println(hospede1));
+		hospedes.forEach(hospede -> System.out.println(hospede));
 
 		rs.close();
 		st.close();
 		conn.close();
-		return hospede;
+		return hospedes;
 
 	}
 
@@ -96,13 +97,13 @@ public class HospedeDAO {
 		conn.close();
 	}
 
-	public Hospede buscaPor(int cpf) throws SQLException {
+	public Hospede buscaPor(String cpf) throws SQLException {
 		Hospede hosp = null;
 
 		Connection conn = FabricaDeConexao.CriaConexao();
 		String sql = "select * from hospede where cpf = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
-		st.setInt(1, cpf);
+		st.setString(1, cpf);
 		ResultSet rs = st.executeQuery();
 
 		if (rs.next()) {

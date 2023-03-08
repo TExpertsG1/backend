@@ -5,11 +5,13 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import infra.FabricaDeConexao;
 import modelo.Cargo;
+import modelo.Funcionario;
 import modelo.Reserva;
 
 public class ReservaDAO {
@@ -33,82 +35,111 @@ public class ReservaDAO {
 		conn.close();
 	}
 
-	public void update(Reserva reserva) throws SQLException  {
+	public void update(Reserva reserva) throws SQLException {
 		Connection conn = FabricaDeConexao.CriaConexao();
-				
+
 		String sql = "update reserva set idquarto = ?, quantidade_adulto = ?, quantidade_crianca=?, data_check_in = ?, data_check_out = ?  where idreserva = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
-		
+
 		st.setInt(1, reserva.getIdquarto());
 		st.setInt(2, reserva.getQuantidade_adulto());
 		st.setInt(3, reserva.getQuantidade_crianca());
 		st.setDate(5, Date.valueOf(reserva.getData_check_in()));
 		st.setDate(6, Date.valueOf(reserva.getData_check_out()));
+		st.setInt(7, reserva.getIdreserva());
 		st.execute();
 		System.out.println("Reserva Alterada com Sucesso");
-		
+
 		st.close();
 		conn.close();
 	}
 
-	public List<Cargo> listagem() throws SQLException {
+	public List<Reserva> listagem() throws SQLException {
 		Connection conn = FabricaDeConexao.CriaConexao();
 		System.out.println("Banco de Dados Conectado");
 
-		String sql = "select * from cargo";
+		String sql = "select * from reserva";
 		PreparedStatement st = conn.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 
-		List<Cargo> cargos = new ArrayList<>();
+		List<Reserva> reservas = new ArrayList<>();
 
 		while (rs.next()) {
-			Cargo cargo = new Cargo(rs.getInt("idcargos"), rs.getString("cargo"), rs.getDouble("salario"));
+			LocalDate dataCheckIn = rs.getDate("data_check_in").toLocalDate();
+			LocalDate dataCheckOut = rs.getDate("data_check_out").toLocalDate();
 
-			cargos.add(cargo);
+			Reserva reserva = new Reserva(
+				rs.getInt("idreserva"),
+				rs.getInt("idquarto"),
+				rs.getString("hospede_cpf"),
+				rs.getInt("quantidade_adulto"),
+				rs.getInt("quantidade_crianca"),
+				dataCheckIn,
+				dataCheckOut
+				);
+
+			reservas.add(reserva);
 		}
 
-		cargos.forEach(cargo1 -> System.out.println(cargo1));
+		reservas.forEach(reserva -> System.out.println(reserva));
 
 		rs.close();
 		st.close();
 		conn.close();
-		return cargos;
+		return reservas;
 
 	}
-
-	public void delete(int idcargos) throws SQLException {
+	public void delete(int idreserva) throws SQLException {
 		Connection conn = FabricaDeConexao.CriaConexao();
 
-		String sql = "delete from cargo where idcargos = ?";
+		String sql = "delete from reserva where idreserva = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
-		st.setInt(1, idcargos); // Posição e o atributo
+		st.setInt(1, idreserva); 
 		st.execute();
 
-		System.out.println("Cargo de id: " + idcargos + " foi removido");
+		System.out.println("Reserva de id: " + idreserva + " foi removido");
 
 		st.close();
 		conn.close();
 	}
 
-	public Cargo buscaPor(int idreserva) throws SQLException {
+
+	public Reserva buscaPor(int idreserva) throws SQLException {
 		Reserva reserva = null;
 
 		Connection conn = FabricaDeConexao.CriaConexao();
 		String sql = "select * from reserva where idreserva = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
-		st.setInt(1, idreserva);
 		ResultSet rs = st.executeQuery();
 
+		st.setInt(1,reserva.getIdquarto());
+		st.setString(2, reserva.getHospede_cpf());
+		st.setInt(3, reserva.getQuantidade_adulto());
+		st.setInt(4, reserva.getQuantidade_crianca());
+		st.setDate(5, Date.valueOf(reserva.getData_check_in()));
+		st.setDate(6, Date.valueOf(reserva.getData_check_out()));
+
+				
 		if (rs.next()) {
-			reserva = new Reserva(rs.getInt("idreserva"), rs.getInt("idquarto"),rs.getStrint("cpf"),
+			
+			LocalDate checkIn = rs.getDate("data_check_in").toLocalDate();
+			LocalDate checkOut = rs.getDate("data_check_out").toLocalDate();
+			
+			reserva = new Reserva(
+					rs.getInt("idreserva"), 
+					rs.getInt("idquarto"),
+					rs.getString("hospede_cpf"),
+					rs.getInt("quantidade_adulto"),
+					rs.getInt("quantidade_crianca"),
+					checkIn,
+					checkOut
 			);
 		}
 		rs.close();
 		st.close();
 		conn.close();
-		return cargo;
+		return reserva;
 
 	}
-
 
 }
