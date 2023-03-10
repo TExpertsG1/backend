@@ -1,12 +1,23 @@
 package br.com.hotel1800.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "forma_de_pagamento")
 public class FormaDePagamento {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private Integer idpagamento;
 	private String forma_pagamento;
 	private Integer idreserva;
 	
+	
+	public FormaDePagamento() {}
 	
 	public FormaDePagamento(Integer idpagamento, String forma_pagamento, Integer idreserva) {
 
@@ -56,7 +67,7 @@ public class FormaDePagamento {
 
 	@Override
 	public String toString() {
-		return "Forma de Pagamento: " + idpagamento + " Pagamento via:  " + forma_pagamento + " ID Reserva: "
+		return "Pagamento via:  " + forma_pagamento + " ID Reserva: "
 				+ idreserva;
 	}
 	
