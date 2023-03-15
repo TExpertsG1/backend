@@ -8,26 +8,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>Lista de Cargos</h3>
+
+	<h3>Lista de Hospedes</h3>
+
 	<br />
-	<br />
-	<a href="/hotel1800/formCargo"> Cadastrar Cargo</a>
+	<a href="/hotel1800/formHospede">Cadastrar Hospede</a>
 	<br />
 	<br />
 	<table>
-		<c:forEach var="cargo" items="${cargo}">
 			<tr>
-				<td>${cargo.idcargos}</td>
-				<td>${cargo.cargo}</td>
-				<td>${cargo.salario}</td>
-<%-- 				<td> <a href='/hotel1800/deletar?idcargos=" ${cargo.getIdcargos()} "'>Excluir</a></td> --%>
+				<td colspan="1">CPF</td>
+				<td>Nome</td>
+			</tr>
+	
+		<c:forEach var="hospede" items="${hospede}">
+			
+			
+			<tr>
+				<td><a href="/hotel1800/buscaHospede?cpf=${hospede.cpf}">${hospede.cpf}</a></td>
+				<td>${hospede.nome}</td>
+<!-- 				<td>Excluir</td> -->
 			</tr>
 		</c:forEach>
-	</table>
 
-	<br />
+
+	</table>
 	<br />
 	<a href="/hotel1800/listaSistema.jsp">Voltar</a>
+
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 package br.com.hotel1800.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -17,6 +18,11 @@ public class FormaDePagamentoDAO {
 		em.getTransaction().commit();
 		em.close();
 
+	}
+	
+	public List<FormaDePagamento> listagem() {
+		EntityManager em = JPAFactory.getEntityManager();
+	    return em.createQuery("select c from FormaDePagamento c", FormaDePagamento.class).getResultList();
 	}
 ////		Connection conn = FabricaDeConexao.CriaConexao();
 ////

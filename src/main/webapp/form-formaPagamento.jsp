@@ -6,11 +6,15 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body>	
 	<form action="/hotel1800/cadastrapagamento" method="post">
 		<b> Forma de Pagamento: </b> <input type="text" name="forma_pagamento">
 		<br /> <b>Id Reserva:</b> <input type="text" name="idreserva">
-		<br /> <input type="submit" value="Enviar">
+		<br /> <input type="submit" value="Cadastrar">
+		<br />
+		<br />
+
 	</form>
+	<a href="/hotel1800/listaSistema.jsp">Voltar ao inicio</a>
 </body>
 </html>

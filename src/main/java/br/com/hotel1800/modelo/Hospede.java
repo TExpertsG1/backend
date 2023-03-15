@@ -2,12 +2,22 @@ package br.com.hotel1800.modelo;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "hospede")
 public class Hospede {
+	@Id
+	
 	private String cpf;
 	private String nome;
 	private LocalDate data_nascimento;
 	private String telefone;
 	private String email;
+	
+	
 	
 	public Hospede(String cpf, String nome, LocalDate data_nascimento, String telefone, String email) {
 		this.cpf = cpf;
@@ -17,7 +27,7 @@ public class Hospede {
 		this.email = email;
 	}
 
-	
+	public Hospede() {}
 	
 	public String getCpf() {
 		return cpf;

@@ -14,5 +14,9 @@
 		<br /> 
 			<input type="submit" value="Enviar">
 	</form>
+	<br />
+	<br />
+	<a href="/hotel1800/listaCargo">Voltar</a>
+	
 </body>
 </html>

@@ -26,14 +26,10 @@ public class FormaDePagamento {
 		this.idreserva = idreserva;
 	}
 	
-
 	public FormaDePagamento(String forma_pagamento, Integer idreserva) {
 		this.forma_pagamento = forma_pagamento;
 		this.idreserva = idreserva;
 	}
-
-
-
 
 	public Integer getIdpagamento() {
 		return idpagamento;

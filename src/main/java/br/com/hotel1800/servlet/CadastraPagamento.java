@@ -28,7 +28,7 @@ public class CadastraPagamento extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect("FormaPgtoCadastrado.jsp");
+		resp.sendRedirect("listaPagamento");
 			
 		}
 

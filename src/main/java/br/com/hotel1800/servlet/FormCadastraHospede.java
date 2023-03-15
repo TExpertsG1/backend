@@ -8,12 +8,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/formaPgto")
-public class FormCadastraPagamento extends HttpServlet{
+@WebServlet("/formHospede")
+public class FormCadastraHospede extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("form-formaPagamento.jsp").forward(req, resp);
+	
+		req.getRequestDispatcher("form-hospede.jsp").forward(req, resp);
 	}
 
 }

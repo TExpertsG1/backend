@@ -1,13 +1,8 @@
 package br.com.hotel1800.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.sql.SQLException;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.com.hotel1800.dao.CargoDAO;
 import br.com.hotel1800.modelo.Cargo;
@@ -33,16 +28,7 @@ public class CadastroCargo extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect("cargoCadastrado.jsp");
-
-		PrintWriter saida = resp.getWriter();
-		saida.println("<html>");
-		saida.println("<body>");
-
-		saida.println("Cargo: " + cargo + " cadastrado com Sucesso!");
-
-		saida.println("</body>");
-		saida.println("</html>");
+		resp.sendRedirect("listaCargo");
 
 	}
 
