@@ -3,8 +3,17 @@ package br.com.hotel1800.modelo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Reserva {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "reserva")
+public class Reserva {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idreserva;
 	private int idquarto;
 	private String hospede_cpf;
@@ -24,6 +33,9 @@ public class Reserva {
 		this.data_check_out = data_check_out;
 	}
 
+
+	public Reserva () {}
+	
 	public Reserva(int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
 			LocalDate data_check_in, LocalDate data_check_out) {
 		this.idquarto = idquarto;

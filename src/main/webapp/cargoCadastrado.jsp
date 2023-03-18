@@ -20,9 +20,18 @@
 				<td>${cargo.idcargos}</td>
 				<td>${cargo.cargo}</td>
 				<td>${cargo.salario}</td>
-<%-- 				<td> <a href='/hotel1800/deletar?idcargos=" ${cargo.getIdcargos()} "'>Excluir</a></td> --%>
+				<td>
+					<button onclick="excluirCargo(${cargo.getIdcargos()})">Excluir</button>
+				</td>
 			</tr>
 		</c:forEach>
+		<script>
+    function excluirCargo(idcargos) {
+        if (confirm("Tem certeza que deseja excluir este cargo?")) {
+            window.location.href = "/hotel1800/deletarcargo?idcargos=" + idcargos;
+        }
+    }
+</script>
 	</table>
 
 	<br />

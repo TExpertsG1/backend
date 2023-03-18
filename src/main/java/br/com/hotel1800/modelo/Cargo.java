@@ -8,14 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import jakarta.annotation.Generated;
-
 @Entity
 @Table(name = "cargo")
 public class Cargo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Integer idcargos;
 	private String cargo;
 	private BigDecimal salario;

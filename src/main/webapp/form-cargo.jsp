@@ -8,15 +8,21 @@
 </head>
 <body>
 	<form action="/hotel1800/cadastracargo" method="post">
-		<b>Cargo: </b> <input	type="text" name="cargo"> 
+		<b>CNPJ Hotel: </b> <input	type="text" name="hotel_cnpj"> 
 		 <br /> 
-		<b>Salario:</b> <input type="text"	name="salario"> 
+		 <b>Nome do Quarto: </b> <input	type="text" name="nomeQuarto"> 
+		 <br /> 
+		 <b>Numero: </b> <input	type="text" name="numero"> 
+		 <br /> 
+		 <b>Capacidade: </b> <input	type="text" name="capacidade"> 
+		 <br /> 
+		 <b>Diária: </b> <input type="text"	name="diaria"> 
 		<br /> 
 			<input type="submit" value="Enviar">
 	</form>
 	<br />
 	<br />
-	<a href="/hotel1800/listaCargo">Voltar</a>
+	<a href="/hotel1800/listaQuarto">Voltar</a>
 	
 </body>
 </html>

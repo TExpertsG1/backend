@@ -13,7 +13,6 @@ public class FormCadastraHospede extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
 		req.getRequestDispatcher("form-hospede.jsp").forward(req, resp);
 	}
 

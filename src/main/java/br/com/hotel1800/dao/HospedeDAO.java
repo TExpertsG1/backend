@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import br.com.hotel1800.infra.JPAFactory;
+import br.com.hotel1800.modelo.Cargo;
 import br.com.hotel1800.modelo.Hospede;
 
 public class HospedeDAO {
@@ -28,6 +29,17 @@ public class HospedeDAO {
 		return em.find(Hospede.class, cpf);
 
 	}
+	
+	public void deletar(String hospede) {
+	    EntityManager em = JPAFactory.getEntityManager();
+	    em.getTransaction().begin();
+	    Hospede hosp = em.find(Hospede.class, hospede);
+	    em.remove(hosp);
+	    em.getTransaction().commit();
+	    em.close();
+	}
+	
+	
 }
 
 ////	public void update(Hospede hospede) throws SQLException  {

@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 import br.com.hotel1800.infra.JPAFactory;
 import br.com.hotel1800.modelo.Cargo;
@@ -25,14 +24,19 @@ public class CargoDAO {
 	    return em.createQuery("select c from Cargo c", Cargo.class).getResultList();
 	}
 	
-//	public void deletar(Integer idcargos) {
-//		EntityManager em = JPAFactory.getEntityManager();
-//		em.getTransaction().begin();
-//		idcargos = em.merge(idcargos);
-//		em.remove(idcargos);
-//		em.getTransaction().commit();
-//		em.close();
-//	}
+
+	public void deletar(Integer id) {
+	    EntityManager em = JPAFactory.getEntityManager();
+	    em.getTransaction().begin();
+	    Cargo cargo = em.find(Cargo.class, id);
+	    em.remove(cargo);
+	    em.getTransaction().commit();
+	    em.close();
+	}
+
+}
+
+
 
 	
 //	Connection conn = FabricaDeConexao.CriaConexao();
@@ -130,4 +134,4 @@ public class CargoDAO {
 //
 //	}
 
-}
+//}

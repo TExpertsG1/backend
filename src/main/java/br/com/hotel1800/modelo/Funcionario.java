@@ -1,9 +1,14 @@
 package br.com.hotel1800.modelo;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "funcionario")
 public class Funcionario {
+	@Id
 	private String cpf;
 	private int idcargos;
 	private String hotel_cnpj;
@@ -18,6 +23,8 @@ public class Funcionario {
 	private String cidade;
 	private String uf;
 	private String cep;
+	
+	public Funcionario() {}
 
 	public Funcionario(String cpf, int idcargos, String hotel_cnpj, String nome, LocalDate data_nascimento,
 			LocalDate data_admissao, LocalDate data_demissao, String logradouro, int numero, String complemento,
@@ -38,8 +45,6 @@ public class Funcionario {
 		this.uf = uf;
 		this.cep = cep;
 	}
-	
-	
 	
 
 	public Funcionario(String cpf, int idcargos, String hotel_cnpj, String nome, LocalDate data_nascimento,

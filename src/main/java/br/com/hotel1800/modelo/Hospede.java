@@ -10,7 +10,6 @@ import javax.persistence.Table;
 @Table (name = "hospede")
 public class Hospede {
 	@Id
-	
 	private String cpf;
 	private String nome;
 	private LocalDate data_nascimento;

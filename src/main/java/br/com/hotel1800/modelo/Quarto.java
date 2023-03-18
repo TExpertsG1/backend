@@ -1,15 +1,26 @@
 package br.com.hotel1800.modelo;
 
+import java.math.BigDecimal;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "quarto")
 public class Quarto {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idquarto;
 	private String hotel_cnpj;
 	private String nomeQuarto;
 	private int numero;
 	private int capacidade;
-	private double diaria;
+	private BigDecimal diaria;
 	
-	public Quarto(int idquarto, String hotel_cnpj, String nomeQuarto, int numero, int capacidade, double diaria) {
+	public Quarto(int idquarto, String hotel_cnpj, String nomeQuarto, int numero, int capacidade, BigDecimal diaria) {
 		this.idquarto = idquarto;
 		this.hotel_cnpj = hotel_cnpj;
 		this.nomeQuarto = nomeQuarto;
@@ -18,12 +29,13 @@ public class Quarto {
 		this.diaria = diaria;
 	}
 	
-	public Quarto(String hotel_cnpj, String nomeQuarto, int numero, int capacidade, double diaria) {
+	
+	public Quarto(String hotel_cnpj, String nomeQuarto, int numero, int capacidade, BigDecimal diaria2) {
 		this.hotel_cnpj = hotel_cnpj;
 		this.nomeQuarto = nomeQuarto;
 		this.numero = numero;
 		this.capacidade = capacidade;
-		this.diaria = diaria;
+		this.diaria = diaria2;
 	}
 	
 	
@@ -73,13 +85,17 @@ public class Quarto {
 		this.capacidade = capacidade;
 	}
 
-	public double getDiaria() {
+	
+
+	public BigDecimal getDiaria() {
 		return diaria;
 	}
 
-	public void setDiaria(double diaria) {
+
+	public void setDiaria(BigDecimal diaria) {
 		this.diaria = diaria;
 	}
+
 
 	@Override
 	public String toString() {
