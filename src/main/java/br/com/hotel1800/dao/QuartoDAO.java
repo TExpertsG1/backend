@@ -37,5 +37,24 @@ public void insere(Quarto quarto) throws SQLException {
 	    em.getTransaction().commit();
 	    em.close();
 	}
+
+	public void atualiza(Quarto quarto) throws Exception {
+	    EntityManager em = null;
+	    try {
+	        em = JPAFactory.getEntityManager();
+	        em.getTransaction().begin();
+	        Quarto quartoAtualizado = em.merge(quarto);
+	        em.getTransaction().commit();
+	    } catch (Exception e) {
+	        if (em != null && em.getTransaction().isActive()) {
+	            em.getTransaction().rollback();
+	        }
+	        throw new Exception("Erro ao atualizar o quarto: " + e.getMessage());
+	    } finally {
+	        if (em != null) {
+	            em.close();
+	        }
+	    }
+	}
 	
 }

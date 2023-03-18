@@ -21,6 +21,10 @@
 				<td>
 					<button onclick="excluirQuarto(${quarto.getIdquarto()})">Excluir</button>
 				</td>
+				<td>
+					<button onclick="alterarQuarto(${quarto.getIdquarto()})">Alterar</button>
+				</td>
+				
 								
 			</tr>
 		</c:forEach>
@@ -29,8 +33,11 @@
      			  if (confirm("Tem certeza que deseja excluir este Quarto?")) {
             	window.location.href = "/hotel1800/deletarquarto?idquarto=" + idquarto;
       			  }
-     			  
-  
+     				function alterarQuarto(idquarto) {
+     	     			  if (confirm("Tem certeza que deseja excluir este Quarto?")) {
+     	            	window.location.href = "/hotel1800/atualizaquarto?idquarto=" + idquarto;
+     	      			  }  
+  				
    			 }
 			</script>		
      </table>
