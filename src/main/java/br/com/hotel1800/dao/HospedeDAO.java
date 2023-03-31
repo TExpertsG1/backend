@@ -1,133 +1,32 @@
 package br.com.hotel1800.dao;
 
-import java.sql.SQLException;
-import java.util.List;
-import javax.persistence.EntityManager;
-import br.com.hotel1800.infra.JPAFactory;
-import br.com.hotel1800.modelo.Cargo;
 import br.com.hotel1800.modelo.Hospede;
+import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import java.util.List;
+
+@Repository
+@Transactional
 public class HospedeDAO {
 
-	public void insere(Hospede hospede) throws SQLException {
+    @PersistenceContext
+    private EntityManager em;
 
-		EntityManager em = JPAFactory.getEntityManager();
-		em.getTransaction().begin();
-		em.persist(hospede);
-		em.getTransaction().commit();
-		em.close();
+    public void create(Hospede hospede) { em.persist(hospede); }
 
-	}
+    public Hospede read(String cpf) { return em.find(Hospede.class, cpf); }
 
-	public List<Hospede> listagem() {
-		EntityManager em = JPAFactory.getEntityManager();
-		return em.createQuery("select c from Hospede c", Hospede.class).getResultList();
-	}
+    public List<Hospede> readAll() {
+        return em.createQuery("select c from Hospede c", Hospede.class).getResultList();
+    }
 
-	public Hospede buscaPor(String cpf) {
-		EntityManager em = JPAFactory.getEntityManager();
-		return em.find(Hospede.class, cpf);
+    public void update(Hospede hospede) { em.merge(hospede); }
 
-	}
-	
-	public void deletar(String hospede) {
-	    EntityManager em = JPAFactory.getEntityManager();
-	    em.getTransaction().begin();
-	    Hospede hosp = em.find(Hospede.class, hospede);
-	    em.remove(hosp);
-	    em.getTransaction().commit();
-	    em.close();
-	}
-	
-	
+    public void delete(String cpf) {
+        Hospede hospede = em.find(Hospede.class, cpf);
+        em.remove(hospede);
+    }
 }
-
-////	public void update(Hospede hospede) throws SQLException  {
-////		Connection conn = FabricaDeConexao.CriaConexao();
-////				
-////		String sql = "update hospede set nome = ?, data_nascimento=?, telefone=?, email=?  where cpf = ?";
-////		PreparedStatement st = conn.prepareStatement(sql);
-////		st.setString(1, hospede.getNome());
-////		st.setDate(2, Date.valueOf(hospede.getData_nascimento()));
-////		st.setString(3, hospede.getTelefone());
-////		st.setString(4, hospede.getEmail());
-////		st.setString(5, hospede.getCpf());
-////		st.execute();
-////		System.out.println("Hospede Alterado com Sucesso");
-////		
-////		st.close();
-////		conn.close();
-////	}
-////
-////	public List<Hospede> listagem() throws SQLException {
-////		Connection conn = FabricaDeConexao.CriaConexao();
-////		System.out.println("Banco de Dados Conectado");
-////
-////		String sql = "select * from hospede";
-////		PreparedStatement st = conn.prepareStatement(sql);
-////		ResultSet rs = st.executeQuery();
-////
-////		List<Hospede> hospedes = new ArrayList<>();
-////
-////		while (rs.next()) {
-////			LocalDate nascimento = rs.getDate("data_nascimento").toLocalDate();
-////			Hospede hosp = new Hospede(
-////					rs.getString("cpf"), 
-////					rs.getString("nome"), 
-////					nascimento,
-////					rs.getString("telefone"),
-////					rs.getString("email")
-////					);
-////			hospedes.add(hosp);
-////		}
-////
-////		hospedes.forEach(hospede -> System.out.println(hospede));
-////
-////		rs.close();
-////		st.close();
-////		conn.close();
-////		return hospedes;
-////
-////	}
-////
-////	public void delete(String cpf) throws SQLException {
-////		Connection conn = FabricaDeConexao.CriaConexao();
-////
-////		String sql = "delete from hospede where cpf = ?";
-////		PreparedStatement st = conn.prepareStatement(sql);
-////		st.setString(1, cpf); // Posição e o atributo
-////		st.execute();
-////
-////		System.out.println("Cargo de id: " + cpf + " foi removido");
-////
-////		st.close();
-////		conn.close();
-////	}
-////
-////	public Hospede buscaPor(String cpf) throws SQLException {
-////		Hospede hosp = null;
-////
-////		Connection conn = FabricaDeConexao.CriaConexao();
-////		String sql = "select * from hospede where cpf = ?";
-////		PreparedStatement st = conn.prepareStatement(sql);
-////		st.setString(1, cpf);
-////		ResultSet rs = st.executeQuery();
-////
-////		if (rs.next()) {
-////			LocalDate nascimento = rs.getDate("data_nascimento").toLocalDate();
-////			hosp = new Hospede(rs.getString("cpf"), 
-////							   rs.getString("nome"),
-////							   nascimento,
-////							   rs.getString("telefone"),
-////							   rs.getString("email")
-////
-////			);
-////		}
-////		rs.close();
-////		st.close();
-////		conn.close();
-////		return hosp;
-//
-//	}
-
-

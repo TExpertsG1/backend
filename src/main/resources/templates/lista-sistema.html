@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Insert title here</title>
+</head>
+<body>
+<p th:text="'Olá, mundo!'"></p>
+<ul>
+    <li><a th:href="@{/cargos}">Lista Cargo</a></li>
+    <li><a th:href="@{/listaHospede}">Lista Hospede</a></li>
+    <li><a th:href="@{/listaPagamento}">Lista Pagamento</a></li>
+    <li><a th:href="@{/funcionarios}">Lista Funcionário</a></li>
+    <li><a th:href="@{/listaReserva}">Lista Reserva</a></li>
+    <li><a th:href="@{/listaQuarto}">Lista Quarto</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Lista de Funcionários</title>
+</head>
+<body>
+<h3>Lista de Funcionários</h3>
+<br/>
+<br/>
+<a th:href="@{/formFuncionario}">Cadastrar Funcionário</a>
+<br/>
+<table>
+    <thead>
+    <tr>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="funcionario : ${funcionarios}">
+        <td>
+            <a onclick="mostrarFuncionario(event)"
+               th:href="@{/hotel1800/buscaFuncionario(cpf=${funcionario.cpf})}" th:text="${funcionario.cpf}">
+            </a>
+        </td>
+        <td th:text="${funcionario.nome}"></td>
+        <td>
+            <form action="/deletarFuncionario" method="post">
+                <input name="cpf" th:value="${funcionario.cpf}" type="hidden"/>
+                <button onclick="return confirm('Tem certeza que deseja excluir este Funcionário?')"
+                        type="submit">Excluir
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a th:href="@{/sistema}">Voltar</a>
+
+<script>
+    function mostrarFuncionario(event) {
+    event.preventDefault();
+    var cpf = event.target.textContent;
+    window.location.href = "/hotel1800/mostraFuncionario?cpf=" + cpf;
+    }
+
+</script>
+</body>
+</html>

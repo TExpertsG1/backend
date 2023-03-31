@@ -1,42 +1,33 @@
 package br.com.hotel1800.dao;
 
-import java.sql.SQLException;
-import java.util.List;
+import br.com.hotel1800.modelo.Reserva;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import java.util.List;
 
-import br.com.hotel1800.infra.JPAFactory;
-import br.com.hotel1800.modelo.Reserva;
-
+@Repository
+@Transactional
 public class ReservaDAO {
 
-	public void insere(Reserva reserva) throws SQLException {
+    @PersistenceContext
+    private EntityManager em;
 
-		EntityManager em = JPAFactory.getEntityManager();
-		em.getTransaction().begin();
-		em.persist(reserva);
-		em.getTransaction().commit();
-		em.close();
-	}
+    public void create(Reserva reserva) { em.persist(reserva); }
 
-	public List<Reserva> listagem() {
-		EntityManager em = JPAFactory.getEntityManager();
-		return em.createQuery("select c from Reserva c", Reserva.class).getResultList();
-	}
+    public Reserva read(Integer id) { return em.find(Reserva.class, id); }
 
-	public Reserva buscaPor(Integer idreserva) {
-		EntityManager em = JPAFactory.getEntityManager();
-		return em.find(Reserva.class, idreserva);
+    public List<Reserva> readAll() {
+        return em.createQuery("SELECT r FROM Reserva r", Reserva.class).getResultList();
+    }
 
-	}
+    public void update(Reserva reserva) { em.merge(reserva); }
 
-	public void deletar(Integer id) {
-		EntityManager em = JPAFactory.getEntityManager();
-		em.getTransaction().begin();
-		Reserva reserva = em.find(Reserva.class, id);
-		em.remove(reserva);
-		em.getTransaction().commit();
-		em.close();
-	}
+    public void delete(Integer id) {
+        Reserva reserva = em.find(Reserva.class, id);
+        em.remove(reserva);
+    }
 
 }

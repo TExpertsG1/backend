@@ -1,121 +1,32 @@
 package br.com.hotel1800.dao;
 
+import br.com.hotel1800.modelo.FormaDePagamento;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
-import br.com.hotel1800.infra.JPAFactory;
-import br.com.hotel1800.modelo.FormaDePagamento;
-
+@Repository
+@Transactional
 public class FormaDePagamentoDAO {
 
-	public void insere(FormaDePagamento pagamento) throws SQLException {
-		
-		EntityManager em = JPAFactory.getEntityManager();
-		em.getTransaction().begin();
-		em.persist(pagamento);
-		em.getTransaction().commit();
-		em.close();
+    @PersistenceContext
+    private EntityManager em;
 
-	}
-	
-	public List<FormaDePagamento> listagem() {
-		EntityManager em = JPAFactory.getEntityManager();
-	    return em.createQuery("select c from FormaDePagamento c", FormaDePagamento.class).getResultList();
-	}
-////		Connection conn = FabricaDeConexao.CriaConexao();
-////
-////		String sql = "insert into forma_de_pagamento(idpagamento,forma_pagamento,idreserva) values(?,?,?)";
-////		PreparedStatement st = conn.prepareStatement(sql);
-////		st.setInt(1, pagamento.getIdpagamento());
-////		st.setString(2, pagamento.getForma_pagamento());
-////		st.setDouble(3, pagamento.getIdreserva());
-////
-////		st.execute();
-////
-////		System.out.println("Pagamento: " + pagamento + " adicionado");
-////		st.close();
-////		conn.close();
-////	}
-//
-//	public void update(FormaDePagamento pagamento) throws SQLException {
-//		Connection conn = FabricaDeConexao.CriaConexao();
-//
-//		String sql = "update forma_de_pagamento set forma_pagamento = ?, idreserva = ?  where idpagamento = ?";
-//		PreparedStatement st = conn.prepareStatement(sql);
-//		st.setString(1, pagamento.getForma_pagamento());
-//		st.setDouble(2, pagamento.getIdreserva());
-//		st.setInt(3, pagamento.getIdpagamento());
-//		st.execute();
-//		System.out.println("Pagamento Alterado com Sucesso");
-//
-//		st.close();
-//		conn.close();
-//	}
-//
-//	public List<FormaDePagamento> listagem() throws SQLException {
-//		Connection conn = FabricaDeConexao.CriaConexao();
-//		System.out.println("Banco de Dados Conectado");
-//
-//		String sql = "select * from forma_de_pagamento";
-//		PreparedStatement st = conn.prepareStatement(sql);
-//		ResultSet rs = st.executeQuery();
-//
-//		List<FormaDePagamento> pagamentos = new ArrayList<>();
-//
-//		while (rs.next()) {
-//			FormaDePagamento pagamento = new FormaDePagamento(rs.getInt("idpagamento"), rs.getString("forma_pagamento"),
-//					rs.getInt("idreserva"));
-//
-//			pagamentos.add(pagamento);
-//		}
-//
-//		pagamentos.forEach(pagamento -> System.out.println(pagamento));
-//
-//		rs.close();
-//		st.close();
-//		conn.close();
-//		return pagamentos;
-//
-//	}
-//
-//	public void delete(int idpagamento) throws SQLException {
-//		Connection conn = FabricaDeConexao.CriaConexao();
-//
-//		String sql = "delete from forma_de_pagamento where idpagamento = ?";
-//		PreparedStatement st = conn.prepareStatement(sql);
-//		st.setInt(1, idpagamento);
-//		st.execute();
-//
-//		System.out.println("Pagamento de id: " + idpagamento + " foi removido");
-//
-//		st.close();
-//		conn.close();
-//	}
-//
-//	public FormaDePagamento buscaPor(int idpagamento) throws SQLException {
-//		FormaDePagamento pagamento = null;
-//
-//		Connection conn = FabricaDeConexao.CriaConexao();
-//		String sql = "select * from forma_de_pagamento where idpagamento = ?";
-//		PreparedStatement st = conn.prepareStatement(sql);
-//		st.setInt(1, idpagamento);
-//		ResultSet rs = st.executeQuery();
-//
-//		if (rs.next()) {
-//			pagamento = new FormaDePagamento(
-//					rs.getInt("idpagamento"), 
-//					rs.getString("forma_pagamento"), 
-//					rs.getInt("idreserva")
-//
-//			);
-//		}
-//		rs.close();
-//		st.close();
-//		conn.close();
-//		return pagamento;
-//
-//	}
+    public void create(FormaDePagamento pagamento) throws SQLException { em.persist(pagamento); }
+
+    public FormaDePagamento read(Integer id) { return em.find(FormaDePagamento.class, id); }
+
+    public List<FormaDePagamento> readAll() { return em.createQuery("select c from FormaDePagamento c", FormaDePagamento.class).getResultList(); }
+
+    public void update(FormaDePagamento pagamento) { em.merge(pagamento); }
+
+    public void delete(Integer id) {
+        FormaDePagamento formaDePagamento = em.find(FormaDePagamento.class, id);
+        em.remove(formaDePagamento);
+    }
 
 }

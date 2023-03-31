@@ -1,100 +1,87 @@
 package br.com.hotel1800.modelo;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
-@Table (name = "hospede")
+@Table(name = "hospede")
 public class Hospede {
-	@Id
-	private String cpf;
-	private String nome;
-	private LocalDate data_nascimento;
-	private String telefone;
-	private String email;
-	
-	
-	
-	public Hospede(String cpf, String nome, LocalDate data_nascimento, String telefone, String email) {
-		this.cpf = cpf;
-		this.nome = nome;
-		this.data_nascimento = data_nascimento;
-		this.telefone = telefone;
-		this.email = email;
-	}
-
-	public Hospede() {}
-	
-	public String getCpf() {
-		return cpf;
-	}
+    @Id
+    private String cpf;
+    private String nome;
+    private LocalDate data_nascimento;
+    private String telefone;
+    private String email;
 
 
+    public Hospede(String cpf, String nome, LocalDate data_nascimento, String telefone, String email) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.data_nascimento = data_nascimento;
+        this.telefone = telefone;
+        this.email = email;
+    }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    public Hospede() {
+    }
 
-
-
-	public String getNome() {
-		return nome;
-	}
-
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getCpf() {
+        return cpf;
+    }
 
 
-
-	public LocalDate getData_nascimento() {
-		return data_nascimento;
-	}
-
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
 
-	public void setData_nascimento(LocalDate data_nascimento) {
-		this.data_nascimento = data_nascimento;
-	}
+    public String getNome() {
+        return nome;
+    }
 
 
-
-	public String getTelefone() {
-		return telefone;
-	}
-
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    public LocalDate getData_nascimento() {
+        return data_nascimento;
+    }
 
 
-
-	public String getEmail() {
-		return email;
-	}
-
+    public void setData_nascimento(LocalDate data_nascimento) {
+        this.data_nascimento = data_nascimento;
+    }
 
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
 
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	@Override
-	public String toString() {
-		return "CPF: " + cpf + "\n Nome: " + nome + "\n Data de Nascimento: " + data_nascimento + "\n Telefone: "
-				+ telefone + "\n E-mail: " + email+ "\n------";
-	}
-	
-	
-	
-	
+
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    @Override
+    public String toString() {
+        return "CPF: " + cpf + "\n Nome: " + nome + "\n Data de Nascimento: " + data_nascimento + "\n Telefone: "
+                + telefone + "\n E-mail: " + email + "\n------";
+    }
+
+
 }

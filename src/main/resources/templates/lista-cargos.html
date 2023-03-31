@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Lista de Cargos</title>
+</head>
+<body>
+<h3>Lista de Cargos</h3>
+<br/>
+<br/>
+<a class="button" href="/hotel1800/formCargo">Cadastrar Cargo</a>
+<br/>
+<table>
+    <thead>
+    <tr>
+        <th>ID Cargo</th>
+        <th>Cargo</th>
+        <th>Salário</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cargo : ${listaCargos}">
+        <td th:text="${cargo.idcargos}"></td>
+        <td th:text="${cargo.cargo}"></td>
+        <td th:text="${cargo.salario}"></td>
+        <td>
+            <form action="/deletarCargo" method="post" style="display: inline-block;">
+                <input name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
+                <button
+                        onclick="return confirm('Tem certeza que deseja excluir este cargo?')"
+                        type="submit">Excluir
+                </button>
+            </form>
+            <form action="/modificarCargo/{idcargos}" method="get" style="display: inline-block;">
+                <input name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
+                <button onclick="return confirm('Tem certeza que deseja modificar este cargo?')" type="submit">
+                    Modificar
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="button" th:href="@{/sistema}">Voltar</a>
+<script>
+        function excluirCargo(idcargos) {
+            if (confirm("Tem certeza que deseja excluir este cargo?")) {
+                window.location.href = "/hotel1800/deletarcargo?idcargos=" + idcargos;
+            }
+        }
+
+</script>
+</body>
+</html>
