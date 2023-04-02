@@ -1,46 +1,82 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1rem;
-    font-weight: bold;
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
 }
 
-th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+/* Título da página */
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333333;
+}
+
+/* Tabela */
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 1200px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Cabeçalho da tabela */
+th,
+td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
 }
 
 th {
-    background-color: #4CAF50;
-    color: white;
+  background-color: #1976d2;
+  color: #ffffff;
 }
 
-button {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
+/* Linhas da tabela */
+tr:hover {
+  background-color: #dedede;
 }
 
-button:hover {
-    background-color: #d32f2f;
-}
-
+/* Botão */
 .button {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+  background-color: #1976d2;
+  color: #ffffff;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .button:hover {
-    background-color: #d32f2f;
+  background-color: #0d4280;
+}
+
+/* Formulário */
+form {
+  margin: 0;
+  display: inline-block;
+}
+
+/* Botão do formulário */
+button {
+  background-color: #d32f2f;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 0;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #821515;
 }

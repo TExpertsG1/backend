@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Cargo</title>
+</head>
+<body>
+<h1>Modificar Cargo</h1>
+<form method="post" th:action="@{/atualizarCargo}">
+    <div>
+        <label for="nome">Nome:</label>
+        <input id="nome" name="cargo" required="required" th:value="${cargo.cargo}" type="text"/>
+    </div>
+    <div>
+        <label for="salario">Salário:</label>
+        <input id="salario" name="salario" required="required" th:value="${cargo.salario}" type="text"/>
+    </div>
+    <div>
+        <input type="hidden" id="idcargos" name="idcargos" th:value="${cargo.idcargos}"/>
+        <input type="submit" value="Modificar"/>
+    </div>
+</form>
+<br/>
+<a th:href="@{/cargos}">Voltar</a>
+</body>
+</html>

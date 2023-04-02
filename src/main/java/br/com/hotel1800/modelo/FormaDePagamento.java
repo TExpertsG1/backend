@@ -53,7 +53,7 @@ public class FormaDePagamento {
 
     @Override
     public String toString() {
-        return "Pagamento via:  " + forma_pagamento + " ID Reserva: "
+        return "FormaDePagamento via:  " + forma_pagamento + " ID Reserva: "
                 + idreserva;
     }
 }

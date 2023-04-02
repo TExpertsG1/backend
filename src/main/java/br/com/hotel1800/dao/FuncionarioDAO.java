@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -16,11 +15,17 @@ public class FuncionarioDAO {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(Funcionario funcionario) throws SQLException { em.persist(funcionario); }
+    public void create(Funcionario funcionario) {
+        em.persist(funcionario);
+    }
 
-    public Funcionario read(String cpf) { return em.find(Funcionario.class, cpf); }
+    public Funcionario read(String cpf) {
+        return em.find(Funcionario.class, cpf);
+    }
 
-    public List<Funcionario> readAll() { return em.createQuery("select c from Funcionario c", Funcionario.class).getResultList(); }
+    public List<Funcionario> readAll() {
+        return em.createQuery("select c from Funcionario c", Funcionario.class).getResultList();
+    }
 
     public void update(Funcionario funcionario) {
         em.merge(funcionario);

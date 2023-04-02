@@ -48,7 +48,6 @@ public class Funcionario {
         this.cep = cep;
     }
 
-
     public Funcionario(String cpf, int idcargos, String hotel_cnpj, String nome, LocalDate data_nascimento,
                        LocalDate data_admissao, String logradouro, int numero, String complemento, String bairro, String cidade,
                        String uf, String cep) {
@@ -66,7 +65,6 @@ public class Funcionario {
         this.uf = uf;
         this.cep = cep;
     }
-
 
     public String getCpf() {
         return cpf;

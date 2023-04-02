@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Modificar Cargo</title>
+    <title>Cadastrar Cargo</title>
 </head>
 <body>
-<h3>Modificar Cargo</h3>
-<br/>
-<form method="post" th:action="@{/hotel1800/modificacargo}" th:object="${cargo}">
+
+<h3>Cadastrar Cargo</h3><br/>
+
+<form method="post" th:action="@{/cadastrarCargo}" th:object="${cargo}">
+
     <input name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
+    <b>Cargo: </b><input name="cargo" type="text"><br/>
+    <b>Salário: </b><input name="salario" type="text"><br/>
 
-    <label for="cargo">Cargo:</label>
-    <input id="cargo" name="cargo" required th:value="${cargo.cargo}" type="text"/>
+    <input type="submit" value="Enviar">
 
-    <label for="salario">Salário:</label>
-    <input id="salario" name="salario" required th:value="${cargo.salario}" type="text"/>
-
-    <br/><br/>
-
-    <a class="button" th:href="@{/}">Modificar</a>
 </form>
 <br/>
-<a class="button" th:href="@{/listacargo}">Voltar</a>
+<a class="button" th:href="@{/cargos}">Voltar</a>
 </body>
 </html>

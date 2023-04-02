@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Lista de Formas de Pagamento</title>
+</head>
+<body>
+<h1>Lista de Formas de Pagamento</h1>
+<br/>
+<br/>
+<a class="button" th:href="@{/formFormaDePagamento}">Cadastrar Forma de Pagamento</a>
+<br/>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Forma de Pagamento</th>
+        <th>ID Reserva</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="formaDePagamento : ${listaFormaDePagamento}">
+        <td th:text="${formaDePagamento.idpagamento}"></td>
+        <td th:text="${formaDePagamento.forma_pagamento}"></td>
+        <td th:text="${formaDePagamento.idreserva}"></td>
+        <td>
+            <form action="/deletarFormaDePagamento" method="post" style="display: inline-block;">
+                <input name="id" th:value="${formaDePagamento.idpagamento}" type="hidden"/>
+                <button onclick="return confirm('Tem certeza que deseja excluir esta Forma de Pagamento?')" type="submit">Excluir
+                </button>
+            </form>
+            <form th:action="@{/modificarFormaDePagamento/{id}(id=${formaDePagamento.idpagamento})}" method="get" style="display: inline-block;">
+                <button onclick="return confirm('Tem certeza que deseja modificar esta Forma de Pagamento?')" type="submit">
+                    Modificar
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a class="button" th:href="@{/sistema}">Voltar</a>
+</body>
+</html>

@@ -7,10 +7,10 @@
     <title>Lista de Cargos</title>
 </head>
 <body>
-<h3>Lista de Cargos</h3>
+<h1>Lista de Cargos</h1>
 <br/>
 <br/>
-<a class="button" href="/hotel1800/formCargo">Cadastrar Cargo</a>
+<a class="button" href="/formCargo">Cadastrar Cargo</a>
 <br/>
 <table>
     <thead>
@@ -29,13 +29,10 @@
         <td>
             <form action="/deletarCargo" method="post" style="display: inline-block;">
                 <input name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
-                <button
-                        onclick="return confirm('Tem certeza que deseja excluir este cargo?')"
-                        type="submit">Excluir
+                <button onclick="return confirm('Tem certeza que deseja excluir este cargo?')" type="submit">Excluir
                 </button>
             </form>
-            <form action="/modificarCargo/{idcargos}" method="get" style="display: inline-block;">
-                <input name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
+            <form th:action="@{/modificarCargo/{idcargo}(idcargo=${cargo.idcargos})}" method="get" style="display: inline-block;">
                 <button onclick="return confirm('Tem certeza que deseja modificar este cargo?')" type="submit">
                     Modificar
                 </button>
@@ -51,7 +48,6 @@
                 window.location.href = "/hotel1800/deletarcargo?idcargos=" + idcargos;
             }
         }
-
 </script>
 </body>
 </html>

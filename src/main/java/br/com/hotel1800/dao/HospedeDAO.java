@@ -23,7 +23,9 @@ public class HospedeDAO {
         return em.createQuery("select c from Hospede c", Hospede.class).getResultList();
     }
 
-    public void update(Hospede hospede) { em.merge(hospede); }
+    public void update(Hospede hospede) {
+        em.merge(hospede);
+    }
 
     public void delete(String cpf) {
         Hospede hospede = em.find(Hospede.class, cpf);

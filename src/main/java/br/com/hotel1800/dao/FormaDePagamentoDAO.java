@@ -16,13 +16,21 @@ public class FormaDePagamentoDAO {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(FormaDePagamento pagamento) throws SQLException { em.persist(pagamento); }
+    public void create(FormaDePagamento formaDePagamento) throws SQLException {
+        em.persist(formaDePagamento);
+    }
 
-    public FormaDePagamento read(Integer id) { return em.find(FormaDePagamento.class, id); }
+    public FormaDePagamento read(Integer id) {
+        return em.find(FormaDePagamento.class, id);
+    }
 
-    public List<FormaDePagamento> readAll() { return em.createQuery("select c from FormaDePagamento c", FormaDePagamento.class).getResultList(); }
+    public List<FormaDePagamento> readAll() {
+        return em.createQuery("select c from FormaDePagamento c", FormaDePagamento.class).getResultList();
+    }
 
-    public void update(FormaDePagamento pagamento) { em.merge(pagamento); }
+    public void update(FormaDePagamento formaDePagamento) {
+        em.merge(formaDePagamento);
+    }
 
     public void delete(Integer id) {
         FormaDePagamento formaDePagamento = em.find(FormaDePagamento.class, id);

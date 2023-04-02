@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário Hospede</title>
+</head>
+<body>
+
+<h3>Cadastrar Hospede</h3><br/>
+
+<form method="post" th:action="@{/cadastrarHospede}">
+
+    <b>CPF: </b><input name="cpf" type="text"><br/>
+    <b>Nome: </b><input name="nome" type="text"><br/>
+    <b>Data de Nascimento: </b><input name="data_nascimento" type="text"><br/>
+    <b>Telefone: </b><input name="telefone" type="text"><br/>
+    <b>Email: </b><input name="email" type="text"><br/>
+
+    <input type="submit" value="Enviar">
+</form>
+<a href="/hospedes">Voltar</a>
+</body>
+</html>

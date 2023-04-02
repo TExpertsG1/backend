@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<body>
+<h3>Lista de Hospedes</h3>
+
+<br/>
+<a th:href="@{/formHospede}">Cadastrar Hospede</a>
+<br/>
+<br/>
+<table>
+    <tr>
+        <td colspan="1">CPF</td>
+        <td>Nome</td>
+    </tr>
+
+    <tr th:each="hospede : ${hospede}">
+        <td><a th:href="@{/buscaHospede(cpf=${hospede.cpf})}" th:text="${hospede.cpf}"></a></td>
+        <td th:text="${hospede.nome}"></td>
+        <td>
+            <button onclick="excluirHospede([[${hospede.cpf}]]);">Excluir</button>
+        </td>
+    </tr>
+    <script>
+		function excluirHospede(cpf) {
+ 			  if (confirm("Tem certeza que deseja excluir este Hospede?")) {
+        	window.location.href = "/hotel1800/deletarhospede?cpf=" + cpf;
+  			  }
+		 }
+
+    </script>
+</table>
+<br/>
+<a th:href="@{/listaSistema}">Voltar</a>
+</body>
+</html>

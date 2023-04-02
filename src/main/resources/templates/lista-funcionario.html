@@ -28,10 +28,16 @@
         </td>
         <td th:text="${funcionario.nome}"></td>
         <td>
-            <form action="/deletarFuncionario" method="post">
+            <form action="/deletarFuncionario" method="post" style="display: inline-block;">
                 <input name="cpf" th:value="${funcionario.cpf}" type="hidden"/>
                 <button onclick="return confirm('Tem certeza que deseja excluir este Funcionário?')"
                         type="submit">Excluir
+                </button>
+            </form>
+            <form action="/modificarFuncionario" method="post" style="display: inline-block;">
+                <input name="funcionariocpf" th:value="${funcionario.cpf}" type="hidden"/>
+                <button onclick="return confirm('Tem certeza que deseja modificar este funcionario?')" type="submit">
+                    Modificar
                 </button>
             </form>
         </td>
@@ -47,6 +53,7 @@
     var cpf = event.target.textContent;
     window.location.href = "/hotel1800/mostraFuncionario?cpf=" + cpf;
     }
+
 
 </script>
 </body>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>detalhes h</title>
+</head>
+<body>
+<b>CPF: </b><span th:text="${hospede.cpf}"></span><br/>
+<b>Nome: </b><span th:text="${hospede.nome}"></span><br/>
+<b>Data de Nascimento: </b><span th:text="${hospede.data_nascimento}"></span><br/>
+<b>Telefone: </b><span th:text="${hospede.telefone}"></span><br/>
+<b>E-mail: </b><span th:text="${hospede.email}"></span><br/>
+<br/>
+<br/>
+
+<a href="/hospedes">Voltar</a>
+</body>
+</html>
+
