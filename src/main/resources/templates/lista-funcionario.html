@@ -6,10 +6,10 @@
     <title>Lista de Funcionários</title>
 </head>
 <body>
-<h3>Lista de Funcionários</h3>
+<h1>Lista de Funcionários</h1>
 <br/>
 <br/>
-<a th:href="@{/formFuncionario}">Cadastrar Funcionário</a>
+<a class="button" th:href="@{/formFuncionario}">Cadastrar</a>
 <br/>
 <table>
     <thead>
@@ -21,22 +21,16 @@
     </thead>
     <tbody>
     <tr th:each="funcionario : ${funcionarios}">
-        <td>
-            <a onclick="mostrarFuncionario(event)"
-               th:href="@{/hotel1800/buscaFuncionario(cpf=${funcionario.cpf})}" th:text="${funcionario.cpf}">
-            </a>
-        </td>
+        <td><a th:href="@{/mostrarFuncionario/{cpf}(cpf=${funcionario.cpf})}" th:text="${funcionario.cpf}"></a></td>
         <td th:text="${funcionario.nome}"></td>
         <td>
             <form action="/deletarFuncionario" method="post" style="display: inline-block;">
                 <input name="cpf" th:value="${funcionario.cpf}" type="hidden"/>
-                <button onclick="return confirm('Tem certeza que deseja excluir este Funcionário?')"
-                        type="submit">Excluir
+                <button onclick="return confirm('Tem certeza que deseja excluir este funcionário?')" type="submit">Excluir
                 </button>
             </form>
-            <form action="/modificarFuncionario" method="post" style="display: inline-block;">
-                <input name="funcionariocpf" th:value="${funcionario.cpf}" type="hidden"/>
-                <button onclick="return confirm('Tem certeza que deseja modificar este funcionario?')" type="submit">
+            <form th:action="@{/modificarFuncionario/{cpf}(cpf=${funcionario.cpf})}" method="get" style="display: inline-block;">
+                <button onclick="return confirm('Tem certeza que deseja modificar este funcionário?')" type="submit">
                     Modificar
                 </button>
             </form>
@@ -45,16 +39,6 @@
     </tbody>
 </table>
 <br/>
-<a th:href="@{/sistema}">Voltar</a>
-
-<script>
-    function mostrarFuncionario(event) {
-    event.preventDefault();
-    var cpf = event.target.textContent;
-    window.location.href = "/hotel1800/mostraFuncionario?cpf=" + cpf;
-    }
-
-
-</script>
+<a class="button" th:href="@{/sistema}">Voltar</a>
 </body>
 </html>

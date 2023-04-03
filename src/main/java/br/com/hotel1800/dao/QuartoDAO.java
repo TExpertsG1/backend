@@ -27,6 +27,8 @@ public class QuartoDAO {
         return em.createQuery("select q from Quarto q", Quarto.class).getResultList();
     }
 
+    public List<Integer> readIdQuartos() { return em.createQuery("SELECT q.idquarto FROM Quarto q", Integer.class).getResultList(); }
+
     public void update(Quarto quarto) {
         em.merge(quarto);
     }

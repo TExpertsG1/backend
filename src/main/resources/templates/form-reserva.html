@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário Reserva</title>
+</head>
+<body>
+  <h3>Cadastrar Reserva</h3><br/>
+  <form method="post" th:action="@{/cadastrarReserva}">
+    <b>Hóspede: </b>
+    <select>
+      <option value="">Selecionar CPF</option>
+      <option th:each="cpf : ${hospedes}" th:value="${cpf}" th:text="${cpf}"></option>
+    </select><br/>
+
+    <b>Quarto: </b>
+    <select>
+      <option value="">Selecionar quarto</option>
+      <option th:each="idquarto : ${quartos}" th:value="${idquarto}" th:text="${idquarto}"></option>
+    </select><br/>
+
+
+    <b>Data de Entrada: </b><input name="data_entrada" type="text"><br/>
+    <b>Data de Saída: </b><input name="data_saida" type="text"><br/>
+
+    <input type="submit" value="Enviar">
+  </form>
+  <a href="/reservas">Voltar</a>
+</body>
+</html>

@@ -2,25 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
-    <title>Cadastrar Funcion�rio</title>
+    <title>Cadastrar Funcionário</title>
 </head>
 <body>
-<form method="post" th:action="@{/cadastroFuncionario}">
+
+<h3>Cadastrar Funcionario</h3>
+
+<form method="post" th:action="@{/cadastrarFuncionario}">
+
+    <b>Hotel CNPJ: </b><input name="hotel_cnpj" type="text"><br>
     <b>CPF: </b><input name="cpf" type="text"><br>
     <b>Nome: </b><input name="nome" type="text"><br>
     <b>Data de Nascimento: </b><input name="data_nascimento" type="text"><br>
-    <b>Data de Admiss�o: </b><input name="data_admissao" type="text"><br>
-    <b>Data de Demiss�o: </b><input name="data_demissao" type="text"><br>
+    <b>Data de Admissão: </b><input name="data_admissao" type="text"><br>
+    <b>Data de Demissão: </b><input name="data_demissao" type="text"><br>
     <b>Logradouro: </b><input name="logradouro" type="text"><br>
-    <b>N�mero: </b><input name="numero" type="text"><br>
+    <b>Número: </b><input name="numero" type="text"><br>
     <b>Complemento: </b><input name="complemento" type="text"><br>
     <b>CEP: </b><input name="cep" type="text"><br>
     <b>Bairro: </b><input name="bairro" type="text"><br>
     <b>Cidade: </b><input name="cidade" type="text"><br>
     <b>UF: </b><input name="uf" type="text"><br>
+
     <input type="submit" value="Enviar">
 </form>
-<a th:href="@{/sistema}">Voltar</a>
+<a th:href="@{/funcionarios}">Voltar</a>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Reserva</title>
+</head>
+<body>
+<h1>Modificar Reserva</h1>
+<form method="post" th:action="@{/atualizarReserva}">
+    <div>
+        <label for="hospede">Hóspede:</label>
+        <select id="hospede" name="hospede">
+            <option th:value="hospedeCPF" th:text="${reserva.Hospede_cpf}"></option>
+            <option th:each="cpf : ${hospedes}" th:value="${cpf}" th:text="${cpf}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="quarto">Quarto:</label>
+        <select id="quarto" name="quarto">
+            <option th:value="idQuartoHospede" th:text="${reserva.Idquarto}"></option>
+            <option th:each="idquarto : ${quartos}" th:value="${idquarto}" th:text="${idquarto}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="data_check_in">Check In:</label>
+        <input id="data_check_in" name="data_check_in" required="required" th:value="${reserva.data_check_in}" type="date"/>
+    </div>
+    <div>
+        <label for="data_check_out">Check Out:</label>
+        <input id="data_check_out" name="data_check_out" required="required" th:value="${reserva.data_check_out}" type="date"/>
+    </div>
+    <div>
+        <input type="hidden" id="idreserva" name="idreserva" th:value="${reserva.idreserva}"/>
+        <input type="submit" value="Modificar"/>
+    </div>
+</form>
+<br/>
+<a th:href="@{/reservas}">Voltar</a>
+</body>
+</html>

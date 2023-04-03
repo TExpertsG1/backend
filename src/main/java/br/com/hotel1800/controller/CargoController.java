@@ -2,7 +2,6 @@ package br.com.hotel1800.controller;
 
 import br.com.hotel1800.dao.CargoDAO;
 import br.com.hotel1800.modelo.Cargo;
-import br.com.hotel1800.modelo.Hospede;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 import java.util.List;
 
-
-//@RequestMapping("hotel1800")
 @org.springframework.stereotype.Controller
 public class CargoController {
 
@@ -45,8 +42,8 @@ public class CargoController {
     }
 
     @PostMapping("/atualizarCargo")
-    public String atualizarCargo(@ModelAttribute Cargo Cargo) {
-        cargoDAO.update(Cargo);
+    public String atualizarCargo(@ModelAttribute Cargo cargo) {
+        cargoDAO.update(cargo);
         return "redirect:/cargos";
     }
 
