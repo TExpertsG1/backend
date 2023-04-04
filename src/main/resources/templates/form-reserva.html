@@ -8,20 +8,22 @@
 <h3>Cadastrar Reserva</h3><br/>
 <form method="post" th:action="@{/cadastrarReserva}">
     <b>Hóspede: </b>
-    <select>
-        <option value="">Selecionar CPF</option>
+    <select id="hospede_cpf" name="hospede_cpf">
+        <option>Selecionar CPF</option>
         <option th:each="cpf : ${hospedes}" th:text="${cpf}" th:value="${cpf}"></option>
     </select><br/>
 
     <b>Quarto: </b>
-    <select>
-        <option value="">Selecionar quarto</option>
+    <select id="idquarto" name="idquarto">
+        <option>Selecionar quarto</option>
         <option th:each="idquarto : ${quartos}" th:text="${idquarto}" th:value="${idquarto}"></option>
     </select><br/>
 
+    <b>Quantidade de adultos: </b><input name="quantidade_adulto" type="number"><br/>
+    <b>Quantidade de crianças: </b><input name="quantidade_crianca" type="number"><br/>
 
-    <b>Data de Entrada: </b><input name="data_entrada" type="text"><br/>
-    <b>Data de Saída: </b><input name="data_saida" type="text"><br/>
+    <b>Data de Entrada: </b><input name="data_check_in" type="date"><br/>
+    <b>Data de Saída: </b><input name="data_check_out" type="date"><br/>
 
     <input type="submit" value="Enviar">
 </form>

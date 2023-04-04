@@ -25,11 +25,7 @@ public class FuncionarioDAO {
 
     public List<Funcionario> readAll() { return em.createQuery("select c from Funcionario c", Funcionario.class).getResultList(); }
 
-    public List<String> readFuncionarioCPFS() { return em.createQuery("SELECT h.cpf FROM Funcionario h", String.class).getResultList(); }
-
-    public void update(Funcionario funcionario) {
-        em.merge(funcionario);
-    }
+    public void update(Funcionario funcionario) { em.merge(funcionario); }
 
     public void delete(String cpf) {
         Funcionario func = em.find(Funcionario.class, cpf);

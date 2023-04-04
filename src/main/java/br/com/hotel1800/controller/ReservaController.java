@@ -54,6 +54,8 @@ public class ReservaController {
         List<String> hospedes = hospedeDAO.readHospedeCPFS();
         List<Integer> quartos = quartoDAO.readIdQuartos();
 
+        System.out.println(reserva);
+
         model.addAttribute("reserva", reserva);
         model.addAttribute("hospedes", hospedes);
         model.addAttribute("quartos", quartos);
@@ -62,7 +64,9 @@ public class ReservaController {
 
     @PostMapping("/atualizarReserva")
     public String atualizarReserva(@ModelAttribute Reserva reserva) {
+        System.out.println(reserva);
         reservaDAO.update(reserva);
+        System.out.println(reserva);
         return "redirect:/reservas";
     }
 
