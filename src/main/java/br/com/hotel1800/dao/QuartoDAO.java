@@ -19,7 +19,7 @@ public class QuartoDAO {
         em.persist(quarto);
     }
 
-    public Quarto read(Long id) {
+    public Quarto read(Integer id) {
         return em.find(Quarto.class, id);
     }
 
@@ -35,7 +35,7 @@ public class QuartoDAO {
         em.merge(quarto);
     }
 
-    public void delete(Long id) {
+    public void delete(Integer id) {
         Quarto quarto = em.find(Quarto.class, id);
         em.remove(quarto);
     }

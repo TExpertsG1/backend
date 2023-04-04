@@ -4,9 +4,7 @@ import br.com.hotel1800.dao.QuartoDAO;
 import br.com.hotel1800.modelo.Quarto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,12 +33,12 @@ public class QuartoController {
         return "redirect:/quartos";
     }
 
-/*    @GetMapping("/modificarQuarto/{id}")
-    public String mostrarFormularioModificarQuarto(@PathVariable Integer id, Model model) {
-        Quarto quarto = quartoDAO.read(id);
+    @GetMapping("/modificarQuarto/{idquarto}")
+    public String mostrarFormularioModificarQuarto(@PathVariable Integer idquarto, Model model) {
+        Quarto quarto = quartoDAO.read(idquarto);
         model.addAttribute("quarto", quarto);
         return "modificar-quarto";
-    }*/
+    }
 
     @PostMapping("/atualizarQuarto")
     public String atualizarQuarto(@ModelAttribute Quarto quarto) {
@@ -48,10 +46,10 @@ public class QuartoController {
         return "redirect:/quartos";
     }
 
-/*    @PostMapping("/deletarQuarto")
-    public String deletarQuarto(@RequestParam("id") Integer id) {
-        quartoDAO.delete(id);
+    @PostMapping("/deletarQuarto")
+    public String deletarQuarto(@RequestParam("idquarto") Integer idquarto) {
+        quartoDAO.delete(idquarto);
         return "redirect:/quartos";
-    }*/
+    }
 
 }

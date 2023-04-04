@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Modificar Quarto</title>
+</head>
+<body>
+<h1>Modificar Quarto</h1>
+<form method="post" th:action="@{/atualizarQuarto}">
+
+  <div>
+    <label for="hotel_cnpj">CNPJ do hotel:</label>
+    <input id="hotel_cnpj" name="hotel_cnpj" required="required" th:value="${quarto.hotel_cnpj}"
+           type="text"/>
+  </div>
+
+  <div>
+    <label for="nome_quarto">Nome do quarto:</label>
+    <input id="nome_quarto" name="nome_quarto" required="required" th:value="${quarto.nome_quarto}"
+           type="text"/>
+  </div>
+
+  <div>
+    <label for="numero">Número:</label>
+    <input id="numero" name="numero" required="required" th:value="${quarto.numero}"
+           type="number"/>
+  </div>
+
+  <div>
+    <label for="capacidade">Capacidade:</label>
+    <input id="capacidade" name="capacidade" required="required" th:value="${quarto.capacidade}"
+           type="number"/>
+  </div>
+
+  <div>
+    <label for="diaria">Diária:</label>
+    <input id="diaria" name="diaria" required="required" th:value="${quarto.diaria}"
+           type="number"/>
+  </div>
+
+  <div>
+    <input id="idquarto" name="idquarto" th:value="${quarto.idquarto}" type="hidden"/>
+    <input type="submit" value="Modificar"/>
+  </div>
+
+</form>
+<br/>
+<a th:href="@{/quartos}">Voltar</a>
+</body>
+</html>
