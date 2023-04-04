@@ -10,27 +10,29 @@
     <div>
         <label for="hospede">Hóspede:</label>
         <select id="hospede" name="hospede">
-            <option th:value="hospedeCPF" th:text="${reserva.Hospede_cpf}"></option>
-            <option th:each="cpf : ${hospedes}" th:value="${cpf}" th:text="${cpf}"></option>
+            <option th:text="${reserva.Hospede_cpf}" th:value="hospedeCPF"></option>
+            <option th:each="cpf : ${hospedes}" th:text="${cpf}" th:value="${cpf}"></option>
         </select>
     </div>
     <div>
         <label for="quarto">Quarto:</label>
         <select id="quarto" name="quarto">
-            <option th:value="idQuartoHospede" th:text="${reserva.Idquarto}"></option>
-            <option th:each="idquarto : ${quartos}" th:value="${idquarto}" th:text="${idquarto}"></option>
+            <option th:text="${reserva.Idquarto}" th:value="idQuartoHospede"></option>
+            <option th:each="idquarto : ${quartos}" th:text="${idquarto}" th:value="${idquarto}"></option>
         </select>
     </div>
     <div>
         <label for="data_check_in">Check In:</label>
-        <input id="data_check_in" name="data_check_in" required="required" th:value="${reserva.data_check_in}" type="date"/>
+        <input id="data_check_in" name="data_check_in" required="required" th:value="${reserva.data_check_in}"
+               type="date"/>
     </div>
     <div>
         <label for="data_check_out">Check Out:</label>
-        <input id="data_check_out" name="data_check_out" required="required" th:value="${reserva.data_check_out}" type="date"/>
+        <input id="data_check_out" name="data_check_out" required="required" th:value="${reserva.data_check_out}"
+               type="date"/>
     </div>
     <div>
-        <input type="hidden" id="idreserva" name="idreserva" th:value="${reserva.idreserva}"/>
+        <input id="idreserva" name="idreserva" th:value="${reserva.idreserva}" type="hidden"/>
         <input type="submit" value="Modificar"/>
     </div>
 </form>

@@ -32,7 +32,8 @@
                 <button onclick="return confirm('Tem certeza que deseja excluir este cargo?')" type="submit">Excluir
                 </button>
             </form>
-            <form th:action="@{/modificarCargo/{idcargo}(idcargo=${cargo.idcargos})}" method="get" style="display: inline-block;">
+            <form method="get" style="display: inline-block;"
+                  th:action="@{/modificarCargo/{idcargo}(idcargo=${cargo.idcargos})}">
                 <button onclick="return confirm('Tem certeza que deseja modificar este cargo?')" type="submit">
                     Modificar
                 </button>
@@ -48,6 +49,7 @@
                 window.location.href = "/hotel1800/deletarcargo?idcargos=" + idcargos;
             }
         }
+
 </script>
 </body>
 </html>

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -16,7 +15,7 @@ public class FormaDePagamentoDAO {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(FormaDePagamento formaDePagamento) throws SQLException {
+    public void create(FormaDePagamento formaDePagamento) {
         em.persist(formaDePagamento);
     }
 

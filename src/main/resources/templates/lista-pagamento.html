@@ -28,11 +28,14 @@
         <td>
             <form action="/deletarFormaDePagamento" method="post" style="display: inline-block;">
                 <input name="id" th:value="${formaDePagamento.idpagamento}" type="hidden"/>
-                <button onclick="return confirm('Tem certeza que deseja excluir esta Forma de Pagamento?')" type="submit">Excluir
+                <button onclick="return confirm('Tem certeza que deseja excluir esta Forma de Pagamento?')"
+                        type="submit">Excluir
                 </button>
             </form>
-            <form th:action="@{/modificarFormaDePagamento/{id}(id=${formaDePagamento.idpagamento})}" method="get" style="display: inline-block;">
-                <button onclick="return confirm('Tem certeza que deseja modificar esta Forma de Pagamento?')" type="submit">
+            <form method="get" style="display: inline-block;"
+                  th:action="@{/modificarFormaDePagamento/{id}(id=${formaDePagamento.idpagamento})}">
+                <button onclick="return confirm('Tem certeza que deseja modificar esta Forma de Pagamento?')"
+                        type="submit">
                     Modificar
                 </button>
             </form>

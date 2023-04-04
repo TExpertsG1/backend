@@ -33,7 +33,8 @@
                 <button onclick="return confirm('Tem certeza que deseja excluir este Hóspede?')" type="submit">Excluir
                 </button>
             </form>
-            <form th:action="@{/modificarHospede/{cpf}(cpf=${hospede.cpf})}" method="get" style="display: inline-block;">
+            <form method="get" style="display: inline-block;"
+                  th:action="@{/modificarHospede/{cpf}(cpf=${hospede.cpf})}">
                 <button onclick="return confirm('Tem certeza que deseja modificar este Hóspede?')" type="submit">
                     Modificar
                 </button>

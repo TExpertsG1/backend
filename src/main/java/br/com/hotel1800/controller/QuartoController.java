@@ -4,9 +4,10 @@ import br.com.hotel1800.dao.QuartoDAO;
 import br.com.hotel1800.modelo.Quarto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
@@ -29,7 +30,7 @@ public class QuartoController {
     }
 
     @PostMapping("/cadastrarQuarto")
-    public String cadastrarQuarto(@ModelAttribute("quarto") Quarto quarto) throws SQLException {
+    public String cadastrarQuarto(@ModelAttribute("quarto") Quarto quarto) {
         quartoDAO.create(quarto);
         return "redirect:/quartos";
     }

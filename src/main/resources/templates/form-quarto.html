@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Cadastrar Quarto</title>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cadastrar Quarto</title>
 </head>
 <body>
 
@@ -11,15 +11,15 @@
 
 <form method="post" th:action="@{/cadastrarQuarto}" th:object="${quarto}">
 
-  <input name="id" th:value="${quarto.idquarto}" type="hidden"/>
+    <input name="id" th:value="${quarto.idquarto}" type="hidden"/>
 
-  <b>Hotel CNPJ: </b><input name="hotel_cnpj;" type="text"><br/>
-  <b>Nome: </b><input name="nomeQuarto" type="text"><br/>
-  <b>Número: </b><input name="numero" type="text"><br/>
-  <b>Capacidade: </b><input name="capacidade" type="text"><br/>
-  <b>Diária: </b><input name="preco" type="text"><br/>
+    <b>Hotel CNPJ: </b><input name="hotel_cnpj" type="text"><br/>
+    <b>Nome: </b><input name="nomeQuarto" type="text"><br/>
+    <b>Número: </b><input name="numero" type="text"><br/>
+    <b>Capacidade: </b><input name="capacidade" type="text"><br/>
+    <b>Diária: </b><input name="diaria" type="text"><br/>
 
-  <input type="submit" value="Enviar">
+    <input type="submit" value="Enviar">
 
 </form>
 <br/>

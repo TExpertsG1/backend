@@ -15,6 +15,8 @@ public class Quarto {
     private int capacidade;
     private BigDecimal diaria;
 
+    public Quarto() {}
+
     public Quarto(int idquarto, String hotel_cnpj, String nomeQuarto, int numero, int capacidade, BigDecimal diaria) {
         this.idquarto = idquarto;
         this.hotel_cnpj = hotel_cnpj;
@@ -22,18 +24,6 @@ public class Quarto {
         this.numero = numero;
         this.capacidade = capacidade;
         this.diaria = diaria;
-    }
-
-    public Quarto(String hotel_cnpj, String nomeQuarto, int numero, int capacidade, BigDecimal diaria2) {
-        this.hotel_cnpj = hotel_cnpj;
-        this.nomeQuarto = nomeQuarto;
-        this.numero = numero;
-        this.capacidade = capacidade;
-        this.diaria = diaria2;
-    }
-
-    public Quarto() {
-        // TODO Auto-generated constructor stub
     }
 
     public int getIdquarto() {
