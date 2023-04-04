@@ -8,23 +8,27 @@
 <h1>Modificar Funcionário</h1>
 <form method="post" th:action="@{/atualizarFuncionario}">
     <div>
+        <label for="hotel_cnpj">CNPJ:</label>
+        <input id="hotel_cnpj" name="hotel_cnpj" required="required" th:value="${funcionario.hotel_cnpj}" type="text"/>
+    </div>
+
+    <div>
         <label for="nome">Nome:</label>
         <input id="nome" name="nome" required="required" th:value="${funcionario.nome}" type="text"/>
     </div>
-    <!--    <div>
-            <label for="data_nascimento">Data de Nascimento:</label>
-            <input id="data_nascimento" name="data_nascimento" required="required"
-                   th:value="${#dates.format(funcionario.data_nascimento, 'yyyy-MM-dd')}" type="date"/>
-        </div>
-        <div>
-            <label for="data_admissao">Data de Admissão:</label>
-            <input id="data_admissao" name="data_admissao" required="required"
-                   th:value="${#dates.format(funcionario.data_admissao, 'yyyy-MM-dd')}" type="date"/>
-        </div>
-        <div>
-            <label for="data_demissao">Data de Demissão:</label>
-            <input id="data_demissao" name="data_demissao" th:value="${#dates.format(funcionario.data_demissao, 'yyyy-MM-dd')}" type="date"/>
-        </div>-->
+
+    <div>
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input id="data_nascimento" name="data_nascimento" required="required" th:value="${funcionario.data_nascimento}" type="date"/>
+    </div>
+    <div>
+        <label for="data_admissao">Data de Admissão:</label>
+        <input id="data_admissao" name="data_admissao" required="required" th:value="${funcionario.data_admissao}" type="date"/>
+    </div>
+    <div>
+        <label for="data_demissao">Data de Demissão:</label>
+        <input id="data_demissao" name="data_demissao" th:value="${funcionario.data_demissao}" type="date"/>
+    </div>
 
     <div>
         <label for="logradouro">Logradouro:</label>
@@ -53,36 +57,35 @@
 
     <div>
         <label for="uf">UF:</label>
-        <input id="uf" maxlength="2" name="uf" required="required" th:value="${funcionario.uf}" type="text"/>
-        <!--        <select id="uf" name="uf" th:value="${hospede.endereco.uf}">
-                    <option value="AC" th:selected="${hospede.endereco.uf == 'AC'}">AC</option>
-                    <option value="AL" th:selected="${hospede.endereco.uf == 'AL'}">AL</option>
-                    <option value="AP" th:selected="${hospede.endereco.uf == 'AP'}">AP</option>
-                    <option value="AM" th:selected="${hospede.endereco.uf == 'AM'}">AM</option>
-                    <option value="BA" th:selected="${hospede.endereco.uf == 'BA'}">BA</option>
-                    <option value="CE" th:selected="${hospede.endereco.uf == 'CE'}">CE</option>
-                    <option value="DF" th:selected="${hospede.endereco.uf == 'DF'}">DF</option>
-                    <option value="ES" th:selected="${hospede.endereco.uf == 'ES'}">ES</option>
-                    <option value="GO" th:selected="${hospede.endereco.uf == 'GO'}">GO</option>
-                    <option value="MA" th:selected="${hospede.endereco.uf == 'MA'}">MA</option>
-                    <option value="MT" th:selected="${hospede.endereco.uf == 'MT'}">MT</option>
-                    <option value="MS" th:selected="${hospede.endereco.uf == 'MS'}">MS</option>
-                    <option value="MG" th:selected="${hospede.endereco.uf == 'MG'}">MG</option>
-                    <option value="PA" th:selected="${hospede.endereco.uf == 'PA'}">PA</option>
-                    <option value="PB" th:selected="${hospede.endereco.uf == 'PB'}">PB</option>
-                    <option value="PR" th:selected="${hospede.endereco.uf == 'PR'}">PR</option>
-                    <option value="PE" th:selected="${hospede.endereco.uf == 'PE'}">PE</option>
-                    <option value="PI" th:selected="${hospede.endereco.uf == 'PI'}">PI</option>
-                    <option value="RJ" th:selected="${hospede.endereco.uf == 'RJ'}">RJ</option>
-                    <option value="RN" th:selected="${hospede.endereco.uf == 'RN'}">RN</option>
-                    <option value="RS" th:selected="${hospede.endereco.uf == 'RS'}">RS</option>
-                    <option value="RO" th:selected="${hospede.endereco.uf == 'RO'}">RO</option>
-                    <option value="RR" th:selected="${hospede.endereco.uf == 'RR'}">RR</option>
-                    <option value="SC" th:selected="${hospede.endereco.uf == 'SC'}">SC</option>
-                    <option value="SP" th:selected="${hospede.endereco.uf == 'SP'}">SP</option>
-                    <option value="SE" th:selected="${hospede.endereco.uf == 'SE'}">SE</option>
-                    <option value="TO" th:selected="${hospede.endereco.uf == 'TO'}">TO</option>
-                </select>-->
+        <select id="uf" name="uf" th:value="${funcionario.uf}">
+            <option value="AC" th:selected="${funcionario.uf == 'AC'}">AC</option>
+            <option value="AL" th:selected="${funcionario.uf == 'AL'}">AL</option>
+            <option value="AP" th:selected="${funcionario.uf == 'AP'}">AP</option>
+            <option value="AM" th:selected="${funcionario.uf == 'AM'}">AM</option>
+            <option value="BA" th:selected="${funcionario.uf == 'BA'}">BA</option>
+            <option value="CE" th:selected="${funcionario.uf == 'CE'}">CE</option>
+            <option value="DF" th:selected="${funcionario.uf == 'DF'}">DF</option>
+            <option value="ES" th:selected="${funcionario.uf == 'ES'}">ES</option>
+            <option value="GO" th:selected="${funcionario.uf == 'GO'}">GO</option>
+            <option value="MA" th:selected="${funcionario.uf == 'MA'}">MA</option>
+            <option value="MT" th:selected="${funcionario.uf == 'MT'}">MT</option>
+            <option value="MS" th:selected="${funcionario.uf == 'MS'}">MS</option>
+            <option value="MG" th:selected="${funcionario.uf == 'MG'}">MG</option>
+            <option value="PA" th:selected="${funcionario.uf == 'PA'}">PA</option>
+            <option value="PB" th:selected="${funcionario.uf == 'PB'}">PB</option>
+            <option value="PR" th:selected="${funcionario.uf == 'PR'}">PR</option>
+            <option value="PE" th:selected="${funcionario.uf == 'PE'}">PE</option>
+            <option value="PI" th:selected="${funcionario.uf == 'PI'}">PI</option>
+            <option value="RJ" th:selected="${funcionario.uf == 'RJ'}">RJ</option>
+            <option value="RN" th:selected="${funcionario.uf == 'RN'}">RN</option>
+            <option value="RS" th:selected="${funcionario.uf == 'RS'}">RS</option>
+            <option value="RO" th:selected="${funcionario.uf == 'RO'}">RO</option>
+            <option value="RR" th:selected="${funcionario.uf == 'RR'}">RR</option>
+            <option value="SC" th:selected="${funcionario.uf == 'SC'}">SC</option>
+            <option value="SP" th:selected="${funcionario.uf == 'SP'}">SP</option>
+            <option value="SE" th:selected="${funcionario.uf == 'SE'}">SE</option>
+            <option value="TO" th:selected="${funcionario.uf == 'TO'}">TO</option>
+        </select></br>
     </div>
 
     <div>

@@ -13,16 +13,45 @@
     <b>Hotel CNPJ: </b><input name="hotel_cnpj" type="text"><br>
     <b>CPF: </b><input name="cpf" type="text"><br>
     <b>Nome: </b><input name="nome" type="text"><br>
-    <b>Data de Nascimento: </b><input name="data_nascimento" type="text"><br>
-    <b>Data de Admissão: </b><input name="data_admissao" type="text"><br>
-    <b>Data de Demissão: </b><input name="data_demissao" type="text"><br>
+    <b>Data de Nascimento: </b><input name="data_nascimento" type="date"><br>
+    <b>Data de Admissão: </b><input name="data_admissao" type="date"><br>
+    <b>Data de Demissão: </b><input name="data_demissao" type="date"><br>
     <b>Logradouro: </b><input name="logradouro" type="text"><br>
     <b>Número: </b><input name="numero" type="text"><br>
     <b>Complemento: </b><input name="complemento" type="text"><br>
     <b>CEP: </b><input name="cep" type="text"><br>
     <b>Bairro: </b><input name="bairro" type="text"><br>
     <b>Cidade: </b><input name="cidade" type="text"><br>
-    <b>UF: </b><input name="uf" type="text"><br>
+    <b>UF: </b>
+    <select id="uf" name="uf" th:value="${funcionario.uf}">
+        <option value="AC" th:selected="${funcionario.uf == 'AC'}">AC</option>
+        <option value="AL" th:selected="${funcionario.uf == 'AL'}">AL</option>
+        <option value="AP" th:selected="${funcionario.uf == 'AP'}">AP</option>
+        <option value="AM" th:selected="${funcionario.uf == 'AM'}">AM</option>
+        <option value="BA" th:selected="${funcionario.uf == 'BA'}">BA</option>
+        <option value="CE" th:selected="${funcionario.uf == 'CE'}">CE</option>
+        <option value="DF" th:selected="${funcionario.uf == 'DF'}">DF</option>
+        <option value="ES" th:selected="${funcionario.uf == 'ES'}">ES</option>
+        <option value="GO" th:selected="${funcionario.uf == 'GO'}">GO</option>
+        <option value="MA" th:selected="${funcionario.uf == 'MA'}">MA</option>
+        <option value="MT" th:selected="${funcionario.uf == 'MT'}">MT</option>
+        <option value="MS" th:selected="${funcionario.uf == 'MS'}">MS</option>
+        <option value="MG" th:selected="${funcionario.uf == 'MG'}">MG</option>
+        <option value="PA" th:selected="${funcionario.uf == 'PA'}">PA</option>
+        <option value="PB" th:selected="${funcionario.uf == 'PB'}">PB</option>
+        <option value="PR" th:selected="${funcionario.uf == 'PR'}">PR</option>
+        <option value="PE" th:selected="${funcionario.uf == 'PE'}">PE</option>
+        <option value="PI" th:selected="${funcionario.uf == 'PI'}">PI</option>
+        <option value="RJ" th:selected="${funcionario.uf == 'RJ'}">RJ</option>
+        <option value="RN" th:selected="${funcionario.uf == 'RN'}">RN</option>
+        <option value="RS" th:selected="${funcionario.uf == 'RS'}">RS</option>
+        <option value="RO" th:selected="${funcionario.uf == 'RO'}">RO</option>
+        <option value="RR" th:selected="${funcionario.uf == 'RR'}">RR</option>
+        <option value="SC" th:selected="${funcionario.uf == 'SC'}">SC</option>
+        <option value="SP" th:selected="${funcionario.uf == 'SP'}">SP</option>
+        <option value="SE" th:selected="${funcionario.uf == 'SE'}">SE</option>
+        <option value="TO" th:selected="${funcionario.uf == 'TO'}">TO</option>
+    </select></br>
 
     <input type="submit" value="Enviar">
 </form>

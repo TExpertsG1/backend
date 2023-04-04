@@ -30,6 +30,7 @@ public class HospedeController {
 
     @PostMapping("/cadastrarHospede")
     public String cadastrarHospede(@ModelAttribute("hospede") Hospede hospede) {
+        System.out.println(hospede.getData_nascimento());
         hospedeDAO.create(hospede);
         return "redirect:/hospedes";
     }

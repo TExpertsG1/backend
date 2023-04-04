@@ -37,6 +37,7 @@ public class FuncionarioController {
     @GetMapping("/mostrarFuncionario/{cpf}")
     public String buscarFuncionario(@PathVariable String cpf, Model model) {
         Funcionario funcionario = funcionarioDAO.read(cpf);
+        System.out.println(funcionario);
         model.addAttribute("funcionario", funcionario);
         return "detalhes-funcionario";
     }
@@ -50,6 +51,9 @@ public class FuncionarioController {
 
     @PostMapping("/atualizarFuncionario")
     public String atualizarFuncionario(@ModelAttribute Funcionario funcionario) {
+        System.out.println(funcionario);
+        System.out.println(funcionario.getHotel_cnpj());
+
         funcionarioDAO.update(funcionario);
         return "redirect:/funcionarios";
     }

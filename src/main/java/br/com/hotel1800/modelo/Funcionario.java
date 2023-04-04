@@ -1,5 +1,7 @@
 package br.com.hotel1800.modelo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -14,8 +16,11 @@ public class Funcionario {
     private int idcargos;
     private String hotel_cnpj;
     private String nome;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_nascimento;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_admissao;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_demissao;
     private String logradouro;
     private int numero;
@@ -25,13 +30,11 @@ public class Funcionario {
     private String uf;
     private String cep;
 
-    public Funcionario() {
-    }
+    public Funcionario() {}
 
     public Funcionario(String cpf, int idcargos, String hotel_cnpj, String nome, LocalDate data_nascimento,
                        LocalDate data_admissao, LocalDate data_demissao, String logradouro, int numero, String complemento,
                        String bairro, String cidade, String uf, String cep) {
-
         this.cpf = cpf;
         this.idcargos = idcargos;
         this.hotel_cnpj = hotel_cnpj;
@@ -39,24 +42,6 @@ public class Funcionario {
         this.data_nascimento = data_nascimento;
         this.data_admissao = data_admissao;
         this.data_demissao = data_demissao;
-        this.logradouro = logradouro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.uf = uf;
-        this.cep = cep;
-    }
-
-    public Funcionario(String cpf, int idcargos, String hotel_cnpj, String nome, LocalDate data_nascimento,
-                       LocalDate data_admissao, String logradouro, int numero, String complemento, String bairro, String cidade,
-                       String uf, String cep) {
-        this.cpf = cpf;
-        this.idcargos = idcargos;
-        this.hotel_cnpj = hotel_cnpj;
-        this.nome = nome;
-        this.data_nascimento = data_nascimento;
-        this.data_admissao = data_admissao;
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;

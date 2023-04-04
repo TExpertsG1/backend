@@ -1,5 +1,7 @@
 package br.com.hotel1800.modelo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,6 +13,7 @@ public class Hospede {
     @Id
     private String cpf;
     private String nome;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_nascimento;
     private String telefone;
     private String email;

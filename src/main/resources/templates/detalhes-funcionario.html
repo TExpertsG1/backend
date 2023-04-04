@@ -6,12 +6,14 @@
 </head>
 <body>
 <h2>Detalhes do funcionário</h2>
+
+<b>CNPJ: </b><span th:text="${funcionario.hotel_cnpj}"></span><br/>
 <b>CPF: </b><span th:text="${funcionario.cpf}"></span><br/>
 <b>Nome: </b><span th:text="${funcionario.nome}"></span><br/>
 
-<!--<b>Data de Nascimento: </b><span th:text="${funcionario.data_nascimento}"></span><br/>
-<b>Data de Admissão: </b><span th:text="${funcionario.data_admissao)}"></span><br/>
-<b>Data de Demissão: </b><span th:text="${funcionario.data_demissao)}"></span><br/>-->
+<b>Data de Nascimento: </b><span th:text="${funcionario.data_nascimento}"></span><br/>
+<!--<b>Data de Admissão: </b><span th:text="${funcionario.data_admissao)}"></span><br/>-->
+<b>Data de Demissão: </b><span th:text="${funcionario.data_demissao)}"></span><br/>
 
 <b>Logradouro: </b><span th:text="${funcionario.logradouro}"></span><br/>
 <b>Número: </b><span th:text="${funcionario.numero}"></span><br/>

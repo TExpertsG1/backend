@@ -1,5 +1,7 @@
 package br.com.hotel1800.modelo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -14,7 +16,9 @@ public class Reserva {
     private String hospede_cpf;
     private int quantidade_adulto;
     private int quantidade_crianca;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_check_in;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_check_out;
 
     public Reserva(int idreserva, int idquarto, String hospede_cpf, int quantidade_adultos, int quantidade_crianca,
