@@ -9,9 +9,9 @@
 <h3>Cadastrar Funcionario</h3>
 
 <form method="post" th:action="@{/cadastrarFuncionario}">
-
-    <b>Hotel CNPJ: </b><input name="hotel_cnpj" type="text"><br>
     <b>CPF: </b><input name="cpf" type="text"><br>
+    <b>Id Cargos: </b><input name="idcargos" type="text"></input><br/>
+    <b>Hotel CNPJ: </b><input name="hotel_cnpj" type="text"><br>
     <b>Nome: </b><input name="nome" type="text"><br>
     <b>Data de Nascimento: </b><input name="data_nascimento" type="date"><br>
     <b>Data de Admissão: </b><input name="data_admissao" type="date"><br>
@@ -55,6 +55,6 @@
 
     <input type="submit" value="Enviar">
 </form>
-<a th:href="@{/funcionarios}">Voltar</a>
+<a th:href="/funcionarios">Voltar</a>
 </body>
 </html>
