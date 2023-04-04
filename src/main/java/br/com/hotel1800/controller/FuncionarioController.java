@@ -19,7 +19,7 @@ public class FuncionarioController {
     public String listarFuncionarios(Model model) {
         List<Funcionario> funcionarios = funcionarioDAO.readAll();
         model.addAttribute("funcionarios", funcionarios);
-        return "lista-funcionario";
+        return "lista-funcionarios";
     }
 
     @GetMapping("/formFuncionario")

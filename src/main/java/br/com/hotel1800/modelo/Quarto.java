@@ -24,7 +24,6 @@ public class Quarto {
         this.diaria = diaria;
     }
 
-
     public Quarto(String hotel_cnpj, String nomeQuarto, int numero, int capacidade, BigDecimal diaria2) {
         this.hotel_cnpj = hotel_cnpj;
         this.nomeQuarto = nomeQuarto;
@@ -32,7 +31,6 @@ public class Quarto {
         this.capacidade = capacidade;
         this.diaria = diaria2;
     }
-
 
     public Quarto() {
         // TODO Auto-generated constructor stub
@@ -70,7 +68,6 @@ public class Quarto {
         this.numero = numero;
     }
 
-
     public int getCapacidade() {
         return capacidade;
     }
@@ -79,22 +76,18 @@ public class Quarto {
         this.capacidade = capacidade;
     }
 
-
     public BigDecimal getDiaria() {
         return diaria;
     }
 
-
     public void setDiaria(BigDecimal diaria) {
         this.diaria = diaria;
     }
-
 
     @Override
     public String toString() {
         return "ID Quarto: " + idquarto + "\n CNPJ: " + hotel_cnpj + "\n Nome Su�te: " + nomeQuarto
                 + "\n N�mero do Quarto: " + numero + "\n Capacidade: " + capacidade + " Pessoas " + "\n Valor da di�ria: R$ " + diaria + "\n------";
     }
-
 
 }

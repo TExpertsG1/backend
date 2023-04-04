@@ -19,7 +19,7 @@ public class HospedeController {
     public String listarHospedes(Model model) {
         List<Hospede> hospedes = hospedeDAO.readAll();
         model.addAttribute("hospedes", hospedes);
-        return "lista-hospede";
+        return "lista-hospedes";
     }
 
     @GetMapping("/formHospede")
