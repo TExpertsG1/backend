@@ -30,11 +30,13 @@ public class Funcionario {
     private String uf;
     private String cep;
 
+    private String senha;
+
     public Funcionario() {}
 
     public Funcionario(String cpf, int idcargos, String hotel_cnpj, String nome, LocalDate data_nascimento,
                        LocalDate data_admissao, LocalDate data_demissao, String logradouro, int numero, String complemento,
-                       String bairro, String cidade, String uf, String cep) {
+                       String bairro, String cidade, String uf, String cep, String senha) {
         this.cpf = cpf;
         this.idcargos = idcargos;
         this.hotel_cnpj = hotel_cnpj;
@@ -49,6 +51,15 @@ public class Funcionario {
         this.cidade = cidade;
         this.uf = uf;
         this.cep = cep;
+        this.senha = senha;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getCpf() {
@@ -174,6 +185,6 @@ public class Funcionario {
                 + "\n Data Admissao: " + data_admissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 + "\n Data Demissao: " + data_demissao
                 + "\n Endere�o, " + logradouro + " n� " + numero + ", Complemento: " + complemento + ", Bairro: "
-                + bairro + ", Cidade: " + cidade + ", UF: " + uf + ", CEP: " + cep + "\n------";
+                + bairro + ", Cidade: " + cidade + ", UF: " + uf + ", CEP: " + cep + ", senha: " + senha +  "\n------";
     }
 }

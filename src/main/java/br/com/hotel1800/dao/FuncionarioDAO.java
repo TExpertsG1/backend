@@ -31,4 +31,13 @@ public class FuncionarioDAO {
         Funcionario func = em.find(Funcionario.class, cpf);
         em.remove(func);
     }
+
+    public Funcionario existe(String cpf, String senha) {
+        String jpql = "select c from Funcionario c Where c.cpf = :cpf AND c.senha = :senha";
+        return this.em.createQuery(jpql, Funcionario.class)
+                .setParameter("cpf", cpf)
+                .setParameter("senha",senha)
+                .getSingleResult();
+    }
 }
+

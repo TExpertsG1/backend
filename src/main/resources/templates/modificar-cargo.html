@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/styleTable.css}"/>
 <head>
     <meta charset="UTF-8">
     <title>Modificar Cargo</title>
 </head>
 <body>
 <h1>Modificar Cargo</h1>
-<form method="post" th:action="@{/atualizarCargo}">
+<form method="post" th:action="@{/atualizarCargo}" style="display: inline-block">
     <div>
         <label for="nome">Nome:</label>
         <input id="nome" name="cargo" required="required" th:value="${cargo.cargo}" type="text"/>
@@ -17,10 +18,10 @@
     </div>
     <div>
         <input id="idcargos" name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
-        <input type="submit" value="Modificar"/>
+        <input type="submit" value="Modificar" class="button"/>
     </div>
 </form>
 <br/>
-<a th:href="@{/cargos}">Voltar</a>
+<a th:href="@{/cargos}" class="button">Voltar</a>
 </body>
 </html>
