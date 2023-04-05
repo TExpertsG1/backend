@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --Nav: #87664B;
+    --Color: rgb(237, 229, 227)
+}
+
+/**** MENU DE NAVEGAÇÃO LATERAL ****/
+
+header{
+    background: var(--Color);
+}
+
+header{
+    display: flex;
+    padding: 5px 5px 5px;
+    justify-content: left;
+    align-items: center;
+    min-height: 50vh;
+}
+
+
+#leftNavbar {
+    background: var(--Nav);
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}   
+  
+#leftNavbar img {
+    opacity: 1;
+    align-items: flex-start;
+    max-width: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    filter: invert(100%);
+  }
+
+  #leftNavbar .Foto-Perfil .Foto img{
+    opacity: 1;
+    align-items: center;
+    margin-left:7%;
+    margin-right:7%;
+    width:85%;
+    max-width: 250px;
+    max-height: 250px;
+    padding: 5%;
+    filter: invert(100%);
+  }  
+  
+#leftNavbar img:hover {
+    transition: 400ms;
+    opacity: 0.5;
+  }
+  
+#leftNavbar span{
+    padding: 0 1.5rem 0.5rem 1.5rem;
+    font-family: "Baskerville", sans-serif;
+    align-items: flex-start;
+    text-align: left;
+    font-size: medium;
+    padding-bottom: 0;
+    list-style: none;
+    vertical-align: middle;
+    font-weight: bold;
+    color: whitesmoke;
+  }
+
+#leftNavbar .Nav-list {
+    text-decoration: none;
+}
+
+#leftNavbar .Nav-list:link {
+    text-decoration: none;
+}
+
+#leftNavbar .Nav-list:visited {
+    text-decoration: none;
+}
+
+#leftNavbar .Nav-list:focus img {
+    text-decoration: none;
+    background-color: var(--Color);
+    max-width: 50px;
+    filter: none;
+}
+
+#leftNavbar .Nav-list:focus .text {
+    text-decoration: none;
+    background-color: var(--Color);
+    max-width: 300px;
+    color: #87664B;
+}
+
+#leftNavbar .Nav-list:focus {
+    text-decoration: none;
+    background-color: var(--Color);
+    max-width: 300px;
+    color: #87664B;
+}
+
+#leftNavbar .Nav-list:hover img{
+    text-decoration: none;
+    background-color: var(--Color);
+    max-width: 50px;
+    filter: none;
+}
+
+#leftNavbar .Nav-list:hover .text{
+    text-decoration: none;
+    background-color: var(--Color);
+    max-width: 300px;
+    color: #87664B;
+}
+
+#leftNavbar .Nav-list:hover {
+    text-decoration: none;
+    background-color: var(--Color);
+    max-width: 300px;
+    color: #87664B;
+}
+
+#leftNavbar .Nav-list:active {
+    text-decoration: none;
+}
+
+/**** TÍTULOS DA PÁGINA ****/
+
+.page-title .superior{
+    margin: 0;
+    padding: 0;
+    font-family: "Baskerville", sans-serif, "Times New Roman", Times, serif;
+    color: var(--Nav);
+    background-color: var(--Color);
+    max-height: 300px;
+    position: -ms-page;
+}
+
+h1 {
+    font-size: 3.2rem;
+    color: #FFCB55;
+    font-weight: 900;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: #87664B;
+    font-weight: 900;
+  }
+  
+  h4 {
+    font-size: 1.75rem;
+    color: #ad9479;
+    font-weight: 700;
+  }
+
+  /**** Posição do Título ****/
+ section{
+    position: absolute;
+    padding-left: 0.5rem;
+    padding-bottom: 1rem;
+    max-height: 280px;
+    height: auto;
+  }
+
+  #linha img{
+    align-items: flex-start;
+    vertical-align: middle  ;
+  }
+  #linha h1{
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  /**** Funcionários ****/
+  .funcionariosMenu {
+    margin-left: 45vh;
+    border: 1px black solid;
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
