@@ -13,12 +13,12 @@
 <body>
     <section id="menu">
         <div class="logo">
-            <img th:src="@{imagens/${session.logado.imagem}}" alt="Descrição da imagem">
+            <img th:src="@{${session.logado.imagem}}" alt="Descrição da imagem">
             <br />
             <span th:text="${session.logado.nome}"></span>
         </div>
         <nav class="items">
-            <li class="selecionada"><i class="fa-solid fa-circle-stop"></i><a href="index.html">Dashboard</a></li>
+            <li class="selecionada"><i class="fa-solid fa-circle-stop"></i><a th:href="@{/sistema}">Dashboard</a></li>
             <li><i class="fa-solid fa-users"></i><a th:href="@{/hospedes}">Hospedes</a></li>
             <li><i class="fa-solid fa-book"></i><a th:href="@{/reservas}">Reservas</a></li>
             <li><i class="fa-solid fa-bed"></i><a th:href="@{/quartos}">Quartos</a></li>
@@ -37,42 +37,50 @@
             </h3>
             <p>Gestão das actividades do Hotel</p>
         </div>
-    
+
         <div class="values">
             <div class="val-box">
                 <i class="fa-solid fa-users"></i>
                 <div>
-                    <p>Clientes</p>
-                    <h3>100</h3>
+                    <p>Hospedes</p>
+                    <h3 th:text="${listaHospedes}">0</h3>
                 </div>
-            </div>  
-    
+            </div>
+
             <div class="val-box">
                 <i class="fa-solid fa-book"></i>
                 <div>
                     <p>Reservas</p>
-                    <h3>540</h3>
+                    <h3 th:text="${listaReservas}">0</h3>
                 </div>
-            </div>  
-    
+            </div>
+
             <div class="val-box">
                 <i class="fa-solid fa-users-gear"></i>
                 <div>
                     <p>Funcionarios</p>
-                    <h3>45</h3>
+                    <h3 th:text="${listaFuncionarios}">0</h3>
                 </div>
-            </div>  
-    
+            </div>
+
             <div class="val-box">
                 <i class="fa-solid fa-bed"></i>
                 <div>
-                    <p>Acomodações</p>
-                    <h3>20</h3>
+                    <p>Quartos</p>
+                    <h3 th:text="${listaQuartos}">0</h3>
                 </div>
-            </div>  
-    
+            </div>
+
+            <div class="val-box">
+                <i class="fa-solid fa-briefcase"></i>
+                <div>
+                    <p>Cargos</p>
+                    <h3 th:text="${listaCargos}">0</h3>
+                </div>
+            </div>
         </div>
-    
+
+
     </section>
 </body>
 </html>    

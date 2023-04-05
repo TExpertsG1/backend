@@ -1,6 +1,9 @@
 package br.com.hotel1800.controller;
 
 import br.com.hotel1800.dao.FuncionarioDAO;
+import br.com.hotel1800.dao.HospedeDAO;
+import br.com.hotel1800.dao.QuartoDAO;
+import br.com.hotel1800.dao.ReservaDAO;
 import br.com.hotel1800.modelo.Funcionario;
 import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;

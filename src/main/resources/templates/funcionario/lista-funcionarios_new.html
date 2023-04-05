@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Hotel TEX</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css">
+    <link rel="stylesheet" th:href="@{/css/sistema/estilo.css}">
+    <link rel="stylesheet" th:href="@{/css/sistema/estilo2.css}">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <section id="interface">
+        <div class="navegation">
+            <div>
+                <div>
+                    <i id="menu-btn" class="fas fa-bars"></i>
+                </div>
+                <h3 class="i-name">
+                    Funcionarios
+                </h3>
+                <p>Lista dos funcionarios do Hotel</p>
+            </div>
+            <button class="cadastro" th:href="@{/formFuncionario}">Cadastrar</button>
+        </div>
+
+        <div class="values">
+            <div class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th>foto</th>
+                            <th>CPF</th>
+                            <th>Nome</th>
+                            <th>Ações</th>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="funcionario : ${funcionarios}">
+                            <td class="people">
+                                <img th:src="@{${funcionario.imagem}}"alt="Imagem do funcionário"/>
+                                <div class="people-de">
+                                    <h5 th:text="${funcionario.nome}"></h5>
+                                    <p th:href="@{/mostrarFuncionario/{cpf}(cpf=${funcionario.cpf})}"
+                                    th:text="${funcionario.cpf}"></p>
+                                </div>
+                            </td>
+    
+                            <td class="active">
+                                <p>Active</p>
+                            </td>
+    
+                            <td class="role">
+                                <p>2023-01-07 19:00</p>
+                            </td>
+
+                            <td>
+                                <form
+                                    action="/deletarFuncionario"
+                                    method="post"
+                                    style="display: inline-block"
+                                >
+                                    <input
+                                        name="cpf"
+                                        th:value="${funcionario.cpf}"
+                                        type="hidden"
+                                    />
+                                    <button
+                                        onclick="return confirm('Tem certeza que deseja excluir este funcionário?')"
+                                        type="submit"
+                                    >
+                                        Excluir
+                                    </button>
+                                </form>
+                                <form
+                                    method="get"
+                                    style="display: inline-block"
+                                    th:action="@{/modificarFuncionario/{cpf}(cpf=${funcionario.cpf})}"
+                                >
+                                    <button
+                                        onclick="return confirm('Tem certeza que deseja modificar este funcionário?')"
+                                        type="submit"
+                                    >
+                                        Modificar
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
