@@ -27,7 +27,7 @@ public class ReservaController {
     public String listaReservas(Model model) {
         List<Reserva> reservas = reservaDAO.readAll();
         model.addAttribute("reservas", reservas);
-        return "lista-reservas";
+        return "reserva/lista-reservas";
     }
 
     @GetMapping("/formReserva")
@@ -39,7 +39,7 @@ public class ReservaController {
         model.addAttribute("hospedes", hospedes);
         model.addAttribute("quartos", quartos);
 
-        return "form-reserva";
+        return "reserva/form-reserva";
     }
 
     @PostMapping("/cadastrarReserva")
@@ -54,19 +54,15 @@ public class ReservaController {
         List<String> hospedes = hospedeDAO.readHospedeCPFS();
         List<Integer> quartos = quartoDAO.readIdQuartos();
 
-        System.out.println(reserva);
-
         model.addAttribute("reserva", reserva);
         model.addAttribute("hospedes", hospedes);
         model.addAttribute("quartos", quartos);
-        return "modificar-reserva";
+        return "reserva/modificar-reserva";
     }
 
     @PostMapping("/atualizarReserva")
     public String atualizarReserva(@ModelAttribute Reserva reserva) {
-        System.out.println(reserva);
         reservaDAO.update(reserva);
-        System.out.println(reserva);
         return "redirect:/reservas";
     }
 

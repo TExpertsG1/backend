@@ -19,18 +19,17 @@ public class HospedeController {
     public String listarHospedes(Model model) {
         List<Hospede> hospedes = hospedeDAO.readAll();
         model.addAttribute("hospedes", hospedes);
-        return "lista-hospedes";
+        return "hospede/lista-hospedes";
     }
 
     @GetMapping("/formHospede")
     public String exibirFormularioHospede(Model model) {
         model.addAttribute("hospede", new Hospede());
-        return "form-hospede";
+        return "hospede/form-hospede";
     }
 
     @PostMapping("/cadastrarHospede")
     public String cadastrarHospede(@ModelAttribute("hospede") Hospede hospede) {
-        System.out.println(hospede.getData_nascimento());
         hospedeDAO.create(hospede);
         return "redirect:/hospedes";
     }
@@ -39,14 +38,14 @@ public class HospedeController {
     public String buscarHospede(@PathVariable String cpf, Model model) {
         Hospede hospede = hospedeDAO.read(cpf);
         model.addAttribute("hospede", hospede);
-        return "detalhes-hospede";
+        return "hospede/detalhes-hospede";
     }
 
     @GetMapping("/modificarHospede/{cpf}")
     public String mostrarFormularioModificarHospede(@PathVariable String cpf, Model model) {
         Hospede hospede = hospedeDAO.read(cpf);
         model.addAttribute("hospede", hospede);
-        return "modificar-hospede";
+        return "hospede/modificar-hospede";
     }
 
     @PostMapping("/atualizarHospede")

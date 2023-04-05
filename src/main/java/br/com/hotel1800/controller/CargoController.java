@@ -19,13 +19,13 @@ public class CargoController {
     public String listaCargos(Model model) {
         List<Cargo> listaCargos = cargoDAO.readAll();
         model.addAttribute("listaCargos", listaCargos);
-        return "lista-cargos";
+        return "cargo/lista-cargos";
     }
 
     @GetMapping("/formCargo")
     public String exibirFormularioHospede(Model model) {
         model.addAttribute("cargo", new Cargo());
-        return "form-cargo";
+        return "cargo/form-cargo";
     }
 
     @PostMapping("/cadastrarCargo")
@@ -38,7 +38,7 @@ public class CargoController {
     public String mostrarFormularioModificarCargo(@PathVariable Integer idcargo, Model model) {
         Cargo cargo = cargoDAO.read(idcargo);
         model.addAttribute("cargo", cargo);
-        return "modificar-cargo";
+        return "cargo/modificar-cargo";
     }
 
     @PostMapping("/atualizarCargo")

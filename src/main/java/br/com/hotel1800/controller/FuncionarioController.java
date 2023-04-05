@@ -19,13 +19,13 @@ public class FuncionarioController {
     public String listarFuncionarios(Model model) {
         List<Funcionario> funcionarios = funcionarioDAO.readAll();
         model.addAttribute("funcionarios", funcionarios);
-        return "lista-funcionarios";
+        return "funcionario/lista-funcionarios";
     }
 
     @GetMapping("/formFuncionario")
     public String exibirFormularioFuncionario(Model model) {
         model.addAttribute("funcionario", new Funcionario());
-        return "form-funcionario";
+        return "funcionario/form-funcionario";
     }
 
     @PostMapping("/cadastrarFuncionario")
@@ -37,23 +37,19 @@ public class FuncionarioController {
     @GetMapping("/mostrarFuncionario/{cpf}")
     public String buscarFuncionario(@PathVariable String cpf, Model model) {
         Funcionario funcionario = funcionarioDAO.read(cpf);
-        /*  System.out.println(funcionario);*/
         model.addAttribute("funcionario", funcionario);
-        return "detalhes-funcionario";
+        return "funcionario/detalhes-funcionario";
     }
 
     @GetMapping("/modificarFuncionario/{cpf}")
     public String mostrarFormularioModificarFuncionario(@PathVariable String cpf, Model model) {
         Funcionario funcionario = funcionarioDAO.read(cpf);
         model.addAttribute("funcionario", funcionario);
-        return "modificar-funcionario";
+        return "funcionario/modificar-funcionario";
     }
 
     @PostMapping("/atualizarFuncionario")
     public String atualizarFuncionario(@ModelAttribute Funcionario funcionario) {
-        System.out.println(funcionario);
-        System.out.println(funcionario.getHotel_cnpj());
-
         funcionarioDAO.update(funcionario);
         return "redirect:/funcionarios";
     }

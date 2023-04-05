@@ -18,13 +18,13 @@ public class QuartoController {
     public String listaQuartos(Model model) {
         List<Quarto> listaQuartos = quartoDAO.readAll();
         model.addAttribute("listaQuartos", listaQuartos);
-        return "lista-quartos";
+        return "quarto/lista-quartos";
     }
 
     @GetMapping("/formQuarto")
     public String exibirFormularioQuarto(Model model) {
         model.addAttribute("quarto", new Quarto());
-        return "form-quarto";
+        return "quarto/form-quarto";
     }
 
     @PostMapping("/cadastrarQuarto")
@@ -37,7 +37,7 @@ public class QuartoController {
     public String mostrarFormularioModificarQuarto(@PathVariable Integer idquarto, Model model) {
         Quarto quarto = quartoDAO.read(idquarto);
         model.addAttribute("quarto", quarto);
-        return "modificar-quarto";
+        return "quarto/modificar-quarto";
     }
 
     @PostMapping("/atualizarQuarto")
