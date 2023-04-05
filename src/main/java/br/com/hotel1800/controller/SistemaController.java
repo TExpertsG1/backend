@@ -4,11 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
-/*@RequestMapping("/sistema")*/
 public class SistemaController {
     @GetMapping("/sistema")
-    public String sistema() {
-        return "lista-sistema";
+    public String sistema(HttpSession session) {
+        if(session.getAttribute("logado") == null){
+            return "redirect:/";
+        }
+            return "lista-sistema";
+        }
     }
-}
+

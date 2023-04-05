@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
@@ -22,10 +25,24 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(String cpf, String senha) {
+    public String login(String cpf, String senha, RedirectAttributes redirectAttributes, HttpSession session) {
 
        Funcionario funcionario = this.funcionarioDAO.existe(cpf,senha);
         System.out.println(funcionario);
+
+        if(funcionario == null) {
+           redirectAttributes.addFlashAttribute("usuarioInvalido","Usuário Inválido");
+            return "redirect:/";
+        }
+        session.setAttribute("logado", funcionario);
+
         return "redirect:/sistema";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        /*session.removeAttribute("logado");*/
+        session.invalidate();
+        return "redirect:/";
     }
 }

@@ -6,7 +6,12 @@
     <link rel="stylesheet" th:href="@{/styleSistema.css}"/>
 </head>
 <body>
+
 <h1>Bem-vindo(a) à Lista do Sistema</h1>
+    <h3> Funcionario logado: <span th:text="${session.logado.nome}"></span></h3>
+
+    <h4> <a th:href="@{/logout}"> Sair</a></h4>
+<br />
 <ul>
     <li><a th:href="@{/cargos}">Lista de Cargos</a></li>
     <li><a th:href="@{/hospedes}">Lista de Hóspedes</a></li>

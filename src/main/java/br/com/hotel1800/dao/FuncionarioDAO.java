@@ -4,6 +4,7 @@ import br.com.hotel1800.modelo.Funcionario;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -34,10 +35,17 @@ public class FuncionarioDAO {
 
     public Funcionario existe(String cpf, String senha) {
         String jpql = "select c from Funcionario c Where c.cpf = :cpf AND c.senha = :senha";
-        return this.em.createQuery(jpql, Funcionario.class)
-                .setParameter("cpf", cpf)
-                .setParameter("senha",senha)
-                .getSingleResult();
+
+        try {
+            return this.em.createQuery(jpql, Funcionario.class)
+                    .setParameter("cpf", cpf)
+                    .setParameter("senha",senha)
+                    .getSingleResult();
+        } catch (NoResultException ex) {
+            System.out.println("Usuário Não encontrado");
+            return null;
+        }
+
     }
 }
 

@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <body>
 <h3>Login de Usuário</h3>
+
+
 <form method="post" action="/login">
-    <p>
-        <label for="cpf">CPF do Usuário</label>
-        <input type="text" id="cpf" name="cpf" required>
-    </p>
-    <p>
-        <label for="senha">Senha:</label>
-        <input type="senha" id="senha" name="senha" required>
-    </p>
-    <p>
+
+        CPF:  <input type="text" name="cpf" /> <br />
+        Senha: <input type="text" name="senha" /> <br />
         <input type="submit" value="Entrar">
-    </p>
+    <br />
+    <br />
+    <span th:text="${usuarioInvalido}"></span>
+    <br />
+
+    <!--  <label for="cpf">CPF do Usuário</label>
+      <input type="text" id="cpf" name="cpf" required>
+
+
+      <label for="senha">Senha:</label>
+      <input type="senha" id="senha" name="senha" required>-->
 </form>
 
 </body>
