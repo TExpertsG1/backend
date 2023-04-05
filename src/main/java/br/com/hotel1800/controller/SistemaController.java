@@ -13,7 +13,13 @@ public class SistemaController {
         if(session.getAttribute("logado") == null){
             return "redirect:/";
         }
-            return "lista-sistema";
+            return "sistema/sistema";
         }
+
+    @GetMapping("/sistema2")
+    public String sistema2() {
+        return "lista-sistema";
+    }
+
     }
 

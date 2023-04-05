@@ -14,6 +14,7 @@
 <table>
     <thead>
     <tr>
+        <th>foto</th>
         <th>CPF</th>
         <th>Nome</th>
         <th>Ações</th>
@@ -21,6 +22,7 @@
     </thead>
     <tbody>
     <tr th:each="funcionario : ${funcionarios}">
+        <td><img th:src="@{${funcionario.imagem}}" alt="Imagem do funcionário"></td>
         <td><a th:href="@{/mostrarFuncionario/{cpf}(cpf=${funcionario.cpf})}" th:text="${funcionario.cpf}"></a></td>
         <td th:text="${funcionario.nome}"></td>
         <td>

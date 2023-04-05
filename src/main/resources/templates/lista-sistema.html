@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista do Sistema</title>
-    <link rel="stylesheet" th:href="@{/styleSistema.css}"/>
-</head>
-<body>
-
-<h1>Bem-vindo(a) à Lista do Sistema</h1>
-<div class="header-right">
-    <h1>Bem-vindo(a) à Lista do Sistema</h1>
-    <h3> Funcionário logado: <span th:text="${session.logado.nome}"></span></h3>
-    <h4> <a th:href="@{/logout}">Sair</a></h4>
-</div><br />
-<ul>
-    <li><a th:href="@{/cargos}">Lista de Cargos</a></li>
-    <li><a th:href="@{/hospedes}">Lista de Hóspedes</a></li>
-    <li><a th:href="@{/formaDePagamento}">Lista de Formas de Pagamento</a></li>
-    <li><a th:href="@{/funcionarios}">Lista de Funcionários</a></li>
-    <li><a th:href="@{/reservas}">Lista de Reservas</a></li>
-    <li><a th:href="@{/quartos}">Lista de Quartos</a></li>
-</ul>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Lista do Sistema</title>
+        <link rel="stylesheet" th:href="@{/styleSistema.css}" />
+    </head>
+    <body>
+        <h1>Bem-vindo(a) à Lista do Sistema</h1>
+        <div class="header-right">
+            Funcionário logado: <span th:text="${session.logado.nome}"></span>
+            <span><a th:href="@{/logout}">Sair</a></span>
+        </div>
+        <br />
+        <ul>
+            <li><a th:href="@{/cargos}">Lista de Cargos</a></li>
+            <li><a th:href="@{/hospedes}">Lista de Hóspedes</a></li>
+            <li>
+                <a th:href="@{/formaDePagamento}"
+                    >Lista de Formas de Pagamento</a
+                >
+            </li>
+            <li><a th:href="@{/funcionarios}">Lista de Funcionários</a></li>
+            <li><a th:href="@{/reservas}">Lista de Reservas</a></li>
+            <li><a th:href="@{/quartos}">Lista de Quartos</a></li>
+        </ul>
+    </body>
 </html>

@@ -15,10 +15,9 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
+    @Autowired
+    private FuncionarioDAO funcionarioDAO;
 
-
-        @Autowired
-        private FuncionarioDAO funcionarioDAO;
     @GetMapping
     public String form() {
         return "login/form-login";
@@ -26,9 +25,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public String login(String cpf, String senha, RedirectAttributes redirectAttributes, HttpSession session) {
-
-       Funcionario funcionario = this.funcionarioDAO.existe(cpf,senha);
-        System.out.println(funcionario);
+        Funcionario funcionario = this.funcionarioDAO.existe(cpf,senha);
 
         if(funcionario == null) {
            redirectAttributes.addFlashAttribute("usuarioInvalido","Usuário Inválido");

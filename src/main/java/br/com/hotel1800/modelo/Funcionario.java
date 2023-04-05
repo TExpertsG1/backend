@@ -16,6 +16,7 @@ public class Funcionario {
     private int idcargos;
     private String hotel_cnpj;
     private String nome;
+    private String imagem;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_nascimento;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -29,7 +30,6 @@ public class Funcionario {
     private String cidade;
     private String uf;
     private String cep;
-
     private String senha;
 
     public Funcionario() {}
@@ -93,6 +93,10 @@ public class Funcionario {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public void setImagem(String imagem) { this.imagem = imagem; }
+
+    public String getImagem() { return imagem; }
 
     public LocalDate getData_nascimento() {
         return data_nascimento;
