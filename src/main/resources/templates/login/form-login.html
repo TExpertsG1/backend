@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" th:href="@{/css/sistema/reset.css}" />
-  <link rel="stylesheet" th:href="@{/css/sistema/login.css}" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <!---------- FAVICONS ---------->
-  <link rel="apple-touch-icon" sizes="180x180" th:href="@{../images/favicon/apple-touch-icon.png}">
-  <link rel="icon" type="image/png" sizes="32x32" th:href="@{../images/favicon/favicon-32x32.png}">
-  <link rel="icon" type="image/png" sizes="192x192" th:href="@{../images/favicon/android-chrome-192x192.png}">
-  <link rel="icon" type="image/png" sizes="16x16" th:href="@{../images/favicon/favicon-16x16.png}">
-  <link rel="manifest" th:href="@{../images/favicon/site.webmanifest}">
-  <link rel="mask-icon" th:href="@{../images/favicon/safari-pinned-tab.svg}" color="#5bbad5">
-  <meta name="apple-mobile-web-app-title" content="Hotel 1800">
-  <meta name="application-name" content="Hotel 1800">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" th:href="@{../images/favicon/mstile-144x144.png}">
-  <meta name="theme-color" content="#ffffff">
-  <!---------- end FAVICONS ---------->
-  <script src="https://kit.fontawesome.com/54d71879ed.js" crossorigin="anonymous"></script>
-  <title>Login</title>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="stylesheet" th:href="@{/css/sistema/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/sistema/login.css}"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <!---------- FAVICONS ---------->
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{../images/favicon/apple-touch-icon.png}">
+    <link rel="icon" sizes="32x32" th:href="@{../images/favicon/favicon-32x32.png}" type="image/png">
+    <link rel="icon" sizes="192x192" th:href="@{../images/favicon/android-chrome-192x192.png}" type="image/png">
+    <link rel="icon" sizes="16x16" th:href="@{../images/favicon/favicon-16x16.png}" type="image/png">
+    <link rel="manifest" th:href="@{../images/favicon/site.webmanifest}">
+    <link color="#5bbad5" rel="mask-icon" th:href="@{../images/favicon/safari-pinned-tab.svg}">
+    <meta content="Hotel 1800" name="apple-mobile-web-app-title">
+    <meta content="Hotel 1800" name="application-name">
+    <meta content="#da532c" name="msapplication-TileColor">
+    <meta name="msapplication-TileImage" th:href="@{../images/favicon/mstile-144x144.png}">
+    <meta content="#ffffff" name="theme-color">
+    <!---------- end FAVICONS ---------->
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/54d71879ed.js"></script>
+    <title>Login</title>
 </head>
 <body>
-    <header>
-        <section>
+<header>
+    <section>
             <span class="mainHeader">
-                <img height="100%" th:src="@{/imagens/nossoServico.jpg}" />
+                <img height="100%" th:src="@{/imagens/nossoServico.jpg}"/>
                 <nav class="navbar menu">  
                     <a href="">Voltar para o Hotel</a>
                 </nav>
             </span>
-        </section>
-    </header>
-    <main>
-        <div>
+    </section>
+</header>
+<main>
+    <div>
 
-            <form id="form-login" method="post" action="/login">
-                <h1 class="mainText">Faça seu login</h1>
-                <span class="inputContainer">
+        <form action="/login" id="form-login" method="post">
+            <h1 class="mainText">Faça seu login</h1>
+            <span class="inputContainer">
                     <label>CPF</label>
-                    <input type="text" name="cpf" id="cpf">
+                    <input id="cpf" name="cpf" type="text">
                 </span>
-                <span class="inputContainer">
+            <span class="inputContainer">
                     <label>Senha</label>
-                    <input type="password" name="senha" id="senha">
+                    <input id="senha" name="senha" type="password">
                 </span>
-                <button type="submit">Fazer login</button>
-                <br />
-                <br />
-                <span class="invalid" th:text="${usuarioInvalido}"></span>
-                <br />
-            </form>
+            <button type="submit">Fazer login</button>
+            <br/>
+            <br/>
+            <span class="invalid" th:text="${usuarioInvalido}"></span>
+            <br/>
+        </form>
 
-            <hr/>
-            <p>
-                Ao fazer login, você concorda com nossos
-                <p>
-                    <a class="formLinks">Termos e Condições</a> e <a class="formLinks">Declaração de Privacidade</a>
-                </p>
-            </p>
-            <hr/>
-            <p>
-                Todos os direitos reservados.
-            </p>
-            <p>
-                Direitos autorais (2023) - Nossohotel.com®
-            </p>
-        </div>
-    </main>
+        <hr/>
+        <p>
+            Ao fazer login, você concorda com nossos
+        <p>
+            <a class="formLinks">Termos e Condições</a> e <a class="formLinks">Declaração de Privacidade</a>
+        </p>
+        </p>
+        <hr/>
+        <p>
+            Todos os direitos reservados.
+        </p>
+        <p>
+            Direitos autorais (2023) - Nossohotel.com®
+        </p>
+    </div>
+</main>
 </body>
 </html>

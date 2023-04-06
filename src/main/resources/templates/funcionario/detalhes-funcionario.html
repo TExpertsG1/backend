@@ -8,7 +8,7 @@
 <body>
 <h2>Detalhes do funcionário</h2>
 
-<img th:src="@{${funcionario.imagem}}" alt="Imagem do funcionário"><br />
+<img alt="Imagem do funcionário" th:src="@{${funcionario.imagem}}"><br/>
 <b>CPF: </b><span th:text="${funcionario.cpf}"></span><br/>
 <b>Id Cargos: </b><span th:text="${funcionario.idcargos}"></span><br/>
 <b>CNPJ: </b><span th:text="${funcionario.hotel_cnpj}"></span><br/>

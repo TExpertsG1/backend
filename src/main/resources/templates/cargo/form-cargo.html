@@ -11,7 +11,7 @@
 
 <form method="post" th:action="@{/cadastrarCargo}" th:object="${cargo}">
 
-    <input name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
+    <input name="id" th:value="${cargo.id}" type="hidden"/>
     <b>Cargo: </b><input name="cargo" type="text"><br/>
     <b>Salário: </b><input name="salario" type="text"><br/>
 

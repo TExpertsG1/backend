@@ -4,9 +4,9 @@ import br.com.hotel1800.dao.CargoDAO;
 import br.com.hotel1800.modelo.Cargo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.sql.SQLException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
@@ -29,28 +29,27 @@ public class CargoController {
     }
 
     @PostMapping("/cadastrarCargo")
-    public String cadastrarCargo(@ModelAttribute("cargo") Cargo cargo) throws SQLException {
+    public String cadastrarCargo(Cargo cargo) {
         cargoDAO.create(cargo);
         return "redirect:/cargos";
     }
 
-    @GetMapping("/modificarCargo/{idcargo}")
-    public String mostrarFormularioModificarCargo(@PathVariable Integer idcargo, Model model) {
-        Cargo cargo = cargoDAO.read(idcargo);
+    @GetMapping("/modificarCargo/{id}")
+    public String mostrarFormularioModificarCargo(@PathVariable Integer id, Model model) {
+        Cargo cargo = cargoDAO.read(id);
         model.addAttribute("cargo", cargo);
         return "cargo/modificar-cargo";
     }
 
     @PostMapping("/atualizarCargo")
-    public String atualizarCargo(@ModelAttribute Cargo cargo) {
+    public String atualizarCargo(Cargo cargo) {
         cargoDAO.update(cargo);
         return "redirect:/cargos";
     }
 
     @PostMapping("/deletarCargo")
-    public String deletarCargo(@RequestParam("idcargos") Integer id) {
+    public String deletarCargo(Integer id) {
         cargoDAO.delete(id);
         return "redirect:/cargos";
     }
-
 }
