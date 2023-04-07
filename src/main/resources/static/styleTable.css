@@ -1,16 +1,20 @@
 /* Corpo da página */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #EDE5E3;
   margin: 0;
   padding: 0;
+}
+
+img {
+  width: 150px;
 }
 
 /* Título da página */
 h1 {
   text-align: center;
   margin-top: 20px;
-  color: #333333;
+  color: #85531e;
 }
 
 /* Tabela */
@@ -29,10 +33,12 @@ td {
   text-align: left;
   padding: 10px;
   border-bottom: 1px solid #dddddd;
+  display: table-cell;
+  vertical-align: auto;
 }
 
 th {
-  background-color: #1976d2;
+  background-color: #AD9479;
   color: #ffffff;
 }
 
@@ -47,7 +53,7 @@ tr:hover {
   margin: 0 auto;
   width: 200px;
   text-align: center;
-  background-color: #1976d2;
+  background-color: #AD9479;
   color: #ffffff;
   padding: 10px;
   text-decoration: none;
@@ -57,7 +63,7 @@ tr:hover {
 }
 
 .button:hover {
-  background-color: #0d4280;
+  background-color: #3b3229;
 }
 
 /* Formulário */

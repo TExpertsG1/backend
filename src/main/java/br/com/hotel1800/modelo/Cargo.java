@@ -8,14 +8,14 @@ import java.math.BigDecimal;
 public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idcargos;
+    private Integer id;
     private String cargo;
     private BigDecimal salario;
 
     public Cargo() {}
 
-    public Cargo(Integer idcargos, String cargo, BigDecimal salario) {
-        this.idcargos = idcargos;
+    public Cargo(Integer id, String cargo, BigDecimal salario) {
+        this.id = id;
         this.cargo = cargo;
         this.salario = salario;
     }
@@ -25,12 +25,12 @@ public class Cargo {
         this.salario = salario;
     }
 
-    public Integer getIdcargos() {
-        return idcargos;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdcargos(Integer idcargos) {
-        this.idcargos = idcargos;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCargo() {
@@ -51,6 +51,6 @@ public class Cargo {
 
     @Override
     public String toString() {
-        return "ID Cargo: " + idcargos + "\n " + cargo + "\n Sal�rio: " + salario + "\n------";
+        return "ID Cargo: " + id + "\n " + cargo + "\n Salário: " + salario + "\n------";
     }
 }

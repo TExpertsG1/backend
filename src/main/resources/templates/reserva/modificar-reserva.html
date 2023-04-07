@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styleTable2.css}"/>
     <title>Modificar Reserva</title>
 </head>
 <body>
@@ -18,13 +19,15 @@
 
     <div>
         <label for="quantidade_adulto">Qnt. Adulto:</label>
-        <input id="quantidade_adulto" name="quantidade_adulto" required="required" th:value="${reserva.quantidade_adulto}"
+        <input id="quantidade_adulto" name="quantidade_adulto" required="required"
+               th:value="${reserva.quantidade_adulto}"
                type="number"/>
     </div>
 
     <div>
         <label for="quantidade_crianca">Qnt. Criança:</label>
-        <input id="quantidade_crianca" name="quantidade_crianca" required="required" th:value="${reserva.quantidade_crianca}"
+        <input id="quantidade_crianca" name="quantidade_crianca" required="required"
+               th:value="${reserva.quantidade_crianca}"
                type="number"/>
     </div>
 

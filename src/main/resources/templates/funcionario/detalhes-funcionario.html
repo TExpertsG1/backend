@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styleTable2.css}"/>
     <title>Detalhes do funcionário</title>
 </head>
 <body>
 <h2>Detalhes do funcionário</h2>
 
-
+<img alt="Imagem do funcionário" th:src="@{${funcionario.imagem}}"><br/>
 <b>CPF: </b><span th:text="${funcionario.cpf}"></span><br/>
 <b>Id Cargos: </b><span th:text="${funcionario.idcargos}"></span><br/>
 <b>CNPJ: </b><span th:text="${funcionario.hotel_cnpj}"></span><br/>

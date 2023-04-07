@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <link rel="stylesheet" th:href="@{/styleTable.css}"/>
     <title>Lista de Funcionários</title>
 </head>
@@ -14,6 +14,7 @@
 <table>
     <thead>
     <tr>
+        <th>foto</th>
         <th>CPF</th>
         <th>Nome</th>
         <th>Ações</th>
@@ -21,18 +22,46 @@
     </thead>
     <tbody>
     <tr th:each="funcionario : ${funcionarios}">
-        <td><a th:href="@{/mostrarFuncionario/{cpf}(cpf=${funcionario.cpf})}" th:text="${funcionario.cpf}"></a></td>
+        <td>
+            <img
+                    alt="Imagem do funcionário"
+                    th:src="@{${funcionario.imagem}}"
+            />
+        </td>
+        <td>
+            <a
+                    th:href="@{/mostrarFuncionario/{cpf}(cpf=${funcionario.cpf})}"
+                    th:text="${funcionario.cpf}"
+            ></a>
+        </td>
         <td th:text="${funcionario.nome}"></td>
         <td>
-            <form action="/deletarFuncionario" method="post" style="display: inline-block;">
-                <input name="cpf" th:value="${funcionario.cpf}" type="hidden"/>
-                <button onclick="return confirm('Tem certeza que deseja excluir este funcionário?')" type="submit">
+            <form
+                    action="/deletarFuncionario"
+                    method="post"
+                    style="display: inline-block"
+            >
+                <input
+                        name="cpf"
+                        th:value="${funcionario.cpf}"
+                        type="hidden"
+                />
+                <button
+                        onclick="return confirm('Tem certeza que deseja excluir este funcionário?')"
+                        type="submit"
+                >
                     Excluir
                 </button>
             </form>
-            <form method="get" style="display: inline-block;"
-                  th:action="@{/modificarFuncionario/{cpf}(cpf=${funcionario.cpf})}">
-                <button onclick="return confirm('Tem certeza que deseja modificar este funcionário?')" type="submit">
+            <form
+                    method="get"
+                    style="display: inline-block"
+                    th:action="@{/modificarFuncionario/{cpf}(cpf=${funcionario.cpf})}"
+            >
+                <button
+                        onclick="return confirm('Tem certeza que deseja modificar este funcionário?')"
+                        type="submit"
+                >
                     Modificar
                 </button>
             </form>

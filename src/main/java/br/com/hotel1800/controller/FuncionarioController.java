@@ -5,7 +5,9 @@ import br.com.hotel1800.modelo.Funcionario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class FuncionarioController {
     }
 
     @PostMapping("/cadastrarFuncionario")
-    public String cadastrarFuncionario(@ModelAttribute("funcionario") Funcionario funcionario) {
+    public String cadastrarFuncionario(Funcionario funcionario) {
         funcionarioDAO.create(funcionario);
         return "redirect:/funcionarios";
     }
@@ -49,13 +51,13 @@ public class FuncionarioController {
     }
 
     @PostMapping("/atualizarFuncionario")
-    public String atualizarFuncionario(@ModelAttribute Funcionario funcionario) {
+    public String atualizarFuncionario(Funcionario funcionario) {
         funcionarioDAO.update(funcionario);
         return "redirect:/funcionarios";
     }
 
     @PostMapping("/deletarFuncionario")
-    public String deletarFuncionario(@RequestParam String cpf) {
+    public String deletarFuncionario(String cpf) {
         funcionarioDAO.delete(cpf);
         return "redirect:/funcionarios";
     }

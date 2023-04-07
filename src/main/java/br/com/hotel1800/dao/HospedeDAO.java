@@ -15,7 +15,9 @@ public class HospedeDAO {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(Hospede hospede) { em.persist(hospede); }
+    public void create(Hospede hospede) {
+        em.persist(hospede);
+    }
 
     public Hospede read(String cpf) {
         return em.find(Hospede.class, cpf);
@@ -25,7 +27,9 @@ public class HospedeDAO {
         return em.createQuery("select c from Hospede c", Hospede.class).getResultList();
     }
 
-    public List<String> readHospedeCPFS() { return em.createQuery("SELECT h.cpf FROM Hospede h", String.class).getResultList(); }
+    public List<String> readHospedeCPFS() {
+        return em.createQuery("SELECT h.cpf FROM Hospede h", String.class).getResultList();
+    }
 
     public void update(Hospede hospede) {
         em.merge(hospede);

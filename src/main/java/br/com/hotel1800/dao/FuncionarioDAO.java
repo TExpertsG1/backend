@@ -24,9 +24,13 @@ public class FuncionarioDAO {
         return em.find(Funcionario.class, cpf);
     }
 
-    public List<Funcionario> readAll() { return em.createQuery("select c from Funcionario c", Funcionario.class).getResultList(); }
+    public List<Funcionario> readAll() {
+        return em.createQuery("select c from Funcionario c", Funcionario.class).getResultList();
+    }
 
-    public void update(Funcionario funcionario) { em.merge(funcionario); }
+    public void update(Funcionario funcionario) {
+        em.merge(funcionario);
+    }
 
     public void delete(String cpf) {
         Funcionario func = em.find(Funcionario.class, cpf);
@@ -39,7 +43,7 @@ public class FuncionarioDAO {
         try {
             return this.em.createQuery(jpql, Funcionario.class)
                     .setParameter("cpf", cpf)
-                    .setParameter("senha",senha)
+                    .setParameter("senha", senha)
                     .getSingleResult();
         } catch (NoResultException ex) {
             System.out.println("Usuário Não encontrado");

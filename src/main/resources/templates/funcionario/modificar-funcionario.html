@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styleTable2.css}"/>
     <title>Modificar Funcionário</title>
 </head>
 <body>
@@ -18,17 +19,24 @@
     </div>
 
     <div>
+        <label for="imagem">Imagem:</label>
+        <input id="imagem" name="imagem" required="required" th:value="${funcionario.imagem}" type="text"/>
+    </div>
+
+    <div>
         <label for="idcargos">Id cargo:</label>
         <input id="idcargos" name="idcargos" required="required" th:value="${funcionario.idcargos}" type="text"/>
     </div>
 
     <div>
         <label for="data_nascimento">Data de Nascimento:</label>
-        <input id="data_nascimento" name="data_nascimento" required="required" th:value="${funcionario.data_nascimento}" type="date"/>
+        <input id="data_nascimento" name="data_nascimento" required="required" th:value="${funcionario.data_nascimento}"
+               type="date"/>
     </div>
     <div>
         <label for="data_admissao">Data de Admissão:</label>
-        <input id="data_admissao" name="data_admissao" required="required" th:value="${funcionario.data_admissao}" type="date"/>
+        <input id="data_admissao" name="data_admissao" required="required" th:value="${funcionario.data_admissao}"
+               type="date"/>
     </div>
     <div>
         <label for="data_demissao">Data de Demissão:</label>
@@ -63,33 +71,33 @@
     <div>
         <label for="uf">UF:</label>
         <select id="uf" name="uf" th:value="${funcionario.uf}">
-            <option value="AC" th:selected="${funcionario.uf == 'AC'}">AC</option>
-            <option value="AL" th:selected="${funcionario.uf == 'AL'}">AL</option>
-            <option value="AP" th:selected="${funcionario.uf == 'AP'}">AP</option>
-            <option value="AM" th:selected="${funcionario.uf == 'AM'}">AM</option>
-            <option value="BA" th:selected="${funcionario.uf == 'BA'}">BA</option>
-            <option value="CE" th:selected="${funcionario.uf == 'CE'}">CE</option>
-            <option value="DF" th:selected="${funcionario.uf == 'DF'}">DF</option>
-            <option value="ES" th:selected="${funcionario.uf == 'ES'}">ES</option>
-            <option value="GO" th:selected="${funcionario.uf == 'GO'}">GO</option>
-            <option value="MA" th:selected="${funcionario.uf == 'MA'}">MA</option>
-            <option value="MT" th:selected="${funcionario.uf == 'MT'}">MT</option>
-            <option value="MS" th:selected="${funcionario.uf == 'MS'}">MS</option>
-            <option value="MG" th:selected="${funcionario.uf == 'MG'}">MG</option>
-            <option value="PA" th:selected="${funcionario.uf == 'PA'}">PA</option>
-            <option value="PB" th:selected="${funcionario.uf == 'PB'}">PB</option>
-            <option value="PR" th:selected="${funcionario.uf == 'PR'}">PR</option>
-            <option value="PE" th:selected="${funcionario.uf == 'PE'}">PE</option>
-            <option value="PI" th:selected="${funcionario.uf == 'PI'}">PI</option>
-            <option value="RJ" th:selected="${funcionario.uf == 'RJ'}">RJ</option>
-            <option value="RN" th:selected="${funcionario.uf == 'RN'}">RN</option>
-            <option value="RS" th:selected="${funcionario.uf == 'RS'}">RS</option>
-            <option value="RO" th:selected="${funcionario.uf == 'RO'}">RO</option>
-            <option value="RR" th:selected="${funcionario.uf == 'RR'}">RR</option>
-            <option value="SC" th:selected="${funcionario.uf == 'SC'}">SC</option>
-            <option value="SP" th:selected="${funcionario.uf == 'SP'}">SP</option>
-            <option value="SE" th:selected="${funcionario.uf == 'SE'}">SE</option>
-            <option value="TO" th:selected="${funcionario.uf == 'TO'}">TO</option>
+            <option th:selected="${funcionario.uf == 'AC'}" value="AC">AC</option>
+            <option th:selected="${funcionario.uf == 'AL'}" value="AL">AL</option>
+            <option th:selected="${funcionario.uf == 'AP'}" value="AP">AP</option>
+            <option th:selected="${funcionario.uf == 'AM'}" value="AM">AM</option>
+            <option th:selected="${funcionario.uf == 'BA'}" value="BA">BA</option>
+            <option th:selected="${funcionario.uf == 'CE'}" value="CE">CE</option>
+            <option th:selected="${funcionario.uf == 'DF'}" value="DF">DF</option>
+            <option th:selected="${funcionario.uf == 'ES'}" value="ES">ES</option>
+            <option th:selected="${funcionario.uf == 'GO'}" value="GO">GO</option>
+            <option th:selected="${funcionario.uf == 'MA'}" value="MA">MA</option>
+            <option th:selected="${funcionario.uf == 'MT'}" value="MT">MT</option>
+            <option th:selected="${funcionario.uf == 'MS'}" value="MS">MS</option>
+            <option th:selected="${funcionario.uf == 'MG'}" value="MG">MG</option>
+            <option th:selected="${funcionario.uf == 'PA'}" value="PA">PA</option>
+            <option th:selected="${funcionario.uf == 'PB'}" value="PB">PB</option>
+            <option th:selected="${funcionario.uf == 'PR'}" value="PR">PR</option>
+            <option th:selected="${funcionario.uf == 'PE'}" value="PE">PE</option>
+            <option th:selected="${funcionario.uf == 'PI'}" value="PI">PI</option>
+            <option th:selected="${funcionario.uf == 'RJ'}" value="RJ">RJ</option>
+            <option th:selected="${funcionario.uf == 'RN'}" value="RN">RN</option>
+            <option th:selected="${funcionario.uf == 'RS'}" value="RS">RS</option>
+            <option th:selected="${funcionario.uf == 'RO'}" value="RO">RO</option>
+            <option th:selected="${funcionario.uf == 'RR'}" value="RR">RR</option>
+            <option th:selected="${funcionario.uf == 'SC'}" value="SC">SC</option>
+            <option th:selected="${funcionario.uf == 'SP'}" value="SP">SP</option>
+            <option th:selected="${funcionario.uf == 'SE'}" value="SE">SE</option>
+            <option th:selected="${funcionario.uf == 'TO'}" value="TO">TO</option>
         </select></br>
     </div>
 

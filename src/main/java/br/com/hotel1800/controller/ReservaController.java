@@ -7,7 +7,9 @@ import br.com.hotel1800.modelo.Reserva;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -43,7 +45,7 @@ public class ReservaController {
     }
 
     @PostMapping("/cadastrarReserva")
-    public String cadastrarReserva(@ModelAttribute("reserva") Reserva reserva) {
+    public String cadastrarReserva(Reserva reserva) {
         reservaDAO.create(reserva);
         return "redirect:/reservas";
     }
@@ -51,25 +53,26 @@ public class ReservaController {
     @GetMapping("/modificarReserva/{idreserva}")
     public String mostrarFormularioModificarReserva(@PathVariable Integer idreserva, Model model) {
         Reserva reserva = reservaDAO.read(idreserva);
+
         List<String> hospedes = hospedeDAO.readHospedeCPFS();
         List<Integer> quartos = quartoDAO.readIdQuartos();
 
         model.addAttribute("reserva", reserva);
         model.addAttribute("hospedes", hospedes);
         model.addAttribute("quartos", quartos);
+
         return "reserva/modificar-reserva";
     }
 
     @PostMapping("/atualizarReserva")
-    public String atualizarReserva(@ModelAttribute Reserva reserva) {
+    public String atualizarReserva(Reserva reserva) {
         reservaDAO.update(reserva);
         return "redirect:/reservas";
     }
 
     @PostMapping("/deletarReserva")
-    public String deletarReserva(@RequestParam("idreserva") Integer id) {
+    public String deletarReserva(Integer id) {
         reservaDAO.delete(id);
         return "redirect:/reservas";
     }
-
 }

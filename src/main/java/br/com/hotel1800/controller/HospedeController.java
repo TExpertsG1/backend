@@ -5,7 +5,9 @@ import br.com.hotel1800.modelo.Hospede;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class HospedeController {
     }
 
     @PostMapping("/cadastrarHospede")
-    public String cadastrarHospede(@ModelAttribute("hospede") Hospede hospede) {
+    public String cadastrarHospede(Hospede hospede) {
         hospedeDAO.create(hospede);
         return "redirect:/hospedes";
     }
@@ -49,13 +51,13 @@ public class HospedeController {
     }
 
     @PostMapping("/atualizarHospede")
-    public String atualizarHospede(@ModelAttribute Hospede hospede) {
+    public String atualizarHospede(Hospede hospede) {
         hospedeDAO.update(hospede);
         return "redirect:/hospedes";
     }
 
     @PostMapping("/deletarHospede")
-    public String deletarHospede(@RequestParam String cpf) {
+    public String deletarHospede(String cpf) {
         hospedeDAO.delete(cpf);
         return "redirect:/hospedes";
     }

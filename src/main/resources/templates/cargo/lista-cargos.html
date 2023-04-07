@@ -15,7 +15,7 @@
 <table>
     <thead>
     <tr>
-        <th>ID Cargo</th>
+        <th>ID</th>
         <th>Cargo</th>
         <th>Salário</th>
         <th>Ações</th>
@@ -23,17 +23,18 @@
     </thead>
     <tbody>
     <tr th:each="cargo : ${listaCargos}">
-        <td th:text="${cargo.idcargos}"></td>
+        <td th:text="${cargo.id}"></td>
         <td th:text="${cargo.cargo}"></td>
         <td th:text="${cargo.salario}"></td>
+
         <td>
             <form action="/deletarCargo" method="post" style="display: inline-block;">
-                <input name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
+                <input name="id" th:value="${cargo.id}" type="hidden"/>
                 <button onclick="return confirm('Tem certeza que deseja excluir este cargo?')" type="submit">Excluir
                 </button>
             </form>
             <form method="get" style="display: inline-block;"
-                  th:action="@{/modificarCargo/{idcargo}(idcargo=${cargo.idcargos})}">
+                  th:action="@{/modificarCargo/{id}(id=${cargo.id})}">
                 <button onclick="return confirm('Tem certeza que deseja modificar este cargo?')" type="submit">
                     Modificar
                 </button>
@@ -43,13 +44,5 @@
     </tbody>
 </table>
 <a class="button" th:href="@{/sistema}">Voltar</a>
-<script>
-        function excluirCargo(idcargos) {
-            if (confirm("Tem certeza que deseja excluir este cargo?")) {
-                window.location.href = "/hotel1800/deletarcargo?idcargos=" + idcargos;
-            }
-        }
-
-</script>
 </body>
 </html>

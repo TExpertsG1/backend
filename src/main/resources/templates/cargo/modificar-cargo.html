@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Modificar Cargo</h1>
-<form method="post" th:action="@{/atualizarCargo}" style="display: inline-block">
+<form method="post" style="display: inline-block" th:action="@{/atualizarCargo}">
     <div>
         <label for="nome">Nome:</label>
         <input id="nome" name="cargo" required="required" th:value="${cargo.cargo}" type="text"/>
@@ -17,11 +17,11 @@
         <input id="salario" name="salario" required="required" th:value="${cargo.salario}" type="text"/>
     </div>
     <div>
-        <input id="idcargos" name="idcargos" th:value="${cargo.idcargos}" type="hidden"/>
-        <input type="submit" value="Modificar" class="button"/>
+        <input id="idcargos" name="id" th:value="${cargo.id}" type="hidden"/>
+        <input class="button" type="submit" value="Modificar"/>
     </div>
 </form>
 <br/>
-<a th:href="@{/cargos}" class="button">Voltar</a>
+<a class="button" th:href="@{/cargos}">Voltar</a>
 </body>
 </html>
