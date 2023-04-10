@@ -63,17 +63,20 @@ public class Funcionario {
         this.senha = senha;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
+    public String getCpf() { return cpf; }
+
+    /*    public String getCpf() {
+        return cpf.substring(0, 3) + "." +
+                cpf.substring(3, 6) + "." +
+                cpf.substring(6, 9) + "-" +
+                cpf.substring(9, 11);
+    }*/
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public int getIdcargos() {
-        return idcargos;
-    }
+    public int getIdcargos() { return idcargos; }
 
     public void setIdcargos(int idcargos) {
         this.idcargos = idcargos;
@@ -83,9 +86,7 @@ public class Funcionario {
         return hotel_cnpj;
     }
 
-    public void setHotel_cnpj(String hotel_cnpj) {
-        this.hotel_cnpj = hotel_cnpj;
-    }
+    public void setHotel_cnpj(String hotel_cnpj) { this.hotel_cnpj = hotel_cnpj; }
 
     public String getNome() {
         return nome;
@@ -95,9 +96,7 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public String getImagem() {
-        return imagem;
-    }
+    public String getImagem() { return imagem; }
 
     public void setImagem(String imagem) {
         this.imagem = imagem;

@@ -1,6 +1,8 @@
 package br.com.hotel1800.dao;
 
 import br.com.hotel1800.modelo.Funcionario;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -16,6 +18,7 @@ public class FuncionarioDAO {
     @PersistenceContext
     private EntityManager em;
 
+    @CacheEvict(value = "funcionarios", allEntries = true)
     public void create(Funcionario funcionario) {
         em.persist(funcionario);
     }
@@ -24,14 +27,17 @@ public class FuncionarioDAO {
         return em.find(Funcionario.class, cpf);
     }
 
+    @Cacheable("funcionarios")
     public List<Funcionario> readAll() {
         return em.createQuery("select c from Funcionario c", Funcionario.class).getResultList();
     }
 
+    @CacheEvict(value = "funcionarios", allEntries = true)
     public void update(Funcionario funcionario) {
         em.merge(funcionario);
     }
 
+    @CacheEvict(value = "funcionarios", allEntries = true)
     public void delete(String cpf) {
         Funcionario func = em.find(Funcionario.class, cpf);
         em.remove(func);

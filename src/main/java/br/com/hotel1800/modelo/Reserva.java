@@ -21,8 +21,7 @@ public class Reserva {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_check_out;
 
-    public Reserva() {
-    }
+    public Reserva() {}
 
     public Reserva(int idreserva, int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
                    LocalDate data_check_in, LocalDate data_check_out) {

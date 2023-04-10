@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Lista de Reservas</title>
+</head>
+<body>
+<h1>Lista de Reservas</h1>
+<br/>
+<br/>
+<a class="button" th:href="@{/formReserva}">Cadastrar</a>
+<br/>
+<table>
+    <thead>
+    <tr>
+        <th>ID Reserva</th>
+        <th>ID Quarto</th>
+        <th>CPF Hóspede</th>
+        <th>Qnt. Adultos</th>
+        <th>Qnt. Crianças</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reserva : ${reservas}">
+        <td th:text="${reserva.idreserva}"></td>
+        <td th:text="${reserva.idquarto}"></td>
+        <td th:text="${reserva.hospede_cpf}"></td>
+        <td th:text="${reserva.quantidade_adulto}"></td>
+        <td th:text="${reserva.quantidade_crianca}"></td>
+        <td th:text="${reserva.data_check_in}"></td>
+        <td th:text="${reserva.data_check_out}"></td>
+        <td>
+            <form action="/deletarReserva" method="post" style="display: inline-block;">
+                <input name="idreserva" th:value="${reserva.idreserva}" type="hidden"/>
+                <button onclick="return confirm('Tem certeza que deseja excluir esta reserva?')" type="submit">Excluir
+                </button>
+            </form>
+            <form method="get" style="display: inline-block;"
+                  th:action="@{/modificarReserva/{idreserva}(idreserva=${reserva.idreserva})}">
+                <button onclick="return confirm('Tem certeza que deseja modificar esta reserva?')" type="submit">
+                    Modificar
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a class="button" th:href="@{/sistema}">Voltar</a>
+</body>
+</html>
