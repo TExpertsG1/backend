@@ -9,7 +9,7 @@
         />
         <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
         <link rel="stylesheet" th:href="@{/styleTable.css}" />
-        <title>Cargos</title>
+        <title>Cadastrar Cargo</title>
     </head>
     <body>
         <section
@@ -23,7 +23,7 @@
                         <i class="fas fa-bars" id="menu-btn"></i>
                     </div>
                     <h3 class="i-name">Cargos</h3>
-                    <p>lista de cargos</p>
+                    <p>Cadastro de cargo</p>
                 </div>
                 <button
                     class="btn-cad-client"
@@ -33,8 +33,9 @@
                 </button>
             </div>
 
-            <div class="form">
+            <div class="formContainer">
                 <form
+                    class="form"
                     method="post"
                     th:action="@{/cadastrarCargo}"
                     th:object="${cargo}"
@@ -48,32 +49,9 @@
                         <span>Salário:</span>
                         <input name="salario" type="text" />
                     </p>
-                    <input type="submit" value="Enviar" />
+                    <button class="btn-cad-client" type="submit">Enviar</button>
                 </form>
             </div>
         </section>
     </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <title>Cadastrar Cargo</title>
-    </head>
-    <body>
-        <h3>Cadastrar Cargo</h3>
-        <br />
-
-        <form method="post" th:action="@{/cadastrarCargo}" th:object="${cargo}">
-            <input name="id" th:value="${cargo.id}" type="hidden" />
-            <b>Cargo: </b><input name="cargo" type="text" /><br />
-            <b>Salário: </b><input name="salario" type="text" /><br />
-
-            <input type="submit" value="Enviar" />
-        </form>
-        <br />
-        <a class="button" th:href="@{/cargos}">Voltar</a>
-    </body>
-</html> -->

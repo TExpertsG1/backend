@@ -225,11 +225,11 @@ tbody .impar {
 }
 
 .active p {
-    background: #d7fada;
+    background: #4caf50;
     padding: 2px 10px;
     display: inline-block;
     border-radius: 40px;
-    color: #ad9479;
+    color: #fff;
 }
 
 .desactive p {
@@ -456,7 +456,7 @@ table tbody tr td button:focus {
 
 .board {
     max-height: 450px;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 thead {

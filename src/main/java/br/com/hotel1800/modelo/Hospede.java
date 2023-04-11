@@ -1,7 +1,6 @@
 package br.com.hotel1800.modelo;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,7 +17,8 @@ public class Hospede {
     private String telefone;
     private String email;
 
-    public Hospede() {}
+    public Hospede() {
+    }
 
     public Hospede(String cpf, String nome, LocalDate data_nascimento, String telefone, String email) {
         this.cpf = cpf;
@@ -28,7 +28,9 @@ public class Hospede {
         this.email = email;
     }
 
-    public String getCpf() { return cpf; }
+    public String getCpf() {
+        return cpf;
+    }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;

@@ -18,7 +18,7 @@ public class CargoDAO {
     @PersistenceContext
     private EntityManager em;
 
-    @CacheEvict(value = "cargos", allEntries = true)
+    @CacheEvict(value = "listaCargos", allEntries = true)
     public void create(Cargo cargo) {
         em.persist(cargo);
     }
@@ -27,7 +27,7 @@ public class CargoDAO {
         return em.find(Cargo.class, id);
     }
 
-    @Cacheable("cargos")
+    @Cacheable("listaCargos")
     public List<Cargo> readAll() {
         return em.createQuery("SELECT c FROM Cargo c", Cargo.class).getResultList();
     }
@@ -41,13 +41,12 @@ public class CargoDAO {
         return cargoMap;
     }
 
-
-    @CacheEvict(value = "cargos", allEntries = true)
+    @CacheEvict(value = "listaCargos", allEntries = true)
     public void update(Cargo cargo) {
         em.merge(cargo);
     }
 
-    @CacheEvict(value = "cargos", allEntries = true)
+    @CacheEvict(value = "listaCargos", allEntries = true)
     public void delete(Integer id) {
         Cargo cargo = em.find(Cargo.class, id);
         em.remove(cargo);
