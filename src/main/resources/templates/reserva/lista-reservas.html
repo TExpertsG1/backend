@@ -26,7 +26,10 @@
                     <h3 class="i-name">Reservas</h3>
                     <p>Lista das reservas</p>
                 </div>
-                <button class="btn-cad-client" onclick="window.location.href='/formReserva'">
+                <button
+                    class="btn-cad-client"
+                    onclick="window.location.href='/formReserva'"
+                >
                     Cadastrar
                 </button>
             </div>
@@ -53,35 +56,36 @@
                                 <td th:text="${reserva.idreserva}"></td>
                                 <td th:text="${reserva.idquarto}"></td>
                                 <td th:text="${reserva.hospede_cpf}"></td>
-                                <td >Status</td>
+                                <td>Status</td>
                                 <td th:text="${reserva.quantidade_adulto}"></td>
                                 <td
                                     th:text="${reserva.quantidade_crianca}"
                                 ></td>
                                 <td th:text="${reserva.data_check_in}"></td>
                                 <td th:text="${reserva.data_check_out}"></td>
-                                <td >Valor</td>
+                                <td>Valor</td>
 
                                 <td>
                                     <form
-                                    method="get"
-                                    style="display: inline-block"
-                                    th:action="@{/modificarReserva/{idreserva}(idreserva=${reserva.idreserva})}"
+                                        method="get"
+                                        style="display: inline-block"
+                                        th:action="@{/modificarReserva/{idreserva}(idreserva=${reserva.idreserva})}"
                                     >
                                         <button
-                                        onclick="return confirm('Tem certeza que deseja modificar esta reserva?')"
-                                        type="submit"
+                                            onclick="return confirm('Tem certeza que deseja modificar esta reserva?')"
+                                            type="submit"
                                         >
-                                        Modificar
+                                            Modificar
                                         </button>
                                     </form>
+
                                     <form
                                         action="/deletarReserva"
                                         method="post"
                                         style="display: inline-block"
                                     >
                                         <input
-                                            name="idreserva"
+                                            name="id"
                                             th:value="${reserva.idreserva}"
                                             type="hidden"
                                         />

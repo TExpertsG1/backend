@@ -36,16 +36,28 @@
                 <form
                     class="form"
                     method="post"
-                    th:action="@{/cadastrarHospede}"
+                    th:action="@{/atualizarHospede}"
                     th:object="${hospede}"
                 >
                     <p>
                         <span>CPF:</span>
-                        <input id="cpf" name="cpf" required type="text" th:value="${hospede.cpf}"/>
+                        <input
+                            id="cpf"
+                            name="cpf"
+                            required
+                            type="text"
+                            th:value="${hospede.cpf}"
+                        />
                     </p>
                     <p>
                         <span>Nome:</span>
-                        <input id="nome" name="nome" required type="text" th:value="${hospede.nome}"/>
+                        <input
+                            id="nome"
+                            name="nome"
+                            required
+                            type="text"
+                            th:value="${hospede.nome}"
+                        />
                     </p>
                     <p>
                         <span>Data de Nascimento:</span>
@@ -69,7 +81,13 @@
                     </p>
                     <p>
                         <span>Email:</span>
-                        <input id="email" name="email" required type="text" th:value="${hospede.email}"/>
+                        <input
+                            id="email"
+                            name="email"
+                            required
+                            type="text"
+                            th:value="${hospede.email}"
+                        />
                     </p>
                     <button class="btn-cad-client" type="submit">Salvar</button>
                 </form>

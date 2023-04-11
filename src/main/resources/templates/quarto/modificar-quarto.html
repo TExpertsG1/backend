@@ -36,11 +36,11 @@
                 <form
                     class="form"
                     method="post"
-                    th:action="@{/cadastrarQuarto}"
+                    th:action="@{/atualizarQuarto}"
                     th:object="${quarto}"
                 >
                     <input
-                        name="id"
+                        name="idquarto"
                         th:value="${quarto.idquarto}"
                         type="hidden"
                     />
@@ -56,7 +56,13 @@
                     </p>
                     <p>
                         <span>Nome do Quarto:</span>
-                            <input id="nome_quarto" name="nome_quarto" required type="text" th:value="${quarto.nome_quarto}"/>
+                        <input
+                            id="nome_quarto"
+                            name="nome_quarto"
+                            required
+                            type="text"
+                            th:value="${quarto.nome_quarto}"
+                        />
                     </p>
                     <p>
                         <span>Numero do Quarto:</span>
@@ -64,7 +70,7 @@
                             id="numero"
                             name="numero"
                             required
-                            type="date"
+                            type="number"
                             th:value="${quarto.numero}"
                         />
                     </p>
@@ -74,13 +80,19 @@
                             id="capacidade"
                             name="capacidade"
                             required
-                            type="text"
+                            type="number"
                             th:value="${quarto.capacidade}"
                         />
                     </p>
                     <p>
                         <span>Valor da diária:</span>
-                        <input id="diaria" name="diaria" required type="text" th:value="${quarto.diaria}"/>
+                        <input
+                            id="diaria"
+                            name="diaria"
+                            required
+                            type="text"
+                            th:value="${quarto.diaria}"
+                        />
                     </p>
                     <button class="btn-cad-client" type="submit">Enviar</button>
                 </form>

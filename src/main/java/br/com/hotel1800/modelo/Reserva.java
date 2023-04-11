@@ -34,6 +34,17 @@ public class Reserva {
         this.data_check_out = data_check_out;
     }
 
+    public Reserva(int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
+                   LocalDate data_check_in, LocalDate data_check_out) {
+        this.idreserva = idreserva;
+        this.idquarto = idquarto;
+        this.hospede_cpf = hospede_cpf;
+        this.quantidade_adulto = quantidade_adulto;
+        this.quantidade_crianca = quantidade_crianca;
+        this.data_check_in = data_check_in;
+        this.data_check_out = data_check_out;
+    }
+
     public int getIdreserva() {
         return idreserva;
     }
