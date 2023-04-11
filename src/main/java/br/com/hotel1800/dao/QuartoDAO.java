@@ -30,8 +30,8 @@ public class QuartoDAO {
         return em.createQuery("select q from Quarto q", Quarto.class).getResultList();
     }
 
-    public List<Integer> readIdQuartos() {
-        return em.createQuery("SELECT q.idquarto FROM Quarto q", Integer.class).getResultList();
+    public List<Object[]> readIdNomeQuartos() {
+        return em.createQuery("SELECT q.idquarto, q.nome_quarto FROM Quarto q", Object[].class).getResultList();
     }
 
     @CacheEvict(value = "listaQuartos", allEntries = true)

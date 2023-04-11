@@ -1,35 +1,79 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Modificar Hóspede</title>
-</head>
-<body>
-<h1>Modificar Hóspede</h1>
-<form method="post" th:action="@{/atualizarHospede}">
-    <div>
-        <label for="nome">Nome:</label>
-        <input id="nome" name="nome" required="required" th:value="${hospede.nome}" type="text"/>
-    </div>
-    <div>
-        <label for="data_nascimento">Data de Nascimento:</label>
-        <input id="data_nascimento" name="data_nascimento" required="required" th:value="${hospede.data_nascimento}"
-               type="date"/>
-    </div>
-    <div>
-        <label for="telefone">Telefone:</label>
-        <input id="telefone" name="telefone" required="required" th:value="${hospede.telefone}" type="text"/>
-    </div>
-    <div>
-        <label for="email">E-mail:</label>
-        <input id="email" name="email" required="required" th:value="${hospede.email}" type="email"/>
-    </div>
-    <div>
-        <input id="cpf" name="cpf" th:value="${hospede.cpf}" type="hidden"/>
-        <input type="submit" value="Modificar"/>
-    </div>
-</form>
-<br/>
-<a th:href="@{/hospedes}">Voltar</a>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
+        <link rel="stylesheet" th:href="@{/styleTable.css}" />
+        <title>Cadastrar Hospede</title>
+    </head>
+    <body>
+        <section
+            th:replace="~{Componentes/sistema-section-1 :: section}"
+        ></section>
+
+        <section id="interface">
+            <div class="navegation">
+                <div>
+                    <div>
+                        <i class="fas fa-bars" id="menu-btn"></i>
+                    </div>
+                    <h3 class="i-name">Hóspede</h3>
+                    <p>Cadatro de hóspede</p>
+                </div>
+                <button
+                    class="btn-cad-client"
+                    onclick="window.location.href='/hospedes'"
+                >
+                    Voltar
+                </button>
+            </div>
+
+            <div class="formContainer">
+                <form
+                    class="form"
+                    method="post"
+                    th:action="@{/cadastrarHospede}"
+                    th:object="${hospede}"
+                >
+                    <p>
+                        <span>CPF:</span>
+                        <input id="cpf" name="cpf" required type="text" th:value="${hospede.cpf}"/>
+                    </p>
+                    <p>
+                        <span>Nome:</span>
+                        <input id="nome" name="nome" required type="text" th:value="${hospede.nome}"/>
+                    </p>
+                    <p>
+                        <span>Data de Nascimento:</span>
+                        <input
+                            id="data_nascimento"
+                            name="data_nascimento"
+                            required
+                            type="date"
+                            th:value="${hospede.data_nascimento}"
+                        />
+                    </p>
+                    <p>
+                        <span>Telefone:</span>
+                        <input
+                            id="telefone"
+                            name="telefone"
+                            required
+                            type="text"
+                            th:value="${hospede.telefone}"
+                        />
+                    </p>
+                    <p>
+                        <span>Email:</span>
+                        <input id="email" name="email" required type="text" th:value="${hospede.email}"/>
+                    </p>
+                    <button class="btn-cad-client" type="submit">Salvar</button>
+                </form>
+            </div>
+        </section>
+    </body>
 </html>
