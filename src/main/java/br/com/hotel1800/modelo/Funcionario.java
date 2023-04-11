@@ -65,13 +65,6 @@ public class Funcionario {
 
     public String getCpf() { return cpf; }
 
-    /*    public String getCpf() {
-        return cpf.substring(0, 3) + "." +
-                cpf.substring(3, 6) + "." +
-                cpf.substring(6, 9) + "-" +
-                cpf.substring(9, 11);
-    }*/
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
@@ -118,13 +111,7 @@ public class Funcionario {
         this.data_admissao = data_admissao;
     }
 
-    public LocalDate getData_demissao() {
-        if (data_demissao != null) {
-            return data_demissao;
-        } else {
-            return LocalDate.of(0000, 01, 01);
-        }
-    }
+    public LocalDate getData_demissao() { return data_demissao; }
 
     public void setData_demissao(LocalDate data_demissao) {
         this.data_demissao = data_demissao;

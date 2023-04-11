@@ -9,11 +9,8 @@
             href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
             rel="stylesheet"
         />
-
-        <link rel="stylesheet" th:href="@{/css/sistema/estilo.css}" />
-        <link rel="stylesheet" th:href="@{/css/sistema/estilo2.css}" />
-
-        <title>Dashboard</title>
+        <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
+        <title>Funcionários</title>
     </head>
     <body>
         <section
@@ -29,7 +26,10 @@
                     <h3 class="i-name">Funcionarios</h3>
                     <p>Lista dos funcionarios do Hotel</p>
                 </div>
-                <button class="cadastro" th:href="@{/formFuncionario}">
+                <button
+                    class="btn-cad-client"
+                    onclick="window.location.href='/formFuncionario'"
+                >
                     Cadastrar
                 </button>
             </div>
@@ -39,9 +39,10 @@
                     <table width="100%">
                         <thead>
                             <tr>
-                                <th>foto</th>
-                                <th>CPF</th>
-                                <th>Nome</th>
+                                <th>Funcionário</th>
+                                <th>Cargo</th>
+                                <th>Status</th>
+                                <th>Data de Admissão</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -52,24 +53,26 @@
                                         alt="Imagem do funcionário"
                                         th:src="@{${funcionario.imagem}}"
                                     />
-                                    <div class="people-de">
+                                    <div>
                                         <h5 th:text="${funcionario.nome}"></h5>
                                         <p
                                             th:text="${#strings.substring(funcionario.cpf, 0, 3) + '.' + #strings.substring(funcionario.cpf, 3, 6) + '.' + #strings.substring(funcionario.cpf, 6, 9)  + '-' + #strings.substring(funcionario.cpf, 9, 11)}"
                                         ></p>
                                     </div>
                                 </td>
-
-                                <td class="active">
-                                    <p>Active</p>
-                                </td>
-
-                                <td class="role">
+                                <td
+                                    th:text="${cargoMap.containsKey(funcionario.idcargos) ? cargoMap.get(funcionario.idcargos) : 'Cargo não encontrado'}"
+                                ></td>
+                                <td
+                                    th:class="${funcionario.data_demissao == null || funcionario.data_demissao == '' ? 'active' : 'desactive'}"
+                                >
                                     <p
-                                        th:text="${funcionario.data_admissao}"
+                                        th:text="${funcionario.data_demissao == null || funcionario.data_demissao == '' ? 'Ativo' : 'Inativo'}"
                                     ></p>
                                 </td>
-
+                                <td
+                                    th:text="${#strings.substring(funcionario.data_admissao, 8, 10) + '/' + #strings.substring(funcionario.data_admissao, 5, 7) + '/' + #strings.substring(funcionario.data_admissao, 0, 4)}"
+                                ></td>
                                 <td>
                                     <form
                                         method="get"
@@ -91,7 +94,6 @@
                                             Modificar
                                         </button>
                                     </form>
-
                                     <form
                                         action="/deletarFuncionario"
                                         method="post"

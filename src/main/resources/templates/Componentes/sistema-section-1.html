@@ -7,12 +7,12 @@
     </div>
     <nav class="items">
         <!--class="selecionada"-->
-        <li><i class="fa-solid fa-circle-stop"></i><a th:href="@{/sistema}">Dashboard</a></li>
-        <li><i class="fa-solid fa-users"></i><a th:href="@{/hospedes}">Hospedes</a></li>
-        <li><i class="fa-solid fa-book"></i><a th:href="@{/reservas}">Reservas</a></li>
-        <li><i class="fa-solid fa-bed"></i><a th:href="@{/quartos}">Quartos</a></li>
-        <li><i class="fa-solid fa-users-gear"></i><a th:href="@{/funcionarios}">Funcionarios</a></li>
-        <li><i class="fa-solid fa-gear"></i><a th:href="@{/cargos}">Cargos</a></li>
-        <li class="sair-"><i class="fa-solid fa-circle-xmark"></i></i></i><a th:href="@{/logout}">Sair</a></li>
+        <a th:href="@{/sistema}"><li><i class="fa-solid fa-circle-stop"></i>Dashboard</li></a>
+        <a th:href="@{/hospedes}"><li><i class="fa-solid fa-users"></i>Hospedes</li></a>
+        <a th:href="@{/reservas}"><li><i class="fa-solid fa-book"></i>Reservas</li></a>
+        <a th:href="@{/quartos}"><li><i class="fa-solid fa-bed"></i>Quartos</li></a>
+        <a th:href="@{/funcionarios}"><li><i class="fa-solid fa-users-gear"></i>Funcionarios</li></a>
+        <a th:href="@{/cargos}"><li><i class="fa-solid fa-gear"></i>Cargos</li></a>
+        <a th:href="@{/logout}"><li class="sair-"><i class="fa-solid fa-circle-xmark"></i></i></i>Sair</li></a>
     </nav>
 </section>

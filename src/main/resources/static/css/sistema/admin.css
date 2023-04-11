@@ -1,14 +1,14 @@
-@import url('https://fonts.google.apis.com/css2?family=Poppins:2ght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.google.apis.com/css2?family=Poppins:2ght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
-:root{
-    --Nav: #87664B;
+:root {
+    --Nav: #87664b;
     --NavFont: #fff;
     --Color: rgb(237, 229, 227);
     --Main: #fff;
@@ -22,7 +22,7 @@ body {
 }
 
 #menu {
-    background: #AD9479;
+    background: #ad9479;
     width: 250px;
     height: 100%;
     position: fixed;
@@ -34,7 +34,7 @@ body {
     text-align: center;
     padding: 20px 0 4px 6px;
     color: #fff;
-    border-bottom: 1px solid #EDE5E3;
+    border-bottom: 1px solid #ede5e3;
 }
 
 #menu h4 {
@@ -47,10 +47,6 @@ body {
     border-radius: 50%;
 }
 
-/* #menu .items {
-    margin-top: 0;
-} */
-
 #menu .items li {
     list-style: none;
     padding: 15px 0;
@@ -58,12 +54,12 @@ body {
 }
 
 #menu .items li:hover {
-    background: #EDE5E3;
+    background: #ede5e3;
     cursor: pointer;
 }
 
 #menu .items .selecionada {
-    border-left: 4px solid #EDE5E3;
+    border-left: 4px solid #ede5e3;
 }
 
 #menu .items li i {
@@ -78,10 +74,10 @@ body {
 
 #menu .items li:hover i,
 #menu .items li:hover a {
-    color: #AD9479;
+    color: #ad9479;
 }
 
-#menu .items li a {
+#menu .items a {
     text-decoration: none;
     color: #fff;
     font-size: 16px;
@@ -100,26 +96,26 @@ body {
 }
 
 #interface .navegation {
-    background: #EDE5E3;
+    background: #ede5e3;
     padding: 80px 80px 80px 60px;
-    box-shadow: 1px 1px 10px rgba(122, 120, 120, 0.8);    
+    box-shadow: 1px 1px 10px rgba(122, 120, 120, 0.8);
 }
 
 #interface .navegation h3 {
     font-size: 18px;
-    color: #AD9479;
+    color: #ad9479;
     font-weight: 600;
 }
 
 #interface .navegation p {
     font-size: 14px;
-    color: #AD9479;
+    color: #ad9479;
     font-weight: 400;
 }
 
 #interface .navegation .cadastro {
     color: #fff;
-    background: #AD9479;
+    background: #ad9479;
     border: #fff;
     padding: 0 30px;
     font-size: 16px;
@@ -128,7 +124,7 @@ body {
 
 #menu-btn {
     display: none;
-    color: #AD9479;
+    color: #ad9479;
     font-size: 20px;
     cursor: pointer;
     margin-right: 20px;
@@ -138,13 +134,13 @@ body {
     margin: -70px 0px 0 60px;
     padding: 0px;
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
 .values .val-box {
     font-size: 30px;
-    color: #AD9479;
+    color: #ad9479;
     font-weight: 600;
     background: #fff;
     width: 200px;
@@ -162,7 +158,6 @@ body {
 .values .val-box h3 {
     font-size: 18px;
 }
-
 
 .board {
     /* display: none; */
@@ -184,14 +179,13 @@ body {
 .board h5 {
     font-weight: 600;
     font-size: 14px;
-    color: #AD9479;
+    color: #ad9479;
 }
 
-.board p {
+.board {
     font-weight: 400;
-    font-size: 13px;
-    /* color: #787d8d; */
-    color: #AD9479;
+    font-size: 16px;
+    color: #ad9479;
 }
 
 .board .people {
@@ -209,7 +203,7 @@ thead td {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
-    background: #AD9479;
+    background: #ad9479;
     /* background: #F9FAFB; */
     text-align: start;
     padding: 15px;
@@ -221,10 +215,12 @@ tbody tr td {
 }
 
 tbody .impar {
-    background-color: #AD9479;
+    background-color: #ad9479;
 }
 
-.impar h5, .impar p, .impar td a {
+.impar h5,
+.impar p,
+.impar td a {
     color: #fff;
 }
 
@@ -233,7 +229,7 @@ tbody .impar {
     padding: 2px 10px;
     display: inline-block;
     border-radius: 40px;
-    color: #AD9479;
+    color: #ad9479;
 }
 
 .desactive p {
@@ -241,48 +237,52 @@ tbody .impar {
     padding: 2px 10px;
     display: inline-block;
     border-radius: 40px;
-    color: #AD9479;
+    color: #fff;
 }
 
 .edit a {
     text-decoration: none;
     font-size: 14px;
-    color: #AD9479;
+    color: #ad9479;
     font-weight: 600;
 }
 
 .btns {
-    float:right;
+    float: right;
     margin-top: 10px;
-   }
-   
-   .btn-page {
-       color: var(--NavFont);
-       background-color: var(--Nav);
-       border:none;
-       width: 30px;
-       height: 3em;       
-   }
-   
-   .btn-list {
-       color: var(--Nav);
-       background-color: var(--Color);
-       border:none;
-       width: 100px;
-       height: 3em;
-       cursor: pointer;
-   }
-
-   .btn-cad-client {
-    color: var(--NavFont);
-    background-color: var(--Nav);
-    border:none;
-    width: 100px;
-    height: 3em;  
-    cursor: pointer; 
 }
 
+.btn-page {
+    color: var(--NavFont);
+    background-color: var(--Nav);
+    border: none;
+    width: 30px;
+    height: 3em;
+}
 
+.btn-list {
+    color: var(--Nav);
+    background-color: var(--Color);
+    border: none;
+    width: 100px;
+    height: 3em;
+    cursor: pointer;
+}
+
+.btn-cad-client {
+    color: #fff;
+    background: #ad9479;
+    border: #fff;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.btn-cad-client:hover {
+    background: #756452;
+}
 
 @media (max-width: 769px) {
     #menu .items .sair {
@@ -301,7 +301,7 @@ tbody .impar {
     }
 }
 
-@media (max-width:477px) {
+@media (max-width: 477px) {
     #menu {
         width: 250px;
         position: fixed;
@@ -313,7 +313,8 @@ tbody .impar {
         left: 0px;
     }
 
-    #main.inative, #cad-client.inative {
+    #main.inative,
+    #cad-client.inative {
         display: none;
     }
 
@@ -332,7 +333,7 @@ tbody .impar {
         transition: 0.3s ease;
     }
 
-    #menu.active~#interface {
+    #menu.active ~ #interface {
         width: calc(100% - 250px);
         margin-left: 250px;
         transition: 0.3s ease;
@@ -354,21 +355,18 @@ tbody .impar {
         padding: 40px 20px;
         text-align: center;
     }
-
 }
 #interface .navegation {
     display: flex;
-    justify-content: space-between
-    
+    justify-content: space-between;
 }
-
 
 .formulario {
     display: none;
     width: 96%;
     columns: 2;
     font-size: 30px;
-    color: #AD9479;
+    color: #ad9479;
     font-weight: 600;
     background: #fff;
     /* width: 200px;
@@ -385,7 +383,7 @@ table {
     text-align: left;
     width: 100%;
     align-items: center;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 table thead th {
@@ -395,7 +393,7 @@ table thead th {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
-    background: #AD9479;
+    background: #ad9479;
     text-align: left;
     color: #fff;
 }
@@ -426,13 +424,13 @@ table tbody tr td button {
 }
 
 table tbody tr td button {
-    background: #4CAF50;
+    background: #4caf50;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(34, 34, 34, 0.2);
     color: #fff;
-    font-weight: 700;;
-    padding: 10px 0;
+    font-weight: 700;
+    padding: 10px;
     width: 100%;
 }
 
@@ -445,9 +443,24 @@ table tbody tr td:before {
     display: none;
 }
 
-table tbody tr td button:hover, table tbody tr td button:focus {
+table tbody tr td button:hover,
+table tbody tr td button:focus {
     background: #a795fe;
     cursor: pointer;
+}
+
+/* table {
+    border-collapse: collapse;
+    width: 100%;
+} */
+
+.board {
+    max-height: 450px;
+    overflow-y: scroll;
+}
+
+thead {
+    position: sticky;
 }
 
 @media all and (max-width: 800px) {
@@ -485,4 +498,4 @@ table tbody tr td button:hover, table tbody tr td button:focus {
         display: block;
         border: 1px solid #dad6eb;
     }
-}  
+}

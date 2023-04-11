@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @Transactional
@@ -29,6 +31,16 @@ public class CargoDAO {
     public List<Cargo> readAll() {
         return em.createQuery("SELECT c FROM Cargo c", Cargo.class).getResultList();
     }
+
+    public Map<Integer, String> getCargoMap() {
+        List<Cargo> cargos = em.createQuery("SELECT c FROM Cargo c", Cargo.class).getResultList();
+        Map<Integer, String> cargoMap = new HashMap<>();
+        for (Cargo cargo : cargos) {
+            cargoMap.put(cargo.getId(), cargo.getCargo());
+        }
+        return cargoMap;
+    }
+
 
     @CacheEvict(value = "cargos", allEntries = true)
     public void update(Cargo cargo) {

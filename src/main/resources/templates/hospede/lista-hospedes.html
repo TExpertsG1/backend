@@ -4,14 +4,12 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <link
             href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
             rel="stylesheet"
         />
         <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
-
-        <title>Clientes</title>
+        <title>Hospede</title>
     </head>
     <body>
         <section
@@ -23,11 +21,15 @@
                     <div>
                         <i class="fas fa-bars" id="menu-btn"></i>
                     </div>
-                    <h3 class="i-name">Clientes</h3>
+                    <h3 class="i-name">Hospedes</h3>
                     <p>Lista dos hospedes</p>
                 </div>
-                <button class="btn-cad-client" id="cad-client" type="button">
-                    Cadastrar Cliente
+                <button
+                    class="btn-cad-client"
+                    id="cad-client"
+                    onclick="window.location.href='/formHospede'"
+                >
+                    Cadastrar
                 </button>
             </div>
 
@@ -45,8 +47,8 @@
                                 <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody th:each="hospede : ${hospedes}">
-                            <tr>
+                        <tbody>
+                            <tr th:each="hospede : ${hospedes}">
                                 <td th:text="${hospede.nome}"></td>
 
                                 <td th:text="${hospede.email}"></td>

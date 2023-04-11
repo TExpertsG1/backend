@@ -1,5 +1,6 @@
 package br.com.hotel1800.controller;
 
+import br.com.hotel1800.dao.CargoDAO;
 import br.com.hotel1800.dao.FuncionarioDAO;
 import br.com.hotel1800.modelo.Funcionario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class FuncionarioController {
@@ -17,10 +19,20 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioDAO funcionarioDAO;
 
+    @Autowired
+    private CargoDAO cargoDAO;
+
     @GetMapping("/funcionarios")
     public String listarFuncionarios(Model model) {
         List<Funcionario> funcionarios = funcionarioDAO.readAll();
+        Map<Integer, String> cargoMap = cargoDAO.getCargoMap();
+
+        System.out.println(cargoMap);
+        System.out.println(cargoMap.get(13));
+
         model.addAttribute("funcionarios", funcionarios);
+        model.addAttribute("cargoMap", cargoMap);
+
         return "funcionario/lista-funcionarios";
     }
 
