@@ -3,6 +3,8 @@ package br.com.hotel1800.dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import br.com.hotel1800.modelo.Hospede;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
@@ -22,13 +24,11 @@ public class HotelDAO {
         em.persist(hotel);
     }
 
-    public Hotel read(Integer id) {
-        return em.find(Hotel.class, id);
-    }
+    public Hotel read(Integer id) { return em.find(Hotel.class, id); }
 
     @Cacheable("listaHotel")
     public List<Hotel> readAll() {
-        return em.createQuery("SELECT c FROM hotel c", Hotel.class).getResultList();
+        return em.createQuery("select c from Hotel c", Hotel.class).getResultList();
     }
 
     @CacheEvict(value = "listaHotel", allEntries = true)

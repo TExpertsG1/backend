@@ -28,7 +28,11 @@ public class ReservaController {
     @GetMapping("/reservas")
     public String listaReservas(Model model) {
         List<Reserva> reservas = reservaDAO.readAll();
+        List<Object[]> quartos = quartoDAO.readIdNomeQuartos();
+
         model.addAttribute("reservas", reservas);
+        model.addAttribute("quartos", quartos);
+
         return "reserva/lista-reservas";
     }
 
@@ -75,4 +79,5 @@ public class ReservaController {
         reservaDAO.delete(id);
         return "redirect:/reservas";
     }
+
 }

@@ -44,17 +44,11 @@ public class Hotel {
         this.nome = nome;
     }
 
-    public String getLogradouro() {
-        return logradouro;
-    }
+    public String getLogradouro() { return logradouro; }
 
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
+    public void setLogradouro(String logradouro) { this.logradouro = logradouro; }
 
-    public String getCep() {
-        return cep;
-    }
+    public String getCep() { return cep; }
 
     public void setCep(String cep) {
         this.cep = cep;
