@@ -12,8 +12,8 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idreserva;
-
     private String nome;
+    private String email;
     private int idquarto;
     private String hospede_cpf;
     private int quantidade_adulto;
@@ -29,6 +29,7 @@ public class Reserva {
     public Reserva(int idreserva, String nome, int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
                    LocalDate data_check_in, LocalDate data_check_out) {
         this.nome = nome;
+        this.email = email;
         this.idreserva = idreserva;
         this.idquarto = idquarto;
         this.hospede_cpf = hospede_cpf;
@@ -41,6 +42,7 @@ public class Reserva {
     public Reserva(int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
                    LocalDate data_check_in, LocalDate data_check_out) {
         this.nome= nome;
+        this.nome= email;
         this.idreserva = idreserva;
         this.idquarto = idquarto;
         this.hospede_cpf = hospede_cpf;
@@ -65,6 +67,10 @@ public class Reserva {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) {this.email = email;}
 
     public int getIdquarto() {
         return idquarto;
@@ -119,7 +125,8 @@ public class Reserva {
         return "ID Reserva: " + idreserva + "\nID Quarto: " + idquarto + "\nCPF do Hospede: " + hospede_cpf
                 + "\nQuantidade de Adulto: " + quantidade_adulto + "\nQuantidade de Crianca: " + quantidade_crianca
                 + "\nData Check-IN: " + data_check_in.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-                + "\nData Check-OUT: " + data_check_out.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n------";
+                + "\nData Check-OUT: " + data_check_out.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "Email: " + email +
+                "\n------";
     }
 
 }

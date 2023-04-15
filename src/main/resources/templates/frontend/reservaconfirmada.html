@@ -43,6 +43,7 @@
           <th>Código Quarto</th>
           <th>CPF</th>
           <th>Hóspede</th>
+          <th>Email</th>
           <th>Status</th>
           <th>Qnt. Adultos</th>
           <th>Qnt. Crianças</th>
@@ -58,6 +59,7 @@
           <td th:text="${reserva.idquarto}"></td>
           <td th:text="${reserva.hospede_cpf}"></td>
           <td th:text="${reserva.nome}"></td>
+          <td th:text="${reserva.email}"></td>
           <td>Status</td>
           <td th:text="${reserva.quantidade_adulto}"></td>
           <td
@@ -65,23 +67,11 @@
           ></td>
           <td th:text="${reserva.data_check_in}"></td>
           <td th:text="${reserva.data_check_out}"></td>
+
           <td>Valor</td>
 
           <td>
-            <form
-                    method="get"
-                    style="display: inline-block"
-                    th:action="@{/modificarReserva/{idreserva}(idreserva=${reserva.idreserva})}"
-            >
-              <button
-                      onclick="return confirm('Tem certeza que deseja modificar esta reserva?')"
-                      type="submit"
-              >
-                Modificar
-              </button>
-            </form>
-
-            <form
+             <form
                     action="/deletarReservaIndex"
                     method="post"
                     style="display: inline-block"
@@ -95,7 +85,7 @@
                       onclick="return confirm('Tem certeza que deseja excluir esta reserva?')"
                       type="submit"
               >
-                Excluir
+                Cancelar Reserva
               </button>
             </form>
           </td>
