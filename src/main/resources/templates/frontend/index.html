@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FAVICONS -->
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/imagens/favicon/apple-touch-icon.png}" />
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/imagens/favicon/favicon-32x32.png}" />
+    <link rel="icon" type="image/png" sizes="192x192" th:href="@{/imagens/favicon/android-chrome-192x192.png}" />
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/imagens/favicon/favicon-16x16.png}" />
+    <link rel="manifest" th:href="@{/imagens/favicon/site.webmanifest}" />
+    <link rel="mask-icon" th:href="@{/imagens/favicon/safari-pinned-tab.svg}" color="#5bbad5" />
+    <meta name="apple-mobile-web-app-title" content="Hotel 1800" />
+    <meta name="application-name" content="Hotel 1800" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-TileImage" th:href="@{/imagens/favicon/mstile-144x144.png}" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- end FAVICONS -->
+    <link rel="stylesheet" th:href="@{/css/sistema/_style.css}" />
+    <link
+      rel="stylesheet"
+      th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"
+    />
+    <script th:src="@{https://kit.fontawesome.com/54d71879ed.js}" crossorigin="anonymous"></script>
+    <link th:href="@{https://fonts.googleapis.com}" rel="preconnect" />
+    <link th:href="@{https://fonts.gstatic.com}" rel="preconnect" crossorigin />
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Baskervville&display=swap}" rel="stylesheet" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="principal">
+      <header>
+        <section>
+          <div>
+            <div class="userBar">
+              <a id="login"  onclick="window.location.href='/sistema'">Intranet</a>
+              <a id="logout" onclick="window.location.href='/#reserva'">Sair</a>
+            </div>
+            <span class="mainHeader">
+              <a th:href="@{/index.html}"><img height="100%" th:src="@{/imagens/logo_1800.png}" /></a>
+             </span>
+            <div class="nomeLogo">
+              <span>Hotel 1800</span>
+            </div>
+          </div>
+        </section>
+      </header>
+    </div>
+    <br />
+    <main>
+    <section id="sobre">
+      <div class="principal">
+        <div class="container-grid">
+          <div id="containersobre01">
+            <img th:src="@{/imagens/hotel-casa-1800-sevilla.jpg}" alt="Sobre o nosso hotel" />
+          </div>
+          <div id="containersobre02">
+            <h2>Nossa história</h2>
+            <p>
+              O Hotel 1800 é uma mansão-palácio localizada no centro histórico de Sevilha. A
+              história das mansões-palácios de Sevilha remonta ao início do século XIX, a Idade de
+              Ouro de Sevilha, com grandes românticos, os heróis da lenda, Don Juan Tenorio,
+              Carmen la Cigarrera, Lord Byron, Bécquer…
+            </p>
+            <p>
+              Esta casa foi construída em 1864 seguindo um layout tradicional. Suas portas de
+              madeira maciça cravejadas permitem a entrada no palácio com uma carruagem puxada por
+              cavalos, da qual, quando a pé, pode-se acessar um pátio central de todos os quartos.
+            </p>
+             </div>
+        </div>
+      </div>
+    </section>
+    <br />
+    <section id="acomodacoes" class="principal">
+      <div>
+
+      <div class="galeria">
+        <div > <h2>Nossas Acomodações</h2>
+
+          <div class="gallery">
+            <a th:href="@{./pages/acomodacoes.html#suiteFamilia}">
+              <img th:src="@{/imagens/acomodacao1.jpg}" alt="Suíte Familia" />
+            </a>
+            <br />
+            <div class="desc">Suite Família</div>
+          </div>
+          <div class="gallery">
+            <a th:href="@{./pages/acomodacoes.html#suiteMaster}">
+              <img th:src="@{/imagens/acomodacao2.jpg}" alt="Suíte Master" />
+            </a>
+            <div class="desc">Suíte Master</div>
+          </div>
+
+          <div class="gallery">
+            <a th:href="@{./pages/acomodacoes.html#suitePremium}">
+              <img th:src="@{/imagens/acomodacao3.jpg}" alt="Suíte Premium" />
+            </a>
+            <div class="desc">Suíte Premium</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <div class="principal">
+      <div id="acomodacoesfundo"></div>
+    </div>
+    <section id="servicos_principal" th:fragment="servicos_principal">
+      <div class="principal">
+        <h2 class="h2Color">Conheça mais sobre nossos serviços</h2>
+        <article id="servicos">
+          <div class="container-servicos">
+            <div class="container-servicos2">
+              <div class="divIcon">
+                <i class="fa-solid fa-heart fa-2x"></i>
+                <h2 class="h1Color">Experiência Romântica</h2>
+              </div>
+              <p class="textos">
+                Se você está pensando em comemorar sua lua de mel, aniversário ou noite de
+                núpcias, queremos fazer parte da celebração. Você vai precisar de flores,
+                champanhe, chocolates e muito amor, e na Casa 1800 temos de tudo, deixe-nos
+                ajudá-lo...
+              </p>
+            </div>
+            <div class="container-servicos2">
+              <div class="divIcon">
+                <i class="fa-solid fa-person-burst fa-2x"></i>
+                <h2 class="h1Color">Bem Estar</h2>
+              </div>
+              <p class="textos">
+                Em nossa casa também queremos que você relaxe, você merece um descanso. Nossa
+                piscina, localizada no terraço, oferece vistas panorâmicas de uma área rica em
+                história, incluindo vistas do Real Alcázar, do Hospital de los Venerables, da
+                Catedral e da Giralda.
+              </p>
+
+            </div>
+            <div class="container-servicos2">
+              <div class="divIcon">
+                <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                <h2 class="h1Color">Cultura</h2>
+              </div>
+              <p class="textos">
+                Vários dos museus que temos na cidade também são famosos e queremos ajudá-lo a
+                esgueirar-se por eles, visite o museu de arte flamenca, o museu marítimo ou o
+                típico e famoso museu das carruagens.
+              </p>
+             </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <br />
+    <section id="gastronomia">
+      <div class="principal">
+        <div class="container-grid-gastro">
+          <div id="containergastro02">
+            <h2 >Gastronomia</h2>
+            <p>
+              Se você está pensando em comemorar sua lua de mel, aniversário ou noite de núpcias,
+              queremos fazer parte da celebração. Você vai precisar de flores, champanhe,
+              chocolates e muito amor, e na Casa 1800 temos de tudo, deixe-nos ajudá-lo.
+            </p>
+            <p>
+              Dispomos de 33 quartos decorados com bom gosto e elegância, onde poderá relaxar nos
+              seus lençóis de algodão egípcio e deliciar-se com o seu aroma a flores frescas,
+              pátios centrais da Andaluzia iluminados com os mais belos lustres, um terraço com
+              vistas deslumbrantes onde poderá tirar muitas fotografias daquele momento especial.
+            </p>
+          </div>
+          <div id="containergastro01">
+            <img src="/imagens/Gastronomia1.jpeg" alt="Sobre o nosso hotel" />
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+    <br />
+    <div class="principal">
+      <div class="continf">
+        <div class="div-contatos">
+          <form id="reserva" th:action="@{/add}" th:object="${reserva}" method="post" enctype="multipart/form-data">
+            <fieldset class="fieldsetFooter">
+              <legend>Faça sua Reserva</legend>
+              <p>
+                <span>Digite seu CPF</span>
+                <input id="hospede_cpf" name="hospede_cpf">
+              </p>
+              <p>
+                <span>Digite seu Nome</span>
+                <input id="nome" name="nome">
+              </p>
+              <p>
+                <span>Quarto:</span>
+                <select id="idquarto" name="idquarto">
+                  <option>Selecionar quarto</option>
+                  <option
+                          th:each="quarto : ${quartos}"
+                          th:text="${quarto[1]}"
+                          th:value="${quarto[0]}"
+
+                  ></option>
+
+                </select>
+              </p>
+              <p>
+                <span>Quantidade de Adultos:</span>
+                <input
+                        id="quantidade_adulto"
+                        name="quantidade_adulto"
+                        required
+                        type="number"
+                        value="1"
+                        min="1"
+                        max="6"
+
+                />
+              </p>
+              <p>
+                <span>Quantidade de Crianças:</span>
+                <input
+                        id="quantidade_crianca"
+                        name="quantidade_crianca"
+                        required
+                        type="number"
+                        value="0"
+                        min="0"
+                        max="4"
+                />
+              </p>
+              <p>
+                <span>Data de Entrada:</span>
+                <input
+                        id="data_check_in"
+                        name="data_check_in"
+                        required
+                        type="date"
+                />
+              </p>
+              <p>
+                <span>Data de Saída:</span>
+                <input
+                        id="data_check_out"
+                        name="data_check_out"
+                        required
+                        type="date"
+                />
+              </p>
+              <button name="add"class="btn-cad-client" type="submit">Confirmar Reserva</button>
+              <button name="verificarReserva" class="btn-cad-client" type="submit">Verificar Reserva</button>
+              <!--<a th:href="@{/index}" class="btn-cad-client" type="submit">Salvar</a>-->
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="principal">
+          <div class="informacoes">
+            <h2 id="contato" class="footerContato">Contato</h2>
+            <p class="footerContato">
+              <i class="fa-solid fa-location-dot"></i> Rua T.expert, 250 CEP 00.000-00
+            </p>
+            <p class="footerContato"><i class="fa-solid fa-phone-volume"></i> (00) 0 0000-0000</p>
+            <p class="footerContato">
+              <i class="fa-brands fa-square-whatsapp"></i> (00) 0 0000-0000
+            </p>
+            <p class="footerContato">
+              <i class="fa-solid fa-envelope"></i> hotel1800@hotel1800.com.br
+            </p>
+            <div></div>
+          </div>
+          <div class="redes-sociais">
+            <h2>Siga-nos</h2>
+            <a href="http://www.facebook.com.br"><i class="fa-brands fa-facebook"></i></a>
+            <a href="http://www.instagram.com"> <i class="fa-brands fa-square-instagram"></i></a>
+            <a href="http://www.twitter.com"><i class="fa-brands fa-square-twitter"></i></a>
+          </div>
+        </div>
+        </footer>
+          <div class="copyright principal">
+            <h5>&copy;2077 - Todos os direitos reservados</h5>
+          </div>
+  </body>
+</html>

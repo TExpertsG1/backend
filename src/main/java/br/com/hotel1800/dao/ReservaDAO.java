@@ -26,6 +26,11 @@ public class ReservaDAO {
     public List<Reserva> readAll() {
         return em.createQuery("SELECT r FROM Reserva r", Reserva.class).getResultList();
     }
+    public List<Reserva> readAllCpf(String hospede_cpf) {
+        return em.createQuery("SELECT r FROM Reserva r WHERE r.hospede_cpf = :hospede_cpf", Reserva.class)
+                .setParameter("hospede_cpf", hospede_cpf)
+                .getResultList();
+    }
 
     public void update(Reserva reserva) {
         em.merge(reserva);
@@ -35,5 +40,6 @@ public class ReservaDAO {
         Reserva reserva = em.find(Reserva.class, id);
         em.remove(reserva);
     }
+
 
 }

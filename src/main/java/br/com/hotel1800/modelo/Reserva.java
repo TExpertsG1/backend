@@ -12,19 +12,23 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idreserva;
+
+    private String nome;
     private int idquarto;
     private String hospede_cpf;
     private int quantidade_adulto;
     private int quantidade_crianca;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_check_in;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate data_check_out;
 
     public Reserva() {}
 
-    public Reserva(int idreserva, int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
+    public Reserva(int idreserva, String nome, int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
                    LocalDate data_check_in, LocalDate data_check_out) {
+        this.nome = nome;
         this.idreserva = idreserva;
         this.idquarto = idquarto;
         this.hospede_cpf = hospede_cpf;
@@ -36,6 +40,7 @@ public class Reserva {
 
     public Reserva(int idquarto, String hospede_cpf, int quantidade_adulto, int quantidade_crianca,
                    LocalDate data_check_in, LocalDate data_check_out) {
+        this.nome= nome;
         this.idreserva = idreserva;
         this.idquarto = idquarto;
         this.hospede_cpf = hospede_cpf;
@@ -51,6 +56,14 @@ public class Reserva {
 
     public void setIdreserva(int idreserva) {
         this.idreserva = idreserva;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getIdquarto() {

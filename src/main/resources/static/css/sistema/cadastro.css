@@ -1,0 +1,182 @@
+* {
+  font-family: "Baskerville";
+  box-sizing: border-box;
+  line-height: 1.5rem;
+}
+
+/*----Default Values----*/
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-family: "Baskerville";
+  color: #82694e;
+  background-color: #fff3f1;
+}
+
+a {
+  all: unset;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #fff3f1;
+  transition: background-color 0.6s ease;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.25rem;
+  font-style: bold;
+  line-height: 2.25rem;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 5rem;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 5rem;
+  color: #ad9479;
+}
+
+.principal {
+  margin: 10px 30px;
+}
+
+/*-----Header-------*/
+header {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-color: #ede5e3;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+header section {
+  width: 100%;
+}
+
+header section:first-of-type {
+  min-width: 10%;
+  max-width: 50%;
+}
+
+.mainHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 8px 0;
+}
+
+.mainHeader img {
+  max-height: 4rem;
+  max-width: 4rem;
+  border-radius: 4rem;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.navbar a {
+  padding: 0.5rem;
+  background-color: #ad9479;
+  border-radius: 0.5rem;
+}
+
+.navbar a:hover {
+  font-weight: bold;
+  background-color: #82694e;
+}
+
+/*-------- Form -------*/
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+  font-size: 0.85rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mainText {
+  font-size: 2rem;
+  padding-bottom: 2rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+}
+
+label {
+  width: 100%;
+  margin-bottom: 0.15rem;
+}
+
+input {
+  width: 98%;
+  height: 1.5rem;
+}
+
+button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #ad9479;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #fff3f1;
+  transition: background-color 0.6s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  font-weight: bold;
+  background-color: #82694e;
+}
+
+p {
+  padding: 0.25rem 0;
+  font-size: 0.75rem;
+}
+
+.formLinks {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #006ce4;
+}
+
+@media (max-width: 400px) {
+  header section:first-of-type {
+    max-width: 95%;
+  }
+}
+
+/*# sourceMappingURL=casdastro.css.map */
