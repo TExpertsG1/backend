@@ -1,117 +1,117 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <link
+<head>
+    <meta charset="UTF-8"/>
+    <link
             href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
             rel="stylesheet"
-        />
-        <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
-        <link rel="stylesheet" th:href="@{/styleTable.css}" />
-        <title>Cadastrar Reserva</title>
-    </head>
-    <body>
-        <section
-            th:replace="~{Componentes/sistema-section-1 :: section}"
-        ></section>
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Cadastrar Reserva</title>
+</head>
+<body>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
 
-        <section id="interface">
-            <div class="navegation">
-                <div>
-                    <div>
-                        <i class="fas fa-bars" id="menu-btn"></i>
-                    </div>
-                    <h3 class="i-name">Reserva</h3>
-                    <p>Cadatrar reserva</p>
-                </div>
-                <button
-                    class="btn-cad-client"
-                    onclick="window.location.href='/reservas'"
-                >
-                    Voltar
-                </button>
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
             </div>
+            <h3 class="i-name">Reserva</h3>
+            <p>Cadatrar reserva</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/reservas'"
+        >
+            Voltar
+        </button>
+    </div>
 
-            <div class="formContainer">
-                <form
-                    class="form"
-                    method="post"
-                    th:action="@{/atualizarReserva}"
-                    th:object="${reserva}"
+    <div class="formContainer">
+        <form
+                class="form"
+                method="post"
+                th:action="@{/atualizarReserva}"
+                th:object="${reserva}"
+        >
+            <input
+                    name="idreserva"
+                    th:value="${reserva.idreserva}"
+                    type="hidden"
+            />
+            <p>
+                <span>Hóspede:</span>
+                <select
+                        name="hospede_cpf"
+                        th:value="${reserva.hospede_cpf}"
                 >
-                    <input
-                        name="idreserva"
-                        th:value="${reserva.idreserva}"
-                        type="hidden"
-                    />
-                    <p>
-                        <span>Hóspede:</span>
-                        <select
-                            name="hospede_cpf"
-                            th:value="${reserva.hospede_cpf}"
-                        >
-                            <option
-                                th:each="cpf : ${hospedes}"
-                                th:text="${cpf}"
-                                th:value="${cpf}"
-                                th:selected="${cpf == reserva.hospede_cpf}"
-                            ></option>
-                        </select>
-                    </p>
-                    <p>
-                        <span>Quarto:</span>
-                        <select name="idquarto" th:value="${reserva.idquarto}">
-                            <option
-                                th:each="quarto : ${quartos}"
-                                th:text="${quarto[1]}"
-                                th:value="${quarto[0]}"
-                                th:selected="${quarto[0] == reserva.idquarto}"
-                            ></option>
-                        </select>
-                    </p>
-                    <p>
-                        <span>Quantidade de Adultos:</span>
-                        <input
-                            id="quantidade_adulto"
-                            name="quantidade_adulto"
-                            required
-                            type="number"
-                            th:value="${reserva.quantidade_adulto}"
-                        />
-                    </p>
-                    <p>
-                        <span>Quantidade de Crianças:</span>
-                        <input
-                            id="quantidade_crianca"
-                            name="quantidade_crianca"
-                            required
-                            type="number"
-                            th:value="${reserva.quantidade_crianca}"
-                        />
-                    </p>
-                    <p>
-                        <span>Data de Entrada:</span>
-                        <input
-                            id="data_check_in"
-                            name="data_check_in"
-                            required
-                            type="date"
-                            th:value="${reserva.data_check_in}"
-                        />
-                    </p>
-                    <p>
-                        <span>Data de Saída:</span>
-                        <input
-                            id="data_check_out"
-                            name="data_check_out"
-                            required
-                            type="date"
-                            th:value="${reserva.data_check_out}"
-                        />
-                    </p>
-                    <button class="btn-cad-client" type="submit">Salvar</button>
-                </form>
-            </div>
-        </section>
-    </body>
+                    <option
+                            th:each="cpf : ${hospedes}"
+                            th:selected="${cpf == reserva.hospede_cpf}"
+                            th:text="${cpf}"
+                            th:value="${cpf}"
+                    ></option>
+                </select>
+            </p>
+            <p>
+                <span>Quarto:</span>
+                <select name="idquarto" th:value="${reserva.idquarto}">
+                    <option
+                            th:each="quarto : ${quartos}"
+                            th:selected="${quarto[0] == reserva.idquarto}"
+                            th:text="${quarto[1]}"
+                            th:value="${quarto[0]}"
+                    ></option>
+                </select>
+            </p>
+            <p>
+                <span>Quantidade de Adultos:</span>
+                <input
+                        id="quantidade_adulto"
+                        name="quantidade_adulto"
+                        required
+                        th:value="${reserva.quantidade_adulto}"
+                        type="number"
+                />
+            </p>
+            <p>
+                <span>Quantidade de Crianças:</span>
+                <input
+                        id="quantidade_crianca"
+                        name="quantidade_crianca"
+                        required
+                        th:value="${reserva.quantidade_crianca}"
+                        type="number"
+                />
+            </p>
+            <p>
+                <span>Data de Entrada:</span>
+                <input
+                        id="data_check_in"
+                        name="data_check_in"
+                        required
+                        th:value="${reserva.data_check_in}"
+                        type="date"
+                />
+            </p>
+            <p>
+                <span>Data de Saída:</span>
+                <input
+                        id="data_check_out"
+                        name="data_check_out"
+                        required
+                        th:value="${reserva.data_check_out}"
+                        type="date"
+                />
+            </p>
+            <button class="btn-cad-client" type="submit">Salvar</button>
+        </form>
+    </div>
+</section>
+</body>
 </html>

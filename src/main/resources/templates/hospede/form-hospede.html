@@ -1,77 +1,77 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <link
+<head>
+    <meta charset="UTF-8"/>
+    <link
             href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
             rel="stylesheet"
-        />
-        <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
-        <link rel="stylesheet" th:href="@{/styleTable.css}" />
-        <title>Cadastrar Hospede</title>
-    </head>
-    <body>
-        <section
-            th:replace="~{Componentes/sistema-section-1 :: section}"
-        ></section>
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Cadastrar Hospede</title>
+</head>
+<body>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
 
-        <section id="interface">
-            <div class="navegation">
-                <div>
-                    <div>
-                        <i class="fas fa-bars" id="menu-btn"></i>
-                    </div>
-                    <h3 class="i-name">Hóspede</h3>
-                    <p>Modificar hóspede</p>
-                </div>
-                <button
-                    class="btn-cad-client"
-                    onclick="window.location.href='/hospedes'"
-                >
-                    Voltar
-                </button>
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
             </div>
+            <h3 class="i-name">Hóspede</h3>
+            <p>Modificar hóspede</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/hospedes'"
+        >
+            Voltar
+        </button>
+    </div>
 
-            <div class="formContainer">
-                <form
-                    class="form"
-                    method="post"
-                    th:action="@{/cadastrarHospede}"
-                    th:object="${hospede}"
-                >
-                    <p>
-                        <span>CPF:</span>
-                        <input id="cpf" name="cpf" required type="text" />
-                    </p>
-                    <p>
-                        <span>Nome:</span>
-                        <input id="nome" name="nome" required type="text" />
-                    </p>
-                    <p>
-                        <span>Data de Nascimento:</span>
-                        <input
-                            id="data_nascimento"
-                            name="data_nascimento"
-                            required
-                            type="date"
-                        />
-                    </p>
-                    <p>
-                        <span>Telefone:</span>
-                        <input
-                            id="telefone"
-                            name="telefone"
-                            required
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>Email:</span>
-                        <input id="email" name="email" required type="text" />
-                    </p>
-                    <button class="btn-cad-client" type="submit">Enviar</button>
-                </form>
-            </div>
-        </section>
-    </body>
+    <div class="formContainer">
+        <form
+                class="form"
+                method="post"
+                th:action="@{/cadastrarHospede}"
+                th:object="${hospede}"
+        >
+            <p>
+                <span>CPF:</span>
+                <input id="cpf" name="cpf" required type="text"/>
+            </p>
+            <p>
+                <span>Nome:</span>
+                <input id="nome" name="nome" required type="text"/>
+            </p>
+            <p>
+                <span>Data de Nascimento:</span>
+                <input
+                        id="data_nascimento"
+                        name="data_nascimento"
+                        required
+                        type="date"
+                />
+            </p>
+            <p>
+                <span>Telefone:</span>
+                <input
+                        id="telefone"
+                        name="telefone"
+                        required
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>Email:</span>
+                <input id="email" name="email" required type="text"/>
+            </p>
+            <button class="btn-cad-client" type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
+</body>
 </html>

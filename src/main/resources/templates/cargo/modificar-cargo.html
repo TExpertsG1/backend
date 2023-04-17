@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <link
+<link
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
         rel="stylesheet"
-    />
-    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
-    <link rel="stylesheet" th:href="@{/styleTable.css}" />
-    <head>
-        <meta charset="UTF-8" />
-        <title>Modificar Cargo</title>
-    </head>
-    <body>
-        <section
-            th:replace="~{Componentes/sistema-section-1 :: section}"
-        ></section>
+/>
+<link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+<link rel="stylesheet" th:href="@{/styleTable.css}"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Modificar Cargo</title>
+</head>
+<body>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
 
-        <section id="interface">
-            <div class="navegation">
-                <div>
-                    <div>
-                        <i class="fas fa-bars" id="menu-btn"></i>
-                    </div>
-                    <h3 class="i-name">Cargos</h3>
-                    <p>Modificar cargo</p>
-                </div>
-                <button
-                    class="btn-cad-client"
-                    onclick="window.location.href='/cargos'"
-                >
-                    Voltar
-                </button>
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
             </div>
+            <h3 class="i-name">Cargos</h3>
+            <p>Modificar cargo</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/cargos'"
+        >
+            Voltar
+        </button>
+    </div>
 
-            <div class="formContainer">
-                <form
-                    class="form"
-                    method="post"
-                    th:action="@{/atualizarCargo}"
-                    th:object="${cargo}"
-                >
-                    <input name="id" th:value="${cargo.id}" type="hidden" />
-                    <p>
-                        <span>Cargo:</span>
-                        <input
-                            id="nome"
-                            name="cargo"
-                            required="required"
-                            th:value="${cargo.cargo}"
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>Salário:</span>
-                        <input
-                            id="salario"
-                            name="salario"
-                            required="required"
-                            th:value="${cargo.salario}"
-                            type="text"
-                        />
-                    </p>
-                    <button class="btn-cad-client" type="submit">Salvar</button>
-                </form>
-            </div>
-        </section>
-    </body>
+    <div class="formContainer">
+        <form
+                class="form"
+                method="post"
+                th:action="@{/atualizarCargo}"
+                th:object="${cargo}"
+        >
+            <input name="id" th:value="${cargo.id}" type="hidden"/>
+            <p>
+                <span>Cargo:</span>
+                <input
+                        id="nome"
+                        name="cargo"
+                        required="required"
+                        th:value="${cargo.cargo}"
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>Salário:</span>
+                <input
+                        id="salario"
+                        name="salario"
+                        required="required"
+                        th:value="${cargo.salario}"
+                        type="text"
+                />
+            </p>
+            <button class="btn-cad-client" type="submit">Salvar</button>
+        </form>
+    </div>
+</section>
+</body>
 </html>

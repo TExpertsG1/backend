@@ -13,9 +13,6 @@
     <title>Reservas</title>
 </head>
 <body>
-<section
-        th:replace="~{Componentes/sistema-section-1 :: section}"
-></section>
 
 <section id="interface">
     <div class="navegation">
@@ -24,13 +21,13 @@
                 <i class="fas fa-bars" id="menu-btn"></i>
             </div>
             <h3 class="i-name">Reservas</h3>
-            <p>Lista das reservas</p>
+            <p>Detalhes de Sua Reserva</p>
         </div>
         <button
                 class="btn-cad-client"
-                onclick="window.location.href='/formReserva'"
+                onclick="window.location.href='/index'"
         >
-            Cadastrar
+            Voltar
         </button>
     </div>
 
@@ -39,10 +36,12 @@
             <table width="100%">
                 <thead>
                 <tr>
-                    <th>ID Reserva</th>
-                    <th>ID Quarto</th>
+                    <th>Código Reserva</th>
+                    <th>Código Quarto</th>
+                    <th>CPF</th>
                     <th>Hóspede</th>
-                    <td>Status</td>
+                    <th>Email</th>
+                    <th>Status</th>
                     <th>Qnt. Adultos</th>
                     <th>Qnt. Crianças</th>
                     <th>Check-in</th>
@@ -52,10 +51,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="reserva : ${reservas}">
+                <tr th:each="reserva : ${listaReservas}">
                     <td th:text="${reserva.idreserva}"></td>
                     <td th:text="${reserva.idquarto}"></td>
                     <td th:text="${reserva.hospede_cpf}"></td>
+                    <td th:text="${reserva.nome}"></td>
+                    <td th:text="${reserva.email}"></td>
                     <td>Status</td>
                     <td th:text="${reserva.quantidade_adulto}"></td>
                     <td
@@ -63,24 +64,12 @@
                     ></td>
                     <td th:text="${reserva.data_check_in}"></td>
                     <td th:text="${reserva.data_check_out}"></td>
+
                     <td>Valor</td>
 
                     <td>
                         <form
-                                method="get"
-                                style="display: inline-block"
-                                th:action="@{/modificarReserva/{idreserva}(idreserva=${reserva.idreserva})}"
-                        >
-                            <button
-                                    onclick="return confirm('Tem certeza que deseja modificar esta reserva?')"
-                                    type="submit"
-                            >
-                                Modificar
-                            </button>
-                        </form>
-
-                        <form
-                                action="/deletarReserva"
+                                action="/deletarReservaIndex"
                                 method="post"
                                 style="display: inline-block"
                         >
@@ -93,7 +82,7 @@
                                     onclick="return confirm('Tem certeza que deseja excluir esta reserva?')"
                                     type="submit"
                             >
-                                Excluir
+                                Cancelar Reserva
                             </button>
                         </form>
                     </td>

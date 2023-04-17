@@ -1,6 +1,7 @@
 package br.com.hotel1800.modelo;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;

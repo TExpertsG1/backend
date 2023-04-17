@@ -63,13 +63,17 @@ public class Funcionario {
         this.senha = senha;
     }
 
-    public String getCpf() { return cpf; }
+    public String getCpf() {
+        return cpf;
+    }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public int getIdcargos() { return idcargos; }
+    public int getIdcargos() {
+        return idcargos;
+    }
 
     public void setIdcargos(int idcargos) {
         this.idcargos = idcargos;
@@ -79,7 +83,9 @@ public class Funcionario {
         return hotel_cnpj;
     }
 
-    public void setHotel_cnpj(String hotel_cnpj) { this.hotel_cnpj = hotel_cnpj; }
+    public void setHotel_cnpj(String hotel_cnpj) {
+        this.hotel_cnpj = hotel_cnpj;
+    }
 
     public String getNome() {
         return nome;
@@ -89,7 +95,9 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public String getImagem() { return imagem; }
+    public String getImagem() {
+        return imagem;
+    }
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
@@ -111,7 +119,9 @@ public class Funcionario {
         this.data_admissao = data_admissao;
     }
 
-    public LocalDate getData_demissao() { return data_demissao; }
+    public LocalDate getData_demissao() {
+        return data_demissao;
+    }
 
     public void setData_demissao(LocalDate data_demissao) {
         this.data_demissao = data_demissao;

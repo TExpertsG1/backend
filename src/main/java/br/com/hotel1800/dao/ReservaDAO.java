@@ -26,9 +26,11 @@ public class ReservaDAO {
     public List<Reserva> readAll() {
         return em.createQuery("SELECT r FROM Reserva r", Reserva.class).getResultList();
     }
-    public List<Reserva> readAllCpf(String hospede_cpf) {
-        return em.createQuery("SELECT r FROM Reserva r WHERE r.hospede_cpf = :hospede_cpf", Reserva.class)
+
+    public List<Reserva> readAllCpfEmail(String hospede_cpf, String email) {
+        return em.createQuery("SELECT r FROM Reserva r WHERE r.hospede_cpf = :hospede_cpf AND r.email = :email", Reserva.class)
                 .setParameter("hospede_cpf", hospede_cpf)
+                .setParameter("email", email)
                 .getResultList();
     }
 

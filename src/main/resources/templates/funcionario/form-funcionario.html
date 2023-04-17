@@ -1,296 +1,296 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <link
+<head>
+    <meta charset="UTF-8"/>
+    <link
             href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
             rel="stylesheet"
-        />
-        <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
-        <link rel="stylesheet" th:href="@{/styleTable.css}" />
-        <title>Cadastrar Funcionário</title>
-    </head>
-    <body>
-        <section
-            th:replace="~{Componentes/sistema-section-1 :: section}"
-        ></section>
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Cadastrar Funcionário</title>
+</head>
+<body>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
 
-        <section id="interface">
-            <div class="navegation">
-                <div>
-                    <div>
-                        <i class="fas fa-bars" id="menu-btn"></i>
-                    </div>
-                    <h3 class="i-name">Funcionários</h3>
-                    <p>Cadatro de funcionário</p>
-                </div>
-                <button
-                    class="btn-cad-client"
-                    onclick="window.location.href='/funcionarios'"
-                >
-                    Voltar
-                </button>
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
             </div>
+            <h3 class="i-name">Funcionários</h3>
+            <p>Cadatro de funcionário</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/funcionarios'"
+        >
+            Voltar
+        </button>
+    </div>
 
-            <div class="formContainer">
-                <form
-                    class="form"
-                    method="post"
-                    th:action="@{/cadastrarFuncionario}"
-                    th:object="${funcionario}"
-                >
-                    <p>
-                        <span>CPF:</span>
-                        <input id="cpf" name="cpf" required type="text" />
-                    </p>
-                    <p>
-                        <span>CNPJ do Hotel:</span>
-                        <input
-                            id="hotel_cnpj"
-                            name="hotel_cnpj"
-                            required
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>Nome:</span>
-                        <input id="nome" name="nome" required type="text" />
-                    </p>
-                    <p>
-                        <span>Data de Nascimento:</span>
-                        <input
-                            id="data_nascimento"
-                            name="data_nascimento"
-                            required
-                            type="date"
-                        />
-                    </p>
-                    <p>
-                        <span>Data de Admissão:</span>
-                        <input
-                            id="data_admissao"
-                            name="data_admissao"
-                            required
-                            type="date"
-                        />
-                    </p>
-                    <p>
-                        <span>Data de Demissão:</span>
-                        <input
-                            id="data_demissao"
-                            name="data_demissao"
-                            required
-                            type="date"
-                        />
-                    </p>
-                    <p>
-                        <span>Logradouro:</span>
-                        <input
-                            id="logradouro"
-                            name="logradouro"
-                            required
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>Número:</span>
-                        <input id="numero" name="numero" required type="text" />
-                    </p>
-                    <p>
-                        <span>Complemento:</span>
-                        <input
-                            id="complemento"
-                            name="complemento"
-                            required
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>CEP:</span>
-                        <input id="cep" name="cep" required type="text" />
-                    </p>
-                    <p>
-                        <span>Bairro:</span>
-                        <input id="bairro" name="bairro" required type="text" />
-                    </p>
-                    <p>
-                        <span>Cidade:</span>
-                        <input id="cidade" name="cidade" required type="text" />
-                    </p>
-                    <p>
-                        <span>Senha:</span>
-                        <input id="senha" name="senha" required type="text" />
-                    </p>
-                    <p>
-                        <span>UF:</span>
-                        <select id="uf" name="uf">
-                            <option
-                                th:selected="${funcionario.uf == 'AC'}"
-                                value="AC"
-                            >
-                                AC
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'AL'}"
-                                value="AL"
-                            >
-                                AL
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'AP'}"
-                                value="AP"
-                            >
-                                AP
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'AM'}"
-                                value="AM"
-                            >
-                                AM
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'BA'}"
-                                value="BA"
-                            >
-                                BA
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'CE'}"
-                                value="CE"
-                            >
-                                CE
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'DF'}"
-                                value="DF"
-                            >
-                                DF
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'ES'}"
-                                value="ES"
-                            >
-                                ES
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'GO'}"
-                                value="GO"
-                            >
-                                GO
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'MA'}"
-                                value="MA"
-                            >
-                                MA
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'MT'}"
-                                value="MT"
-                            >
-                                MT
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'MS'}"
-                                value="MS"
-                            >
-                                MS
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'MG'}"
-                                value="MG"
-                            >
-                                MG
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'PA'}"
-                                value="PA"
-                            >
-                                PA
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'PB'}"
-                                value="PB"
-                            >
-                                PB
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'PR'}"
-                                value="PR"
-                            >
-                                PR
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'PE'}"
-                                value="PE"
-                            >
-                                PE
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'PI'}"
-                                value="PI"
-                            >
-                                PI
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'RJ'}"
-                                value="RJ"
-                            >
-                                RJ
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'RN'}"
-                                value="RN"
-                            >
-                                RN
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'RS'}"
-                                value="RS"
-                            >
-                                RS
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'RO'}"
-                                value="RO"
-                            >
-                                RO
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'RR'}"
-                                value="RR"
-                            >
-                                RR
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'SC'}"
-                                value="SC"
-                            >
-                                SC
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'SP'}"
-                                value="SP"
-                            >
-                                SP
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'SE'}"
-                                value="SE"
-                            >
-                                SE
-                            </option>
-                            <option
-                                th:selected="${funcionario.uf == 'TO'}"
-                                value="TO"
-                            >
-                                TO
-                            </option>
-                        </select>
-                    </p>
-                    <button class="btn-cad-client" type="submit">Enviar</button>
-                </form>
-            </div>
-        </section>
-    </body>
+    <div class="formContainer">
+        <form
+                class="form"
+                method="post"
+                th:action="@{/cadastrarFuncionario}"
+                th:object="${funcionario}"
+        >
+            <p>
+                <span>CPF:</span>
+                <input id="cpf" name="cpf" required type="text"/>
+            </p>
+            <p>
+                <span>CNPJ do Hotel:</span>
+                <input
+                        id="hotel_cnpj"
+                        name="hotel_cnpj"
+                        required
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>Nome:</span>
+                <input id="nome" name="nome" required type="text"/>
+            </p>
+            <p>
+                <span>Data de Nascimento:</span>
+                <input
+                        id="data_nascimento"
+                        name="data_nascimento"
+                        required
+                        type="date"
+                />
+            </p>
+            <p>
+                <span>Data de Admissão:</span>
+                <input
+                        id="data_admissao"
+                        name="data_admissao"
+                        required
+                        type="date"
+                />
+            </p>
+            <p>
+                <span>Data de Demissão:</span>
+                <input
+                        id="data_demissao"
+                        name="data_demissao"
+                        required
+                        type="date"
+                />
+            </p>
+            <p>
+                <span>Logradouro:</span>
+                <input
+                        id="logradouro"
+                        name="logradouro"
+                        required
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>Número:</span>
+                <input id="numero" name="numero" required type="text"/>
+            </p>
+            <p>
+                <span>Complemento:</span>
+                <input
+                        id="complemento"
+                        name="complemento"
+                        required
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>CEP:</span>
+                <input id="cep" name="cep" required type="text"/>
+            </p>
+            <p>
+                <span>Bairro:</span>
+                <input id="bairro" name="bairro" required type="text"/>
+            </p>
+            <p>
+                <span>Cidade:</span>
+                <input id="cidade" name="cidade" required type="text"/>
+            </p>
+            <p>
+                <span>Senha:</span>
+                <input id="senha" name="senha" required type="text"/>
+            </p>
+            <p>
+                <span>UF:</span>
+                <select id="uf" name="uf">
+                    <option
+                            th:selected="${funcionario.uf == 'AC'}"
+                            value="AC"
+                    >
+                        AC
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'AL'}"
+                            value="AL"
+                    >
+                        AL
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'AP'}"
+                            value="AP"
+                    >
+                        AP
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'AM'}"
+                            value="AM"
+                    >
+                        AM
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'BA'}"
+                            value="BA"
+                    >
+                        BA
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'CE'}"
+                            value="CE"
+                    >
+                        CE
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'DF'}"
+                            value="DF"
+                    >
+                        DF
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'ES'}"
+                            value="ES"
+                    >
+                        ES
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'GO'}"
+                            value="GO"
+                    >
+                        GO
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'MA'}"
+                            value="MA"
+                    >
+                        MA
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'MT'}"
+                            value="MT"
+                    >
+                        MT
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'MS'}"
+                            value="MS"
+                    >
+                        MS
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'MG'}"
+                            value="MG"
+                    >
+                        MG
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'PA'}"
+                            value="PA"
+                    >
+                        PA
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'PB'}"
+                            value="PB"
+                    >
+                        PB
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'PR'}"
+                            value="PR"
+                    >
+                        PR
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'PE'}"
+                            value="PE"
+                    >
+                        PE
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'PI'}"
+                            value="PI"
+                    >
+                        PI
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'RJ'}"
+                            value="RJ"
+                    >
+                        RJ
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'RN'}"
+                            value="RN"
+                    >
+                        RN
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'RS'}"
+                            value="RS"
+                    >
+                        RS
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'RO'}"
+                            value="RO"
+                    >
+                        RO
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'RR'}"
+                            value="RR"
+                    >
+                        RR
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'SC'}"
+                            value="SC"
+                    >
+                        SC
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'SP'}"
+                            value="SP"
+                    >
+                        SP
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'SE'}"
+                            value="SE"
+                    >
+                        SE
+                    </option>
+                    <option
+                            th:selected="${funcionario.uf == 'TO'}"
+                            value="TO"
+                    >
+                        TO
+                    </option>
+                </select>
+            </p>
+            <button class="btn-cad-client" type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
+</body>
 </html>
