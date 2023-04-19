@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <title>Reservas</title>
+</head>
+<body>
+
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
+            </div>
+            <h3 class="i-name">Reservas</h3>
+            <p>Detalhes de Sua Reserva</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/'"
+        >
+            Voltar
+        </button>
+    </div>
+
+    <div class="values">
+        <div class="board">
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>Cód. Reserva</th>
+                    <th>Quarto</th>
+                    <th>CPF</th>
+                    <th>Hóspede</th>
+                    <th>Email</th>
+                    <th>Qnt. Adultos</th>
+                    <th>Qnt. Crianças</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <td>Valor total</td>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="reserva, contador : ${listaReservas}">
+
+                    <td th:text="${reserva.idreserva}"></td>
+                    <td th:text="${listaQuartos[contador.index]}"></td>
+
+                    <td th:text="${#strings.substring(reserva.hospede_cpf, 0, 3) + '.' + #strings.substring(reserva.hospede_cpf, 3, 6) + '.' + #strings.substring(reserva.hospede_cpf, 6, 9)  + '-' + #strings.substring(reserva.hospede_cpf, 9, 11)}"
+                    ></td>
+
+                    <td th:text="${reserva.nome}"></td>
+                    <td th:text="${reserva.email}"></td>
+                    <td th:text="${reserva.quantidade_adulto}"></td>
+                    <td th:text="${reserva.quantidade_crianca}"></td>
+
+                    <td th:text="${#strings.substring(reserva.data_check_in, 8, 10) + '/' + #strings.substring(reserva.data_check_in, 5, 7) + '/' + #strings.substring(reserva.data_check_in, 0, 4)}"></td>
+
+                    <td th:text="${#strings.substring(reserva.data_check_out, 8, 10) + '/' + #strings.substring(reserva.data_check_out, 5, 7) + '/' + #strings.substring(reserva.data_check_out, 0, 4)}"></td>
+
+                    <td th:text="${listaPreco[contador.index]}"></td>
+
+                    <td>
+                        <form
+                                action="/deletarReservaIndex"
+                                method="post"
+                                style="display: inline-block"
+                        >
+                            <input
+                                    name="id"
+                                    th:value="${reserva.idreserva}"
+                                    type="hidden"
+                            />
+                            <button
+                                    onclick="return confirm('Tem certeza que deseja excluir esta reserva?')"
+                                    type="submit"
+                            >
+                                Cancelar Reserva
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+</body>
+</html>

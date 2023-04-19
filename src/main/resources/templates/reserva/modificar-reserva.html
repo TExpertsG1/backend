@@ -1,56 +1,117 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/styleTable2.css}"/>
-    <title>Modificar Reserva</title>
+    <meta charset="UTF-8"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <title>Cadastrar Reserva</title>
 </head>
 <body>
-<h1>Modificar Reserva</h1>
-<form method="post" th:action="@{/atualizarReserva}">
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
 
-    <div>
-        <label for="idquarto">Quarto:</label>
-        <select id="idquarto" name="idquarto">
-            <option th:text="${reserva.idquarto}" th:value="${reserva.idquarto}"></option>
-            <option th:each="idquarto : ${quartos}" th:text="${idquarto}" th:value="${idquarto}"></option>
-        </select>
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
+            </div>
+            <h3 class="i-name">Reserva</h3>
+            <p>Cadatrar reserva</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/reservas'"
+        >
+            Voltar
+        </button>
     </div>
 
-    <div>
-        <label for="quantidade_adulto">Qnt. Adulto:</label>
-        <input id="quantidade_adulto" name="quantidade_adulto" required="required"
-               th:value="${reserva.quantidade_adulto}"
-               type="number"/>
+    <div class="formContainer">
+        <form
+                class="form"
+                method="post"
+                th:action="@{/atualizarReserva}"
+                th:object="${reserva}"
+        >
+            <input
+                    name="idreserva"
+                    th:value="${reserva.idreserva}"
+                    type="hidden"
+            />
+            <p>
+                <span>Hóspede:</span>
+                <select
+                        name="hospede_cpf"
+                        th:value="${reserva.hospede_cpf}"
+                >
+                    <option
+                            th:each="cpf : ${hospedes}"
+                            th:selected="${cpf == reserva.hospede_cpf}"
+                            th:text="${cpf}"
+                            th:value="${cpf}"
+                    ></option>
+                </select>
+            </p>
+            <p>
+                <span>Quarto:</span>
+                <select name="idquarto" th:value="${reserva.idquarto}">
+                    <option
+                            th:each="quarto : ${quartos}"
+                            th:selected="${quarto[0] == reserva.idquarto}"
+                            th:text="${quarto[1]}"
+                            th:value="${quarto[0]}"
+                    ></option>
+                </select>
+            </p>
+            <p>
+                <span>Quantidade de Adultos:</span>
+                <input
+                        id="quantidade_adulto"
+                        name="quantidade_adulto"
+                        required
+                        th:value="${reserva.quantidade_adulto}"
+                        type="number"
+                />
+            </p>
+            <p>
+                <span>Quantidade de Crianças:</span>
+                <input
+                        id="quantidade_crianca"
+                        name="quantidade_crianca"
+                        required
+                        th:value="${reserva.quantidade_crianca}"
+                        type="number"
+                />
+            </p>
+            <p>
+                <span>Data de Entrada:</span>
+                <input
+                        id="data_check_in"
+                        name="data_check_in"
+                        required
+                        th:value="${reserva.data_check_in}"
+                        type="date"
+                />
+            </p>
+            <p>
+                <span>Data de Saída:</span>
+                <input
+                        id="data_check_out"
+                        name="data_check_out"
+                        required
+                        th:value="${reserva.data_check_out}"
+                        type="date"
+                />
+            </p>
+            <button class="btn-cad-client" type="submit">Salvar</button>
+        </form>
     </div>
-
-    <div>
-        <label for="quantidade_crianca">Qnt. Criança:</label>
-        <input id="quantidade_crianca" name="quantidade_crianca" required="required"
-               th:value="${reserva.quantidade_crianca}"
-               type="number"/>
-    </div>
-
-    <div>
-        <label for="data_check_in">Check In:</label>
-        <input id="data_check_in" name="data_check_in" required="required" th:value="${reserva.data_check_in}"
-               type="date"/>
-    </div>
-
-    <div>
-        <label for="data_check_out">Check Out:</label>
-        <input id="data_check_out" name="data_check_out" required="required" th:value="${reserva.data_check_out}"
-               type="date"/>
-    </div>
-
-    <div>
-        <input id="idreserva" name="idreserva" th:value="${reserva.idreserva}" type="hidden"/>
-        <input id="hospede_cpf" name="hospede_cpf" th:value="${reserva.hospede_cpf}" type="hidden"/>
-        <input type="submit" value="Modificar"/>
-    </div>
-
-</form>
-<br/>
-<a th:href="@{/reservas}">Voltar</a>
+</section>
 </body>
 </html>

@@ -15,7 +15,7 @@ public class LoginController {
     @Autowired
     private FuncionarioDAO funcionarioDAO;
 
-    @GetMapping
+    @GetMapping("/login")
     public String form() {
         return "login/form-login";
     }
@@ -26,7 +26,7 @@ public class LoginController {
 
         if (funcionario == null) {
             redirectAttributes.addFlashAttribute("usuarioInvalido", "Usuário Inválido");
-            return "redirect:/";
+            return "redirect:/login";
         }
 
         session.setAttribute("logado", funcionario);

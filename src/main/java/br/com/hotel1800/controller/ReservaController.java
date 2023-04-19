@@ -35,7 +35,7 @@ public class ReservaController {
     @GetMapping("/formReserva")
     public String exibirFormularioReserva(Model model) {
         List<String> hospedes = hospedeDAO.readHospedeCPFS();
-        List<Integer> quartos = quartoDAO.readIdQuartos();
+        List<Object[]> quartos = quartoDAO.readIdNomeQuartos();
 
         model.addAttribute("reserva", new Reserva());
         model.addAttribute("hospedes", hospedes);
@@ -55,7 +55,7 @@ public class ReservaController {
         Reserva reserva = reservaDAO.read(idreserva);
 
         List<String> hospedes = hospedeDAO.readHospedeCPFS();
-        List<Integer> quartos = quartoDAO.readIdQuartos();
+        List<Object[]> quartos = quartoDAO.readIdNomeQuartos();
 
         model.addAttribute("reserva", reserva);
         model.addAttribute("hospedes", hospedes);

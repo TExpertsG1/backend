@@ -12,7 +12,8 @@ public class Cargo {
     private String cargo;
     private BigDecimal salario;
 
-    public Cargo() {}
+    public Cargo() {
+    }
 
     public Cargo(Integer id, String cargo, BigDecimal salario) {
         this.id = id;

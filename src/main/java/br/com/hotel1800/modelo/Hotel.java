@@ -1,18 +1,27 @@
 package br.com.hotel1800.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "hotel")
 public class Hotel {
 
+    @Id
     private String cnpj;
-    private String nome_hotel;
+    private String nome;
     private String logradouro;
     private String cep;
     private String uf;
     private String cidade;
 
+    public Hotel() {
+    }
 
-    public Hotel(String cnpj, String nome_hotel, String logradouro, String cep, String uf, String cidade) {
+    public Hotel(String cnpj, String nome, String logradouro, String cep, String uf, String cidade) {
         this.cnpj = cnpj;
-        this.nome_hotel = nome_hotel;
+        this.nome = nome;
         this.logradouro = logradouro;
         this.cep = cep;
         this.uf = uf;
@@ -23,46 +32,37 @@ public class Hotel {
         return cnpj;
     }
 
-
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
-
-    public String getNome_hotel() {
-        return nome_hotel;
+    public String getNome() {
+        return nome;
     }
 
-
-    public void setNome_hotel(String nome_hotel) {
-        this.nome_hotel = nome_hotel;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-
 
     public String getLogradouro() {
         return logradouro;
     }
 
-
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
-
 
     public String getCep() {
         return cep;
     }
 
-
     public void setCep(String cep) {
         this.cep = cep;
     }
 
-
     public String getUf() {
         return uf;
     }
-
 
     public void setUf(String uf) {
         this.uf = uf;
@@ -72,17 +72,14 @@ public class Hotel {
         return cidade;
     }
 
-
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
 
-
     @Override
     public String toString() {
-        return "CNPJ: " + cnpj + "\nNome do Hotel: " + nome_hotel + "\nLogradouro: " + logradouro + ", CEP: " + cep
-                + ", UF: " + uf + ", Cidade: " + cidade;
+        return "Hotel [cnpj=" + cnpj + ", nome=" + nome + ", logradouro=" + logradouro + ", cep=" + cep + ", uf=" + uf
+                + ", cidade=" + cidade + "]";
     }
-
 
 }

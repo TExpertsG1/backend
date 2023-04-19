@@ -24,19 +24,34 @@
     <title>Login</title>
 </head>
 <body>
-<header>
-    <section>
-            <span class="mainHeader">
-                <img height="100%" th:src="@{/imagens/nossoServico.jpg}"/>
-                <nav class="navbar menu">  
-                    <a href="">Voltar para o Hotel</a>
-                </nav>
-            </span>
-    </section>
-</header>
+<div class="principal">
+    <header>
+
+        <section>
+            <div>
+                <div class="userBar">
+                    <a
+                            id="login"
+                            onclick="window.location.href='/index'"
+                    >Home</a
+                    >
+                </div>
+                <span class="mainHeader">
+                            <a th:href="@{/index.html}"
+                            ><img
+                                    height="100%"
+                                    th:src="@{/imagens/logo_1800.png}"
+                            /></a>
+                        </span>
+                <div class="nomeLogo">
+                    <span>Hotel 1800</span>
+                </div>
+            </div>
+        </section>
+    </header>
+</div>
 <main>
     <div>
-
         <form action="/login" id="form-login" method="post">
             <h1 class="mainText">Faça seu login</h1>
             <span class="inputContainer">
@@ -48,8 +63,7 @@
                     <input id="senha" name="senha" type="password">
                 </span>
             <button type="submit">Fazer login</button>
-            <br/>
-            <br/>
+
             <span class="invalid" th:text="${usuarioInvalido}"></span>
             <br/>
         </form>

@@ -31,7 +31,7 @@ public class SistemaController {
     @GetMapping("/sistema")
     public String sistema(HttpSession session, Model model) {
         if (session.getAttribute("logado") == null) {
-            return "redirect:/";
+            return "redirect:/login";
         }
 
         List<Funcionario> funcionarios = funcionarioDAO.readAll();

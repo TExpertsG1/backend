@@ -1,6 +1,8 @@
 package br.com.hotel1800.dao;
 
 import br.com.hotel1800.modelo.Quarto;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -15,6 +17,7 @@ public class QuartoDAO {
     @PersistenceContext
     private EntityManager em;
 
+    @CacheEvict(value = "listaQuartos", allEntries = true)
     public void create(Quarto quarto) {
         em.persist(quarto);
     }
@@ -23,18 +26,21 @@ public class QuartoDAO {
         return em.find(Quarto.class, id);
     }
 
+    @Cacheable("listaQuartos")
     public List<Quarto> readAll() {
         return em.createQuery("select q from Quarto q", Quarto.class).getResultList();
     }
 
-    public List<Integer> readIdQuartos() {
-        return em.createQuery("SELECT q.idquarto FROM Quarto q", Integer.class).getResultList();
+    public List<Object[]> readIdNomeQuartos() {
+        return em.createQuery("SELECT q.idquarto, q.nome_quarto FROM Quarto q", Object[].class).getResultList();
     }
 
+    @CacheEvict(value = "listaQuartos", allEntries = true)
     public void update(Quarto quarto) {
         em.merge(quarto);
     }
 
+    @CacheEvict(value = "listaQuartos", allEntries = true)
     public void delete(Integer id) {
         Quarto quarto = em.find(Quarto.class, id);
         em.remove(quarto);

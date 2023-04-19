@@ -1,49 +1,111 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
-    <title>Lista de Hóspedes</title>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <title>Hospede</title>
 </head>
 <body>
-<h1>Lista de Hóspedes</h1>
-<br/>
-<br/>
-<a class="button" th:href="@{/formHospede}">Cadastrar</a>
-<br/>
-<table>
-    <thead>
-    <tr>
-        <th>CPF</th>
-        <th>Nome</th>
-        <th>Telefone</th>
-        <th>E-mail</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="hospede : ${hospedes}">
-        <td><a th:href="@{/mostrarHospede/{cpf}(cpf=${hospede.cpf})}" th:text="${hospede.cpf}"></a></td>
-        <td th:text="${hospede.nome}"></td>
-        <td th:text="${hospede.telefone}"></td>
-        <td th:text="${hospede.email}"></td>
-        <td>
-            <form action="/deletarHospede" method="post" style="display: inline-block;">
-                <input name="cpf" th:value="${hospede.cpf}" type="hidden"/>
-                <button onclick="return confirm('Tem certeza que deseja excluir este Hóspede?')" type="submit">Excluir
-                </button>
-            </form>
-            <form method="get" style="display: inline-block;"
-                  th:action="@{/modificarHospede/{cpf}(cpf=${hospede.cpf})}">
-                <button onclick="return confirm('Tem certeza que deseja modificar este Hóspede?')" type="submit">
-                    Modificar
-                </button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<br/>
-<a class="button" th:href="@{/sistema}">Voltar</a>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
+            </div>
+            <h3 class="i-name">Hospedes</h3>
+            <p>Lista dos hospedes</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                id="cad-client"
+                onclick="window.location.href='/formHospede'"
+        >
+            Cadastrar
+        </button>
+    </div>
+
+    <div class="values" id="main">
+        <div class="board">
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>CPF</th>
+                    <th>Data de nascimento</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="hospede : ${hospedes}">
+                    <td th:text="${hospede.nome}"></td>
+
+                    <td th:text="${hospede.email}"></td>
+
+                    <td
+                            th:text="${'(' + #strings.substring(hospede.telefone, 0, 2) + ') ' + #strings.substring(hospede.telefone, 2, 6) + '-' + #strings.substring(hospede.telefone, 7, 11)}"
+                    ></td>
+
+                    <td
+                            th:text="${#strings.substring(hospede.cpf, 0, 3) + '.' + #strings.substring(hospede.cpf, 3, 6) + '.' + #strings.substring(hospede.cpf, 6, 9)  + '-' + #strings.substring(hospede.cpf, 9, 11)}"
+                    ></td>
+
+                    <td
+                            th:text="${#strings.substring(hospede.data_nascimento, 8, 10) + '/' + #strings.substring(hospede.data_nascimento, 5, 7) + '/' + #strings.substring(hospede.data_nascimento, 0, 4)}"
+                    ></td>
+
+                    <td>Status</td>
+
+                    <!--<td th:text="${hospede.status} == true ? 'Ativo' : 'Inativo'"></td>-->
+
+                    <td>
+                        <form
+                                method="get"
+                                style="display: inline-block"
+                                th:action="@{/modificarHospede/{cpf}(cpf=${hospede.cpf})}"
+                        >
+                            <button
+                                    onclick="return confirm('Tem certeza que deseja modificar este Hóspede?')"
+                                    type="submit"
+                            >
+                                Modificar
+                            </button>
+                        </form>
+
+                        <form
+                                action="/deletarHospede"
+                                method="post"
+                                style="display: inline-block"
+                        >
+                            <input
+                                    name="cpf"
+                                    th:value="${hospede.cpf}"
+                                    type="hidden"
+                            />
+                            <button
+                                    onclick="return confirm('Tem certeza que deseja excluir este Hóspede?')"
+                                    type="submit"
+                            >
+                                Excluir
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 </body>
 </html>

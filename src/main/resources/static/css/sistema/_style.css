@@ -1,0 +1,511 @@
+@charset "UTF-8";
+* {
+    font-family: "Baskerville";
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Baskerville;
+    src: url("/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf");
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #82694e;
+    background-color: #fff3f1;
+    font-family: "Baskerville";
+
+}
+
+
+/*   HEADER    */
+
+a {
+    all: unset;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+     color: #333;
+}
+
+h1 {
+    font-size: 3rem;
+    font-style: bold;
+    padding: 0vh 0vh 0vh 24vh;
+    color: #e9cb6b;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 5rem;
+    text-align: center;
+    font-family: "Baskerville";
+    color: #82694e;
+}
+.h2{
+    font-size: 30px;
+    color: #82694e;
+}
+
+.principal {
+    margin: 1px 30px;
+}
+
+/*-----Header-------*/
+header {
+    background-attachment: fixed;
+    background-image: url("/imagens/imagemHeader.jpg");
+}
+.nomeLogo {
+    text-align: center;
+    font-family: "Baskerville";
+    font-size: 6.0rem;
+    color: #ebcc5a;
+}
+
+.userBar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 40px 20px 20px;
+    gap: 0.3rem;
+    color: #fff3f1;
+}
+
+.userBar a {
+    display: flex ;
+    min-width: 60px;
+    padding: 0.5rem;
+    justify-content: center;
+    background-color: #ad9479;
+    border-radius: 0.5rem;
+    color:#ffffff;
+}
+
+.userBar a:hover {
+    font-weight: bold;
+    background-color: #82694e;
+}
+
+.mainHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.mainHeader img {
+    max-height: 8.5rem;
+    max-width: 8.5rem;
+}
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.navbar a {
+    padding: 0.5rem;
+    background-color: #ad9479;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+.navbar a:hover {
+    font-weight: bold;
+    background-color: #82694e;
+}
+
+
+
+/****  Sobre Nosso Hotel ****/
+.container-grid,
+.container-grid-gastro {
+    display: flex;
+    grid-template-columns: 45% 55%;
+    width: 100%;
+}
+.container-grid div img,
+.container-grid-gastro div img {
+    border-radius: 15px;
+    opacity: 1;
+    width: 450px;
+}
+.container-grid p,
+.container-grid-gastro p {
+    padding: 2rem 10rem 0.5rem 10rem;
+    font-family: "Baskerville", sans-serif;
+    text-align: justify;
+    font-size: medium;
+    line-height: 3rem;
+    width: auto;
+}
+.container-grid div button,
+.container-grid-gastro div button {
+    background-color: #ad9479;
+    border-radius: 10px;
+    border: none;
+    padding: 0.4rem 2rem;
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+}
+.container-grid button:hover,
+.container-grid-gastro button:hover {
+    transform: scale(1.1);
+}
+.container-grid img:hover,
+.container-grid-gastro img:hover {
+    transition: 400ms;
+    opacity: 0.8;
+}
+
+/*------ Gastronomia -----*/
+.container-grid-gastro div h2 {
+    padding: 0 2.5rem 0rem 1rem;
+}
+
+/*-----Gallery-------*/
+.galeria {
+    background-color: #ede5e3;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+div.gallery {
+    float: left;
+    padding: 15px;
+    width: 100;
+}
+div.gallery img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+}
+div.gallery img:hover {
+    transform: scale(1.2);
+}
+
+#acomodacoesfundo {
+    background-size: cover;
+    background-image: url("/imagens/acomodacoes7.jpg");
+    background-attachment: fixed;
+    border-top: 2px solid rgba(192, 80, 25, 0.5019607843);
+    border-bottom: 2px solid rgba(192, 80, 25, 0.5019607843);
+    padding: 10%;
+    display: block;
+    filter: grayscale(40%);
+    background-position: 150px;
+}
+
+div.desc {
+    padding: 20px;
+    text-align: center;
+    text-decoration: overline;
+    font-weight: bold;
+    color: #82694e;
+
+    }
+
+.container-servicos {
+    display: flex;
+    grid-template-columns: 45% 55%;
+    width: 100%;
+}
+
+a {
+    animation-duration: 4s;
+}
+
+.container-servicos2 {
+    padding: 20px 20px 20px 20px;
+}
+
+#servicos {
+    background-color: #ede5e3;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.saibaMais {
+    text-align: right;
+    display: block;
+    font-size: small;
+    color: #82694e;
+    text-decoration: underline;
+}
+
+.saibaMais:hover {
+    cursor: pointer;
+}
+
+.divIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #82694e;
+    padding: 0;
+    font-size: 1.5rem;
+}
+.divIcon h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 5px;
+}
+
+
+div.navPos {
+    background-color: #82694e;
+    position: fixed;
+    right: 2px;
+    top: 10vh;
+    border-radius: 25px;
+    z-index: 1;
+}
+div.navPos ul {
+    padding: 8px;
+    list-style: none;
+    margin: 0;
+}
+div.navPos ul li a {
+    font-size: 0.8em;
+    color: #fff;
+}
+
+.btn-cad-client {
+    font-size: 1.2rem;
+    border: none;
+    background-color: #82694e;
+    color: #ffffff;
+    padding: 8px 24px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/*-- INFORMAÇÕES --*/
+
+
+/*FOOTER*/
+.fieldsetFooter {
+    border-radius: 15px;
+    border-color: #ede5e3;
+    font-size: 16px;
+    width: 100%;
+    font-weight: bold;
+    margin: 0 ;
+    border:50px
+}
+
+
+div.continf {
+    text-align: center;
+    background-color: #ede5e3;
+    font-size: 1.5rem;
+}
+
+/*-- CONTATO --*/
+.div-contatos {
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contatos {
+    width: 60%;
+    background: none;
+    border: none;
+    border-width: 2px;
+    border-bottom-width: 1px;
+    border-bottom-color: #82694e;
+    border-bottom-style: solid;
+    font-size: 1rem;
+}
+input {
+    background: none;
+}
+
+#message {
+    padding-bottom: 6rem;
+}
+
+
+/*-- INFORMAÇÕES --*/
+div.informacoes {
+    color: #82694e;
+    text-align: center;
+    font-size: 20px;
+}
+
+a {
+    padding: 2px;
+    color: #333;
+}
+
+select {
+    color: #666462;
+}
+
+div.redes-sociais {
+    font-size: 2rem;
+    text-align:center;
+    color: #82694e;
+}
+
+/* -- COPYRIGHT -- */
+div.copyright {
+    text-align: center;
+    color: #82694e;
+}
+
+
+
+/* ---------- responsive ----------------------- */
+@media (max-width: 800px) {
+    /*...HEADER...*/
+.mainHeader {
+      justify-content: center;
+        }
+.mainHeader img {
+      display: none;
+          }
+.navbar {
+      flex-flow: column;
+      min-width: 40%;
+      transition: all 0.4s;
+      text-align: center;
+          }
+.div-contatos {
+      padding: 0px;
+    }
+
+.nomeLogo h1 {
+        padding: 0;
+         }
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    /*.....BODY....*/
+    .navPos {
+        display: none;
+    }
+    .container-grid p,
+    .container-grid-gastro p {
+        padding: 0;
+        font-size: 12px;
+
+    }
+    .container-grid div img {
+        display: none;
+    }
+.informacoes .social {
+    text-align: center;
+    margin-bottom: 5px;
+    }
+
+    .container-grid-gastro div button {
+        background-color: #ad9479;
+        border-radius: 10px;
+        border: none;
+        color: #fff;
+        font-size: 10px;
+        position: relative;
+    }
+    .container-grid-gastro img {
+        display: none;
+    }
+    h1,
+    h2 {
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    .textos {
+        font-size: 12px;
+        text-align: justify;
+        font-family: "Baskerville";
+    }
+    div.gallery {
+        float: none;
+        text-align: center;
+    }
+    #acomodacoesfundo {
+        padding: 20%;
+    }
+    .divIcon {
+        font-size: 1.2rem;
+    }
+    .divIcon h2 {
+        font-size: 1.5rem;
+    }
+    .container-servicos,
+    .informacoes,
+    section #sobre {
+        display: flex;
+        flex-direction: column;
+        margin: 10 0 5 0;
+    }
+    div.informações {
+        flex-flow: column;
+        font-size: 20px;
+        text-align:center;
+    }
+    img {
+        width: 100%;
+        min-height: auto;
+        object-fit: cover;
+        object-position: bottom;
+    }
+    .saibaMais {
+        margin-bottom: 5px;
+    }
+
+    section #sobre div {
+        text-align: center;
+    }
+
+    .fa-solid {
+        font-size: 15px;
+    }
+
+    div.continf {
+        display: flex;
+        background-color: #ede5e3;
+        font-size: 1.5rem;
+    }
+    .contatos {
+        width: 100%;
+        border-bottom-width: 1px;
+        border-bottom-color: #82694e;
+        border-bottom-style: solid;
+        font-size: large;
+        font-size: 15px;
+    }
+
+    select.contatos {
+        color: rgba(107, 94, 94, 0.8235294118);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        font-size: 15px;
+    }
+    .fieldsetFooter {
+        width: 100%;
+    }
+    div.redes-sociais {
+        padding-left: 0;
+        size: 5px;
+
+    }
+    .fa-solid {
+        font-size: 15px;
+    }
+    /* -- COPYRIGHT -- */
+    div.copyright {
+        font-size: large;
+    }
+
+}

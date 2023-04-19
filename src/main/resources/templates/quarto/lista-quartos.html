@@ -1,55 +1,99 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
-    <title>Lista de Quartos</title>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <title>Quartos</title>
 </head>
 <body>
-<h1>Lista de Quartos</h1>
-<br/>
-<br/>
-<a class="button" th:href="@{/formQuarto}">Cadastrar</a>
-<br/>
-<table>
-    <thead>
-    <tr>
-        <th>ID Quarto</th>
-        <th>Nome</th>
-        <th>Hotel CNPJ</th>
-        <th>Nº do Quarto</th>
-        <th>Capacidade</th>
-        <th>Diária</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="quarto : ${listaQuartos}">
-        <td th:text="${quarto.idquarto}"></td>
-        <td th:text="${quarto.nome_quarto}"></td>
-        <td th:text="${quarto.hotel_cnpj}"></td>
-        <td th:text="${quarto.numero}"></td>
-        <td th:text="${quarto.capacidade}"></td>
-        <td th:text="${quarto.diaria}"></td>
-        <td>
-            <form action="/deletarQuarto" method="post" style="display: inline-block;">
-                <input name="idquarto" th:value="${quarto.idquarto}" type="hidden"/>
-                <button onclick="return confirm('Tem certeza que deseja excluir este quarto?')" type="submit">Excluir
-                </button>
-            </form>
-            <form method="get" style="display: inline-block;"
-                  th:action="@{/modificarQuarto/{idquarto}(idquarto=${quarto.idquarto})}">
-                <button onclick="return confirm('Tem certeza que deseja modificar este quarto?')" type="submit">
-                    Modificar
-                </button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<br/>
-<a class="button" th:href="@{/sistema}">Voltar</a>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
+
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
+            </div>
+            <h3 class="i-name">quartos</h3>
+            <p>Lista dos quartos</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/formQuarto'"
+        >
+            Cadastrar
+        </button>
+    </div>
+
+    <div class="values">
+        <div class="board">
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>ID Quarto</th>
+                    <th>Nome</th>
+                    <th>Hotel CNPJ</th>
+                    <th>Nº do Quarto</th>
+                    <th>Capacidade</th>
+                    <th>Diária</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="quarto : ${listaQuartos}">
+                    <td th:text="${quarto.idquarto}"></td>
+                    <td th:text="${quarto.nome_quarto}"></td>
+                    <td th:text="${quarto.hotel_cnpj}"></td>
+                    <td th:text="${quarto.numero}"></td>
+                    <td th:text="${quarto.capacidade}"></td>
+                    <td th:text="${quarto.diaria}"></td>
+
+                    <td>
+                        <form
+                                method="get"
+                                style="display: inline-block"
+                                th:action="@{/modificarQuarto/{idquarto}(idquarto=${quarto.idquarto})}"
+                        >
+                            <button
+                                    onclick="return confirm('Tem certeza que deseja modificar esta quarto?')"
+                                    type="submit"
+                            >
+                                Modificar
+                            </button>
+                        </form>
+
+                        <form
+                                action="/deletarQuarto"
+                                method="post"
+                                style="display: inline-block"
+                        >
+                            <input
+                                    name="idquarto"
+                                    th:value="${quarto.idquarto}"
+                                    type="hidden"
+                            />
+                            <button
+                                    onclick="return confirm('Tem certeza que deseja excluir esta quarto?')"
+                                    type="submit"
+                            >
+                                Excluir
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 </body>
 </html>
-
-

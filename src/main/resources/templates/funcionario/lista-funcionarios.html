@@ -1,75 +1,122 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
-    <title>Lista de Funcionários</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <title>Funcionários</title>
 </head>
 <body>
-<h1>Lista de Funcionários</h1>
-<br/>
-<br/>
-<a class="button" th:href="@{/formFuncionario}">Cadastrar</a>
-<br/>
-<table>
-    <thead>
-    <tr>
-        <th>foto</th>
-        <th>CPF</th>
-        <th>Nome</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="funcionario : ${funcionarios}">
-        <td>
-            <img
-                    alt="Imagem do funcionário"
-                    th:src="@{${funcionario.imagem}}"
-            />
-        </td>
-        <td>
-            <a
-                    th:href="@{/mostrarFuncionario/{cpf}(cpf=${funcionario.cpf})}"
-                    th:text="${funcionario.cpf}"
-            ></a>
-        </td>
-        <td th:text="${funcionario.nome}"></td>
-        <td>
-            <form
-                    action="/deletarFuncionario"
-                    method="post"
-                    style="display: inline-block"
-            >
-                <input
-                        name="cpf"
-                        th:value="${funcionario.cpf}"
-                        type="hidden"
-                />
-                <button
-                        onclick="return confirm('Tem certeza que deseja excluir este funcionário?')"
-                        type="submit"
-                >
-                    Excluir
-                </button>
-            </form>
-            <form
-                    method="get"
-                    style="display: inline-block"
-                    th:action="@{/modificarFuncionario/{cpf}(cpf=${funcionario.cpf})}"
-            >
-                <button
-                        onclick="return confirm('Tem certeza que deseja modificar este funcionário?')"
-                        type="submit"
-                >
-                    Modificar
-                </button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<br/>
-<a class="button" th:href="@{/sistema}">Voltar</a>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
+
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
+            </div>
+            <h3 class="i-name">Funcionarios</h3>
+            <p>Lista dos funcionarios do Hotel</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/formFuncionario'"
+        >
+            Cadastrar
+        </button>
+    </div>
+
+    <div class="values">
+        <div class="board">
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Cargo</th>
+                    <th>Status</th>
+                    <th>Data de Admissão</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="funcionario : ${funcionarios}">
+                    <td class="people">
+                        <img
+                                alt="Imagem do funcionário"
+                                th:src="@{${funcionario.imagem}}"
+                        />
+                        <div>
+                            <h5 th:text="${funcionario.nome}"></h5>
+                            <p
+                                    th:text="${#strings.substring(funcionario.cpf, 0, 3) + '.' + #strings.substring(funcionario.cpf, 3, 6) + '.' + #strings.substring(funcionario.cpf, 6, 9)  + '-' + #strings.substring(funcionario.cpf, 9, 11)}"
+                            ></p>
+                        </div>
+                    </td>
+                    <td
+                            th:text="${cargoMap.containsKey(funcionario.idcargos) ? cargoMap.get(funcionario.idcargos) : 'Cargo não encontrado'}"
+                    ></td>
+                    <td
+                            th:class="${funcionario.data_demissao == null || funcionario.data_demissao == '' ? 'active' : 'desactive'}"
+                    >
+                        <p
+                                th:text="${funcionario.data_demissao == null || funcionario.data_demissao == '' ? 'Ativo' : 'Inativo'}"
+                        ></p>
+                    </td>
+                    <td
+                            th:text="${#strings.substring(funcionario.data_admissao, 8, 10) + '/' + #strings.substring(funcionario.data_admissao, 5, 7) + '/' + #strings.substring(funcionario.data_admissao, 0, 4)}"
+                    ></td>
+                    <td>
+                        <form
+                                method="get"
+                                style="display: inline-block"
+                                th:action="@{/mostrarFuncionario/{cpf}(cpf=${funcionario.cpf})}"
+                        >
+                            <button type="submit">Detalhes</button>
+                        </form>
+
+                        <form
+                                method="get"
+                                style="display: inline-block"
+                                th:action="@{/modificarFuncionario/{cpf}(cpf=${funcionario.cpf})}"
+                        >
+                            <button
+                                    onclick="return confirm('Tem certeza que deseja modificar este funcionário?')"
+                                    type="submit"
+                            >
+                                Modificar
+                            </button>
+                        </form>
+                        <form
+                                action="/deletarFuncionario"
+                                method="post"
+                                style="display: inline-block"
+                        >
+                            <input
+                                    name="cpf"
+                                    th:value="${funcionario.cpf}"
+                                    type="hidden"
+                            />
+                            <button
+                                    onclick="return confirm('Tem certeza que deseja excluir este funcionário?')"
+                                    type="submit"
+                            >
+                                Excluir
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 </body>
 </html>

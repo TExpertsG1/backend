@@ -1,0 +1,39 @@
+.table-container {
+    height: 300px; /* Defina a altura desejada para o tbody */
+    overflow-y: scroll; /* Adicione uma barra de rolagem vertical */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead {
+    background-color: #ddd;
+}
+
+th {
+    text-align: left;
+}
+
+tbody {
+    display: block;
+}
+
+td,
+th {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #f1f1f1;
+  }
+  

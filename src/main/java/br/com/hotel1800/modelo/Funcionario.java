@@ -120,11 +120,7 @@ public class Funcionario {
     }
 
     public LocalDate getData_demissao() {
-        if (data_demissao != null) {
-            return data_demissao;
-        } else {
-            return LocalDate.of(0000, 01, 01);
-        }
+        return data_demissao;
     }
 
     public void setData_demissao(LocalDate data_demissao) {

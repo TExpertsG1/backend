@@ -1,40 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Dashboard do Hotel 1800</title>
-    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css}">
-    <link rel="stylesheet" th:href="@{/css/sistema/estilo.css}">
-    <!--     <link rel="stylesheet" href="../../static/css/sistema/estilo.css"> -->
-    <script th:src="@{https://code.jquery.com/jquery-3.6.3.min.js}"></script>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link
+            rel="stylesheet"
+            th:href="@{https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css}"
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+    <title>Dashboard</title>
 </head>
 <body>
-<section id="menu">
-    <div class="logo">
-        <img alt="Descrição da imagem" th:src="@{${session.logado.imagem}}">
-        <br/>
-        <span th:text="${session.logado.nome}"></span>
-    </div>
-    <nav class="items">
-        <li class="selecionada"><i class="fa-solid fa-circle-stop"></i><a th:href="@{/sistema}">Dashboard</a></li>
-        <li><i class="fa-solid fa-users"></i><a th:href="@{/hospedes}">Hospedes</a></li>
-        <li><i class="fa-solid fa-book"></i><a th:href="@{/reservas}">Reservas</a></li>
-        <li><i class="fa-solid fa-bed"></i><a th:href="@{/quartos}">Quartos</a></li>
-        <li><i class="fa-solid fa-users-gear"></i><a th:href="@{/funcionarios}">Funcionarios</a></li>
-        <li><i class="fa-solid fa-gear"></i><a th:href="@{/cargos}">Cargos</a></li>
-        <li class="sair-"><i class="fa-solid fa-circle-xmark"></i></i></i><a th:href="@{/logout}">Sair</a></li>
-    </nav>
-</section>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
+
 <section id="interface">
     <div class="navegation">
         <div>
             <i class="fas fa-bars" id="menu-btn"></i>
         </div>
-        <h3 class="i-name">
-            Dashboard
-        </h3>
         <p>Gestão das actividades do Hotel</p>
     </div>
 
@@ -79,8 +65,6 @@
             </div>
         </div>
     </div>
-
-
 </section>
 </body>
-</html>    
+</html>
