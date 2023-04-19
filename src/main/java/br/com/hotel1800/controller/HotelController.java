@@ -37,9 +37,12 @@ public class HotelController {
         return "redirect:/hoteis";
     }
 
-    @GetMapping("/modificarHotel/{cpnj}")
+    @GetMapping("/modificarHotel/{cnpj}")
     public String mostrarFormularioModificarHotel(@PathVariable String cnpj, Model model) {
         Hotel hotel = hotelDAO.read(cnpj);
+
+        System.out.println(hotel);
+
         model.addAttribute("hotel", hotel);
         return "hotel/modificar-hotel";
     }
