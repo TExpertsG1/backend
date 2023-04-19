@@ -49,15 +49,15 @@
                 <tr th:each="hotel : ${hoteis}">
                     <td th:text="${hotel.cnpj}"></td>
                     <td th:text="${hotel.cep}"></td>
-                    <td th:text="${cargo.cidade}"></td>
-                    <td th:text="${cargo.logradouro}"></td>
-                    <td th:text="${cargo.uf}"></td>
+                    <td th:text="${hotel.cidade}"></td>
+                    <td th:text="${hotel.logradouro}"></td>
+                    <td th:text="${hotel.uf}"></td>
 
                     <td>
                         <form
                                 method="get"
                                 style="display: inline-block"
-                                th:action="@{/modificarHotel/{cnpj}(cnpj=${cargo.cnpj})}"
+                                th:action="@{/modificarHotel/{cnpj}(cnpj=${hotel.cnpj})}"
                         >
                             <button
                                     onclick="return confirm('Tem certeza que deseja modificar esta hotel?')"
@@ -77,7 +77,7 @@
                                     type="hidden"
                             />
                             <button
-                                    onclick="return confirm('Tem certeza que deseja excluir esta hotel?')"
+                                    onclick="return confirm('Tem certeza que deseja excluir esse hotel?')"
                                     type="submit"
                             >
                                 Excluir

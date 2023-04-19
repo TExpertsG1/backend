@@ -41,24 +41,20 @@
                 th:object="${hotel}"
         >
             <p>
-                <span>Cnpj:</span>
+                <span>CNPJ:</span>
                 <input name="cnpj" type="text"/>
             </p>
             <p>
-                <span>Cep:</span>
-                <input name="cargo" type="text" />
-            </p>
-            <p>
-                <span>Cidade:</span>
-                <input name="salario" type="text" />
+                <span>Nome:</span>
+                <input name="nome" type="text" />
             </p>
             <p>
                 <span>Logradouro:</span>
-                <input name="salario" type="text" />
+                <input name="logradouro" type="text" />
             </p>
             <p>
-                <span>Nome:</span>
-                <input name="salario" type="text" />
+                <span>CEP:</span>
+                <input name="cep" type="text" />
             </p>
             <p>
                 <span>UF:</span>
@@ -226,6 +222,11 @@
                         TO
                     </option>
                 </select>
+            <p>
+                <span>Cidade:</span>
+                <input name="cidade" type="text" />
+            </p>
+
             <button class="btn-cad-client" type="submit">Enviar</button>
         </form>
     </div>

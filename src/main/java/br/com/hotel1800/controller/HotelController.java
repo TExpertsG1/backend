@@ -20,6 +20,7 @@ public class HotelController {
     @GetMapping("/hoteis")
     public String listaHoteis(Model model) {
         List<Hotel> hoteis = hotelDAO.readAll();
+        System.out.println(hoteis);
         model.addAttribute("hoteis", hoteis);
         return "hotel/lista-hoteis";
     }
@@ -37,7 +38,7 @@ public class HotelController {
     }
 
     @GetMapping("/modificarHotel/{cpnj}")
-    public String mostrarFormularioModificarHotel(@PathVariable Integer cnpj, Model model) {
+    public String mostrarFormularioModificarHotel(@PathVariable String cnpj, Model model) {
         Hotel hotel = hotelDAO.read(cnpj);
         model.addAttribute("hotel", hotel);
         return "hotel/modificar-hotel";
@@ -50,7 +51,7 @@ public class HotelController {
     }
 
     @PostMapping("/deletarHotel")
-    public String deletarHotel(Integer cnpj) {
+    public String deletarHotel(String cnpj) {
         hotelDAO.delete(cnpj);
         return "redirect:/hoteis";
     }
