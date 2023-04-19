@@ -390,23 +390,22 @@ table {
 }
 
 table thead th {
-    padding: 10px;
-    font-size: 1em;
+    padding: 7px;
     font-weight: 600;
-    font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
     background: #ad9479;
-    text-align: left;
+    text-align: center;
     color: #fff;
 }
 
 table tbody tr td {
     display: table-cell;
     font-weight: 400;
-    padding: 10px;
-    text-align: left;
+    padding: 5px;
+    text-align: center;
     position: relative;
+    font-size:0.8rem;
 }
 
 table tbody tr {
@@ -427,7 +426,7 @@ table tbody tr td button {
 }
 
 table tbody tr td button {
-    background: #4caf50;
+    background: #ad9479;
     border: none;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(34, 34, 34, 0.2);

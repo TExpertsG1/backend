@@ -1,8 +1,8 @@
 package br.com.hotel1800.controller;
 
+import br.com.hotel1800.dao.HotelDAO;
 import br.com.hotel1800.modelo.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
-import br.com.hotel1800.dao.HotelDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

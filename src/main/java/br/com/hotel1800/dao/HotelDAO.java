@@ -18,9 +18,13 @@ public class HotelDAO {
     private EntityManager em;
 
     @CacheEvict(value = "listaHotel", allEntries = true)
-    public void create(Hotel hotel) { em.persist(hotel); }
+    public void create(Hotel hotel) {
+        em.persist(hotel);
+    }
 
-    public Hotel read(String cnpj) { return em.find(Hotel.class, cnpj); }
+    public Hotel read(String cnpj) {
+        return em.find(Hotel.class, cnpj);
+    }
 
     @Cacheable("listaHotel")
     public List<Hotel> readAll() {

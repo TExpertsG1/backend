@@ -22,7 +22,7 @@
                 <i class="fas fa-bars" id="menu-btn"></i>
             </div>
             <h3 class="i-name">Cargos</h3>
-            <p>lista de cargos</p>
+            <p>Lista de Cargos</p>
         </div>
         <button
                 class="btn-cad-client"
@@ -47,7 +47,7 @@
                 <tr th:each="cargo : ${listaCargos}">
                     <td th:text="${cargo.id}"></td>
                     <td th:text="${cargo.cargo}"></td>
-                    <td th:text="${cargo.salario}"></td>
+                    <td th:text="'R$ ' +${cargo.salario}"></td>
 
                     <td>
                         <form

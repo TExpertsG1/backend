@@ -23,8 +23,8 @@
             <div>
                 <i class="fas fa-bars" id="menu-btn"></i>
             </div>
-            <h3 class="i-name">quartos</h3>
-            <p>Lista dos quartos</p>
+            <h3 class="i-name">Quartos</h3>
+            <p>Lista de Quartos</p>
         </div>
         <button
                 class="btn-cad-client"
@@ -55,7 +55,7 @@
                     <td th:text="${quarto.hotel_cnpj}"></td>
                     <td th:text="${quarto.numero}"></td>
                     <td th:text="${quarto.capacidade}"></td>
-                    <td th:text="${quarto.diaria}"></td>
+                    <td th:text="'R$ ' + ${quarto.diaria}"></td>
 
                     <td>
                         <form

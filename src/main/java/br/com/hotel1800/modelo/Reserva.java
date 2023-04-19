@@ -1,17 +1,10 @@
 package br.com.hotel1800.modelo;
 
-import br.com.hotel1800.dao.QuartoDAO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 @Entity
 @Table(name = "reserva")

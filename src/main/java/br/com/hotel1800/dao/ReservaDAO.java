@@ -19,6 +19,17 @@ public class ReservaDAO {
     @PersistenceContext
     private EntityManager em;
 
+    public static List<Double> calcularValorTotal(int idQuarto, LocalDate dataCheckIn, LocalDate dataCheckOut, BigDecimal diaria) {
+        List<Double> valoresDaReserva = new ArrayList<Double>();
+        long diasDeHospedagem = ChronoUnit.DAYS.between(dataCheckIn, dataCheckOut);
+        if (diasDeHospedagem == 0) {
+            diasDeHospedagem = 1;
+        }
+        BigDecimal valorTotalDaReserva = diaria.multiply(BigDecimal.valueOf(diasDeHospedagem));
+        valoresDaReserva.add(valorTotalDaReserva.doubleValue());
+        return valoresDaReserva;
+    }
+
     public void create(Reserva reserva) {
         em.persist(reserva);
     }
@@ -37,17 +48,6 @@ public class ReservaDAO {
                 .setParameter("email", email)
                 .getResultList();
     }
-
-    public static List<Double> calcularValorTotal(int idQuarto, LocalDate dataCheckIn, LocalDate dataCheckOut, BigDecimal diaria) {
-        List<Double> valoresDaReserva = new ArrayList<Double>();
-        long diasDeHospedagem = ChronoUnit.DAYS.between(dataCheckIn, dataCheckOut);
-        if (diasDeHospedagem == 0) {
-            diasDeHospedagem =1;
-            }
-        BigDecimal valorTotalDaReserva = diaria.multiply(BigDecimal.valueOf(diasDeHospedagem));
-        valoresDaReserva.add(valorTotalDaReserva.doubleValue());
-        return valoresDaReserva;
-        }
 
     public void update(Reserva reserva) {
         em.merge(reserva);
