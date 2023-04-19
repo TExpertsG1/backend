@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: Baskerville;
-    src: url(../../public/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf);
+    src: url("/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf");
 }
 html {
     scroll-behavior: smooth;
@@ -16,7 +16,9 @@ body {
     color: #82694e;
     background-color: #fff3f1;
     font-family: "Baskerville";
+
 }
+
 
 /*   HEADER    */
 
@@ -24,6 +26,7 @@ a {
     all: unset;
     cursor: pointer;
     transition: background-color 0.6s ease;
+     color: #333;
 }
 
 h1 {
@@ -39,6 +42,11 @@ h2 {
     line-height: 5rem;
     text-align: center;
     font-family: "Baskerville";
+    color: #82694e;
+}
+.h2{
+    font-size: 30px;
+    color: #82694e;
 }
 
 .principal {
@@ -53,8 +61,8 @@ header {
 .nomeLogo {
     text-align: center;
     font-family: "Baskerville";
-    font-size: 2.5rem;
-    color: #e9ba0f;
+    font-size: 6.0rem;
+    color: #ebcc5a;
 }
 
 .userBar {
@@ -67,12 +75,13 @@ header {
 }
 
 .userBar a {
-    display: flex;
+    display: flex ;
     min-width: 60px;
     padding: 0.5rem;
     justify-content: center;
     background-color: #ad9479;
     border-radius: 0.5rem;
+    color:#ffffff;
 }
 
 .userBar a:hover {
@@ -86,10 +95,9 @@ header {
     justify-content: space-around;
 }
 .mainHeader img {
-    max-height: 8rem;
-    max-width: 8rem;
+    max-height: 8.5rem;
+    max-width: 8.5rem;
 }
-
 .navbar {
     display: flex;
     flex-wrap: wrap;
@@ -106,32 +114,7 @@ header {
     background-color: #82694e;
 }
 
-@media (max-width: 800px) {
-    /*...HEADER...*/
-    .mainHeader {
-        justify-content: center;
-    }
-    .mainHeader img {
-        display: none;
-    }
-    .navbar {
-        flex-flow: column;
-        min-width: 40%;
-        transition: all 0.4s;
-        text-align: center;
-    }
-    h1 {
-        font-size: 20px;
-        text-align: center;
-    }
-    .nomeLogo {
-        display: block;
-        line-height: 0;
-    }
-    .nomeLogo h1 {
-        padding: 0;
-    }
-}
+
 
 /****  Sobre Nosso Hotel ****/
 .container-grid,
@@ -152,7 +135,7 @@ header {
     font-family: "Baskerville", sans-serif;
     text-align: justify;
     font-size: medium;
-    line-height: 1.5rem;
+    line-height: 3rem;
     width: auto;
 }
 .container-grid div button,
@@ -219,8 +202,9 @@ div.desc {
     text-align: center;
     text-decoration: overline;
     font-weight: bold;
-    /* color: v.$fontColor; */
-}
+    color: #82694e;
+
+    }
 
 .container-servicos {
     display: flex;
@@ -236,7 +220,6 @@ a {
     padding: 20px 20px 20px 20px;
 }
 
-/*Bloco com todo o conteúdo de Serviços*/
 #servicos {
     background-color: #ede5e3;
     padding-top: 20px;
@@ -255,10 +238,6 @@ a {
     cursor: pointer;
 }
 
-/*.containerS1 {
-  display: grid;
-  grid-template-columns: 35% 65%;
-}*/
 .divIcon {
     display: flex;
     align-items: center;
@@ -269,13 +248,10 @@ a {
 }
 .divIcon h2 {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     padding: 5px;
 }
 
-.textos {
-    text-align: justify;
-}
 
 div.navPos {
     background-color: #82694e;
@@ -291,15 +267,11 @@ div.navPos ul {
     margin: 0;
 }
 div.navPos ul li a {
-    font-size: 0.6em;
+    font-size: 0.8em;
     color: #fff;
 }
 
-#message {
-    padding-bottom: 6rem;
-}
-
-#button {
+.btn-cad-client {
     font-size: 1.2rem;
     border: none;
     background-color: #82694e;
@@ -312,9 +284,6 @@ div.navPos ul li a {
 
 /*-- INFORMAÇÕES --*/
 
-select {
-    color: #666462;
-}
 
 /*FOOTER*/
 .fieldsetFooter {
@@ -323,8 +292,10 @@ select {
     font-size: 16px;
     width: 100%;
     font-weight: bold;
-    margin: 0;
+    margin: 0 ;
+    border:50px
 }
+
 
 div.continf {
     text-align: center;
@@ -359,25 +330,17 @@ input {
     padding-bottom: 6rem;
 }
 
-#button {
-    font-size: 1.2rem;
-    border: none;
-    background-color: #82694e;
-    color: #ffffff;
-    padding: 8px 24px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-}
 
 /*-- INFORMAÇÕES --*/
 div.informacoes {
     color: #82694e;
-    text-align: left;
-    font-size: 80%;
+    text-align: center;
+    font-size: 20px;
 }
+
 a {
     padding: 2px;
+    color: #333;
 }
 
 select {
@@ -386,6 +349,8 @@ select {
 
 div.redes-sociais {
     font-size: 2rem;
+    text-align:center;
+    color: #82694e;
 }
 
 /* -- COPYRIGHT -- */
@@ -394,77 +359,30 @@ div.copyright {
     color: #82694e;
 }
 
-@media (max-width: 800px) {
-    .container-servicos,
-    .informacoes,
-    section #sobre {
-        display: flex;
-        flex-direction: column;
-        margin: 10 0 5 0;
-    }
-    div.informações {
-        flex-flow: column;
-    }
-    img {
-        width: 100%;
-        min-height: auto;
-        object-fit: cover;
-        object-position: bottom;
-    }
-    div.informacoes {
-        text-align: left;
-        padding-left: 5px;
-        border-radius: 5px;
-        text-align: center;
-    }
-    .informacoes .social {
-        text-align: center;
-        margin-bottom: 5px;
-    }
-    section #sobre div {
-        text-align: center;
-    }
-    .div-contatos {
-        padding: 0px;
-    }
-    div.continf {
-        display: flex;
-        background-color: #ede5e3;
-        font-size: 1.5rem;
-    }
-    .contatos {
-        width: 100%;
-        border-bottom-width: 1px;
-        border-bottom-color: #82694e;
-        border-bottom-style: solid;
-        font-size: large;
-        font-size: 15px;
-    }
-    select.contatos {
-        color: rgba(107, 94, 94, 0.8235294118);
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
-        font-size: 15px;
-    }
-    .fieldsetFooter {
-        width: 100%;
-    }
-    div.redes-sociais {
-        padding-left: 0;
-        size: 5px;
-    }
-    .fa-solid {
-        font-size: 15px;
-    }
-    /* -- COPYRIGHT -- */
-    div.copyright {
-        font-size: large;
-    }
-}
+
 
 /* ---------- responsive ----------------------- */
 @media (max-width: 800px) {
     /*...HEADER...*/
+.mainHeader {
+      justify-content: center;
+        }
+.mainHeader img {
+      display: none;
+          }
+.navbar {
+      flex-flow: column;
+      min-width: 40%;
+      transition: all 0.4s;
+      text-align: center;
+          }
+.div-contatos {
+      padding: 0px;
+    }
+
+.nomeLogo h1 {
+        padding: 0;
+         }
 
     h1 {
         font-size: 20px;
@@ -478,9 +396,14 @@ div.copyright {
     .container-grid-gastro p {
         padding: 0;
         font-size: 12px;
+
     }
     .container-grid div img {
         display: none;
+    }
+.informacoes .social {
+    text-align: center;
+    margin-bottom: 5px;
     }
 
     .container-grid-gastro div button {
@@ -498,7 +421,9 @@ div.copyright {
     h2 {
         font-size: 20px;
         text-align: center;
+
     }
+
     .textos {
         font-size: 12px;
         text-align: justify;
@@ -526,6 +451,8 @@ div.copyright {
     }
     div.informações {
         flex-flow: column;
+        font-size: 20px;
+        text-align:center;
     }
     img {
         width: 100%;
@@ -544,4 +471,41 @@ div.copyright {
     .fa-solid {
         font-size: 15px;
     }
+
+    div.continf {
+        display: flex;
+        background-color: #ede5e3;
+        font-size: 1.5rem;
+    }
+    .contatos {
+        width: 100%;
+        border-bottom-width: 1px;
+        border-bottom-color: #82694e;
+        border-bottom-style: solid;
+        font-size: large;
+        font-size: 15px;
+    }
+
+    select.contatos {
+        color: rgba(107, 94, 94, 0.8235294118);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        font-size: 15px;
+    }
+    .fieldsetFooter {
+        width: 100%;
+    }
+    div.redes-sociais {
+        padding-left: 0;
+        size: 5px;
+
+    }
+    .fa-solid {
+        font-size: 15px;
+    }
+    /* -- COPYRIGHT -- */
+    div.copyright {
+        font-size: large;
+    }
+
 }

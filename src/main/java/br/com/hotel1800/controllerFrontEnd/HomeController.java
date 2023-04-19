@@ -2,6 +2,7 @@ package br.com.hotel1800.controllerFrontEnd;
 
 import br.com.hotel1800.dao.QuartoDAO;
 import br.com.hotel1800.dao.ReservaDAO;
+import br.com.hotel1800.modelo.Quarto;
 import br.com.hotel1800.modelo.Reserva;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -37,24 +39,37 @@ public class HomeController {
     }
 
     @PostMapping("/consultar")
-    public String consultar(Model model, String cpf, String email) {
-        return "redirect:/consultarReservas/" + cpf + "/" + email;
+    public String consultar(Model model, String hospede_cpf, String email) {
+        return "redirect:/consultarReservas/" + hospede_cpf + "/" + email;
     }
+
 
     @GetMapping("/consultarReservas/{cpf}/{email}")
     public String consultarReservas(@PathVariable String cpf, @PathVariable String email, Model model) {
         List<Reserva> listaReservas = reservaDAO.readAllCpfEmail(cpf, email);
+        List<Double> listaPreco = new ArrayList<Double>();
+        List<Quarto> listaQuartos = quartoDAO.readAll();
+
+        for (Reserva reserva : listaReservas) {
+            Quarto quarto = quartoDAO.read(reserva.getIdquarto());
+            List<Double> valoresDaReserva = ReservaDAO.calcularValorTotal(reserva.getIdquarto(), reserva.getData_check_in(), reserva.getData_check_out(), quarto.getDiaria());
+            double valorTotalDaReserva = valoresDaReserva.get(0);
+            listaPreco.add(valorTotalDaReserva);
+        }
+
         model.addAttribute("listaReservas", listaReservas);
+        model.addAttribute("listaQuartos", listaQuartos);
+        model.addAttribute("listaPreco", listaPreco);
         return "frontend/consultar-reservas";
     }
 
     @PostMapping("/deletarReservaIndex")
-    public String deletarReservaIndex(Integer id, RedirectAttributes redirectAttributes) {
+    public String deletarReservaIndex(Integer id) {
         Reserva reserva = reservaDAO.read(id);
         String cpf = reserva.getHospede_cpf();
+        String email = reserva.getEmail();
         reservaDAO.delete(id);
-        redirectAttributes.addAttribute("cpf", cpf);
-        return "redirect:/reservasIndex/" + cpf;
+        return "redirect:/consultarReservas/" + cpf + "/" + email;
     }
 
 }

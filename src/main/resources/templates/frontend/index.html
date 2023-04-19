@@ -58,10 +58,10 @@
             rel="preconnect"
             th:href="@{https://fonts.gstatic.com}"
     />
-    <link
-            rel="stylesheet"
-            th:href="@{https://fonts.googleapis.com/css2?family=Baskervville&display=swap}"
-    />
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Baskervville&display=swap}"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Home</title>
 </head>
 <body>
@@ -96,7 +96,7 @@
         <ul>
             <li>
                 <a href="#reserva"
-                ><i class="fa-solid fa-calendar-days"> Reserva</i>
+                ><i class="fa-solid fa-calendar-days"> Reservar</i>
                 </a>
             </li>
         </ul>
@@ -111,8 +111,8 @@
                     />
                 </div>
                 <div id="containersobre02">
-                    <h2>Nossa história</h2>
-                    <p>
+                    <h2 style="color: #82694e">Nossa história</h2>
+                    <p style="color: #82694e">
                         O Hotel 1800 é uma mansão-palácio localizada no
                         centro histórico de Sevilha. A história das
                         mansões-palácios de Sevilha remonta ao início do
@@ -121,7 +121,7 @@
                         Tenorio, Carmen la Cigarrera, Lord Byron,
                         Bécquer…
                     </p>
-                    <p>
+                    <p style="color: #82694e">
                         Esta casa foi construída em 1864 seguindo um
                         layout tradicional. Suas portas de madeira
                         maciça cravejadas permitem a entrada no palácio
@@ -135,48 +135,229 @@
     </section>
     <br/>
     <section class="principal" id="acomodacoes">
-        <div>
-            <div class="galeria">
-                <div>
-                    <h2>Nossas Acomodações</h2>
+        <div class="galeria">
+            <div>
+                <h2 style="color: #82694e">Nossas Acomodações</h2>
+                <div class="gallery">
+                    <img alt="Suíte Familia" data-target="#myModal" data-toggle="modal"
+                         th:src="@{/imagens/acomodacao1.jpg}"/>
+                    <div class="desc">Suíte Família</div>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                <h4 class="modal-title">Suíte Família</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="carousel slide" data-ride="carousel" id="myCarousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+                                        <li data-slide-to="1" data-target="#myCarousel"></li>
+                                        <li data-slide-to="2" data-target="#myCarousel"></li>
+                                        <li data-slide-to="3" data-target="#myCarousel"></li>
+                                        <li data-slide-to="4" data-target="#myCarousel"></li>
+                                        <li data-slide-to="5" data-target="#myCarousel"></li>
+                                    </ol>
 
-                    <div class="gallery">
-                        <a
-                                th:href="@{./pages/acomodacoes.html#suiteFamilia}"
-                        >
-                            <img
-                                    alt="Suíte Familia"
-                                    th:src="@{/imagens/acomodacao1.jpg}"
-                            />
-                        </a>
-                        <br/>
-                        <div class="desc">Suite Família</div>
-                    </div>
-                    <div class="gallery">
-                        <a
-                                th:href="@{./pages/acomodacoes.html#suiteMaster}"
-                        >
-                            <img
-                                    alt="Suíte Master"
-                                    th:src="@{/imagens/acomodacao2.jpg}"
-                            />
-                        </a>
-                        <div class="desc">Suíte Master</div>
-                    </div>
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" style="overflow:hidden">
+                                        <div class="item active">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteFamilia01.jpg">
+                                        </div>
 
-                    <div class="gallery">
-                        <a
-                                th:href="@{./pages/acomodacoes.html#suitePremium}"
-                        >
-                            <img
-                                    alt="Suíte Premium"
-                                    th:src="@{/imagens/acomodacao3.jpg}"
-                            />
-                        </a>
-                        <div class="desc">Suíte Premium</div>
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteFamilia02.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteFamilia03.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteFamilia04.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteFamilia05.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteFamilia06.jpg">
+                                        </div>
+                                    </div>
+                                    <a class="left carousel-control" data-slide="prev" href="#myCarousel">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" data-slide="next" href="#myCarousel">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                <p>
+                                    Fiel ao estilo dos edifícios tradicionais sevilhanos, todos os nossos quartos
+                                    Premium são diferentes e únicos. Preservamos várias partes do edifício original –
+                                    varandas, persianas, tectos em caixotões e muito mais – para proporcionar aos nossos
+                                    hóspedes uma sensação única.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button">Fechar</button>
+                    </div>
+                </div>
+                <div class="gallery">
+                    <img alt="Suíte Premium" data-target="#myModal2" data-toggle="modal"
+                         th:src="@{/imagens/acomodacao2.jpg}"/>
+                    <div class="desc">Suíte Premium</div>
+                </div>
+                <div class="modal fade" id="myModal2" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                <h4 class="modal-title">Suíte Premium</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="carousel slide" data-ride="carousel" id="myCarousel2">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li class="active" data-slide-to="6" data-target="#myCarousel2"></li>
+                                        <li data-slide-to="5" data-target="#myCarousel2"></li>
+                                        <li data-slide-to="8" data-target="#myCarousel2"></li>
+                                        <li data-slide-to="9" data-target="#myCarousel2"></li>
+                                        <li data-slide-to="10" data-target="#myCarousel2"></li>
+                                        <li data-slide-to="11" data-target="#myCarousel2"></li>
+                                    </ol>
+
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" style="overflow:hidden">
+                                        <div class="item active">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suitePremium01.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suitePremium02.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suitePremium03.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suitePremium04.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suitePremium05.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suitePremium06.jpg">
+                                        </div>
+                                    </div>
+                                    <a class="left carousel-control" data-slide="prev" href="#myCarousel2">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" data-slide="next" href="#myCarousel2">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                <p>
+                                    Fiel ao estilo dos edifícios tradicionais sevilhanos, todos os nossos quartos
+                                    Premium
+                                    são diferentes e únicos. Preservamos várias partes do edifício original – varandas,
+                                    persianas, tectos em caixotões e muito mais – para proporcionar aos nossos hóspedes
+                                    uma sensação única.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button">Fechar</button>
+                    </div>
+                </div>
+                <div class="gallery">
+                    <img alt="Suíte Master" data-target="#myModal3" data-toggle="modal"
+                         th:src="@{/imagens/acomodacao3.jpg}"/>
+                    <div class="desc">Suíte Master</div>
+                </div>
+                <div class="modal fade" id="myModal3" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                <h4 class="modal-title">Suíte Master</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="carousel slide" data-ride="carousel" id="myCarousel3">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li class="active" data-slide-to="12" data-target="#myCarousel3"></li>
+                                        <li data-slide-to="13" data-target="#myCarousel3"></li>
+                                        <li data-slide-to="14" data-target="#myCarousel3"></li>
+                                        <li data-slide-to="15" data-target="#myCarousel3"></li>
+                                        <li data-slide-to="16" data-target="#myCarousel3"></li>
+                                        <li data-slide-to="17" data-target="#myCarousel3"></li>
+                                    </ol>
+
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" style="overflow:hidden">
+                                        <div class="item active">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteMaster01.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteMaster02.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteMaster03.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteMaster04.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteMaster05.jpg">
+                                        </div>
+
+                                        <div class="item">
+                                            <img alt="Outra imagem" src="/imagens/acomodacoes/suiteMaster06.jpg">
+                                        </div>
+                                    </div>
+                                    <a class="left carousel-control" data-slide="prev" href="#myCarousel3">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" data-slide="next" href="#myCarousel3">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                <p>
+                                    Estes quartos são amplos e cheios de luz, proporcionando uma experiência
+                                    inesquecível em pleno bairro de Santa Cruz. Com estilo único e respeitando a
+                                    estrutura original da casa, todos os nossos quartos Deluxe Premium possuem
+                                    características únicas. Temos certeza de que cada vez que você se hospedar aqui
+                                    experimentará sensações diferentes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button">Fechar</button>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -185,7 +366,7 @@
     </div>
     <section id="servicos_principal" th:fragment="servicos_principal">
         <div class="principal">
-            <h2 class="h2Color">Conheça mais sobre nossos serviços</h2>
+            <h2 style="color: #82694e">Conheça mais sobre nossos serviços</h2>
             <article id="servicos">
                 <div class="container-servicos">
                     <div class="container-servicos2">
@@ -195,7 +376,7 @@
                                 Experiência Romântica
                             </h2>
                         </div>
-                        <p class="textos">
+                        <p class="textos" style="color: #82694e; text-align:justify">
                             Se você está pensando em comemorar sua lua
                             de mel, aniversário ou noite de núpcias,
                             queremos fazer parte da celebração. Você vai
@@ -211,7 +392,7 @@
                             ></i>
                             <h2 class="h1Color">Bem Estar</h2>
                         </div>
-                        <p class="textos">
+                        <p class="textos" style="color: #82694e; text-align:justify">
                             Em nossa casa também queremos que você
                             relaxe, você merece um descanso. Nossa
                             piscina, localizada no terraço, oferece
@@ -229,7 +410,7 @@
                             ></i>
                             <h2 class="h1Color">Cultura</h2>
                         </div>
-                        <p class="textos">
+                        <p class="textos" style="color: #82694e; text-align:justify">
                             Vários dos museus que temos na cidade também
                             são famosos e queremos ajudá-lo a
                             esgueirar-se por eles, visite o museu de
@@ -246,15 +427,15 @@
         <div class="principal">
             <div class="container-grid-gastro">
                 <div id="containergastro02">
-                    <h2>Gastronomia</h2>
-                    <p>
+                    <h2 style="color: #82694e">Gastronomia</h2>
+                    <p style="color: #82694e">
                         Se você está pensando em comemorar sua lua de
                         mel, aniversário ou noite de núpcias, queremos
                         fazer parte da celebração. Você vai precisar de
                         flores, champanhe, chocolates e muito amor, e na
                         Casa 1800 temos de tudo, deixe-nos ajudá-lo.
                     </p>
-                    <p>
+                    <p style="color: #82694e">
                         Dispomos de 33 quartos decorados com bom gosto e
                         elegância, onde poderá relaxar nos seus lençóis
                         de algodão egípcio e deliciar-se com o seu aroma
@@ -369,7 +550,7 @@
                         <span>Digite seu CPF</span>
                         <input
                                 id="cpf"
-                                name="cpf"
+                                name="hospede_cpf"
                                 required
                                 th:value="${cpf}"
                         />
@@ -377,7 +558,7 @@
                     <p>
                         <span>Digite seu email</span>
                         <input
-                                id="email"
+                                id="email2"
                                 name="email"
                                 required
                                 th:value="${email}"
@@ -392,22 +573,22 @@
     </div>
 </div>
 <footer>
-    <div class="principal">
+    <div class="principal redes-sociais">
         <div class="informacoes">
-            <h2 class="footerContato" id="contato">Contato</h2>
-            <p class="footerContato">
+            <h2>Contato</h2>
+            <p>
                 <i class="fa-solid fa-location-dot"></i> Rua T.expert,
                 250 CEP 00.000-00
             </p>
-            <p class="footerContato">
+            <p>
                 <i class="fa-solid fa-phone-volume"></i> (00) 0
                 0000-0000
             </p>
-            <p class="footerContato">
+            <p>
                 <i class="fa-brands fa-square-whatsapp"></i> (00) 0
                 0000-0000
             </p>
-            <p class="footerContato">
+            <p>
                 <i class="fa-solid fa-envelope"></i>
                 hotel1800@hotel1800.com.br
             </p>
@@ -416,13 +597,13 @@
         <div class="redes-sociais">
             <h2>Siga-nos</h2>
             <a href="http://www.facebook.com.br"
-            ><i class="fa-brands fa-facebook"></i
+            ><i class="fa-brands fa-facebook" style="color:#82694e"></i
             ></a>
             <a href="http://www.instagram.com">
-                <i class="fa-brands fa-square-instagram"></i
+                <i class="fa-brands fa-square-instagram" style="color:#82694e"></i
                 ></a>
             <a href="http://www.twitter.com"
-            ><i class="fa-brands fa-square-twitter"></i
+            ><i class="fa-brands fa-square-twitter" style="color:#82694e"></i
             ></a>
         </div>
     </div>

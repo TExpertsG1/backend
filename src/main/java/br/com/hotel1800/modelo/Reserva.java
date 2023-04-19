@@ -1,10 +1,17 @@
 package br.com.hotel1800.modelo;
 
+import br.com.hotel1800.dao.QuartoDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 @Entity
 @Table(name = "reserva")
@@ -14,6 +21,7 @@ public class Reserva {
     private int idreserva;
     private String nome;
     private String email;
+
     private int idquarto;
     private String hospede_cpf;
     private int quantidade_adulto;
@@ -38,6 +46,7 @@ public class Reserva {
         this.quantidade_crianca = quantidade_crianca;
         this.data_check_in = data_check_in;
         this.data_check_out = data_check_out;
+
     }
 
     public Reserva(String nome, String email, int idquarto, String hospede_cpf, int quantidade_adulto,
@@ -51,7 +60,9 @@ public class Reserva {
         this.quantidade_crianca = quantidade_crianca;
         this.data_check_in = data_check_in;
         this.data_check_out = data_check_out;
+
     }
+
 
     public int getIdreserva() {
         return idreserva;
