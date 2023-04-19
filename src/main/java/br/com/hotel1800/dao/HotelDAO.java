@@ -22,13 +22,11 @@ public class HotelDAO {
         em.persist(hotel);
     }
 
-    public Hotel read(Integer id) {
-        return em.find(Hotel.class, id);
-    }
+    public Hotel read(String cnpj) { return em.find(Hotel.class, cnpj); }
 
     @Cacheable("listaHotel")
     public List<Hotel> readAll() {
-        return em.createQuery("SELECT c FROM hotel c", Hotel.class).getResultList();
+        return em.createQuery("select c from Hotel c", Hotel.class).getResultList();
     }
 
     @CacheEvict(value = "listaHotel", allEntries = true)
@@ -37,8 +35,8 @@ public class HotelDAO {
     }
 
     @CacheEvict(value = "listaHotel", allEntries = true)
-    public void delete(Integer id) {
-        Hotel Hotel = em.find(Hotel.class, id);
+    public void delete(String cnpj) {
+        Hotel Hotel = em.find(Hotel.class, cnpj);
         em.remove(Hotel);
     }
 

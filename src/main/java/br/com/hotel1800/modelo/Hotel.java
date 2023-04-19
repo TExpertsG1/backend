@@ -1,5 +1,6 @@
 package br.com.hotel1800.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -7,8 +8,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "hotel")
 public class Hotel {
-
     @Id
+    @Column(name = "cnpj", unique = true)
     private String cnpj;
     private String nome;
     private String logradouro;
@@ -44,17 +45,11 @@ public class Hotel {
         this.nome = nome;
     }
 
-    public String getLogradouro() {
-        return logradouro;
-    }
+    public String getLogradouro() { return logradouro; }
 
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
+    public void setLogradouro(String logradouro) { this.logradouro = logradouro; }
 
-    public String getCep() {
-        return cep;
-    }
+    public String getCep() { return cep; }
 
     public void setCep(String cep) {
         this.cep = cep;
