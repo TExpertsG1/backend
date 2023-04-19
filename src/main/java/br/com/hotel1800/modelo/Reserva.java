@@ -21,7 +21,6 @@ public class Reserva {
     private int idreserva;
     private String nome;
     private String email;
-
     private int idquarto;
     private String hospede_cpf;
     private int quantidade_adulto;

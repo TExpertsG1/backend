@@ -25,7 +25,7 @@
         </div>
         <button
                 class="btn-cad-client"
-                onclick="window.location.href='/index'"
+                onclick="window.location.href='/'"
         >
             Voltar
         </button>
@@ -36,12 +36,11 @@
             <table width="100%">
                 <thead>
                 <tr>
-                    <th>Código Reserva</th>
-                    <th>Código Quarto</th>
+                    <th>Cód. Reserva</th>
+                    <th>Quarto</th>
                     <th>CPF</th>
                     <th>Hóspede</th>
                     <th>Email</th>
-                    <th>Status</th>
                     <th>Qnt. Adultos</th>
                     <th>Qnt. Crianças</th>
                     <th>Check-in</th>
@@ -52,18 +51,21 @@
                 </thead>
                 <tbody>
                 <tr th:each="reserva, contador : ${listaReservas}">
+
                     <td th:text="${reserva.idreserva}"></td>
-                    <td th:text="${reserva.idquarto}"></td>
-                    <td th:text="${reserva.hospede_cpf}"></td>
+                    <td th:text="${listaQuartos[contador.index]}"></td>
+
+                    <td th:text="${#strings.substring(reserva.hospede_cpf, 0, 3) + '.' + #strings.substring(reserva.hospede_cpf, 3, 6) + '.' + #strings.substring(reserva.hospede_cpf, 6, 9)  + '-' + #strings.substring(reserva.hospede_cpf, 9, 11)}"
+                    ></td>
+
                     <td th:text="${reserva.nome}"></td>
                     <td th:text="${reserva.email}"></td>
-                    <td>Status</td>
                     <td th:text="${reserva.quantidade_adulto}"></td>
-                    <td
-                            th:text="${reserva.quantidade_crianca}"
-                    ></td>
-                    <td th:text="${reserva.data_check_in}"></td>
-                    <td th:text="${reserva.data_check_out}"></td>
+                    <td th:text="${reserva.quantidade_crianca}"></td>
+
+                    <td th:text="${#strings.substring(reserva.data_check_in, 8, 10) + '/' + #strings.substring(reserva.data_check_in, 5, 7) + '/' + #strings.substring(reserva.data_check_in, 0, 4)}"></td>
+
+                    <td th:text="${#strings.substring(reserva.data_check_out, 8, 10) + '/' + #strings.substring(reserva.data_check_out, 5, 7) + '/' + #strings.substring(reserva.data_check_out, 0, 4)}"></td>
 
                     <td th:text="${listaPreco[contador.index]}"></td>
 

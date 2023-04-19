@@ -22,7 +22,7 @@ public class HomeController {
     @Autowired
     private QuartoDAO quartoDAO;
 
-    @GetMapping("/index")
+    @GetMapping
     public String index(Model model) {
         List<Object[]> quartos = quartoDAO.readIdNomeQuartos();
         model.addAttribute("quartos", quartos);
@@ -48,13 +48,14 @@ public class HomeController {
     public String consultarReservas(@PathVariable String cpf, @PathVariable String email, Model model) {
         List<Reserva> listaReservas = reservaDAO.readAllCpfEmail(cpf, email);
         List<Double> listaPreco = new ArrayList<Double>();
-        List<Quarto> listaQuartos = quartoDAO.readAll();
+        List<String> listaQuartos = new ArrayList<String>();
 
         for (Reserva reserva : listaReservas) {
             Quarto quarto = quartoDAO.read(reserva.getIdquarto());
             List<Double> valoresDaReserva = ReservaDAO.calcularValorTotal(reserva.getIdquarto(), reserva.getData_check_in(), reserva.getData_check_out(), quarto.getDiaria());
             double valorTotalDaReserva = valoresDaReserva.get(0);
             listaPreco.add(valorTotalDaReserva);
+            listaQuartos.add(quarto.getNome_quarto());
         }
 
         model.addAttribute("listaReservas", listaReservas);
