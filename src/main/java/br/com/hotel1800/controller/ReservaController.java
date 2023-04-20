@@ -3,6 +3,7 @@ package br.com.hotel1800.controller;
 import br.com.hotel1800.dao.HospedeDAO;
 import br.com.hotel1800.dao.QuartoDAO;
 import br.com.hotel1800.dao.ReservaDAO;
+import br.com.hotel1800.modelo.Hospede;
 import br.com.hotel1800.modelo.Quarto;
 import br.com.hotel1800.modelo.Reserva;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class ReservaController {
         List<Reserva> reservas = reservaDAO.readAll();
         List<Double> listaPreco = new ArrayList<Double>();
         List<String> listaQuartos = new ArrayList<String>();
+
 
         for (Reserva reserva : reservas) {
             Quarto quarto = quartoDAO.read(reserva.getIdquarto());

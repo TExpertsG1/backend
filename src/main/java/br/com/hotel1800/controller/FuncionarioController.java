@@ -38,12 +38,16 @@ public class FuncionarioController {
 
     @GetMapping("/formFuncionario")
     public String exibirFormularioFuncionario(Model model) {
+        Map<Integer, String> cargoMap = cargoDAO.getCargoMap();
         model.addAttribute("funcionario", new Funcionario());
+        model.addAttribute("cargoMap", cargoMap);
         return "funcionario/form-funcionario";
     }
 
     @PostMapping("/cadastrarFuncionario")
     public String cadastrarFuncionario(Funcionario funcionario) {
+
+
         funcionarioDAO.create(funcionario);
         return "redirect:/funcionarios";
     }
@@ -58,12 +62,15 @@ public class FuncionarioController {
     @GetMapping("/modificarFuncionario/{cpf}")
     public String mostrarFormularioModificarFuncionario(@PathVariable String cpf, Model model) {
         Funcionario funcionario = funcionarioDAO.read(cpf);
+        Map<Integer, String> cargoMap = cargoDAO.getCargoMap();
         model.addAttribute("funcionario", funcionario);
+        model.addAttribute("cargoMap", cargoMap);
         return "funcionario/modificar-funcionario";
     }
 
     @PostMapping("/atualizarFuncionario")
-    public String atualizarFuncionario(Funcionario funcionario) {
+    public String atualizarFuncionario(Funcionario funcionario)  {
+        System.out.println(funcionario);
         funcionarioDAO.update(funcionario);
         return "redirect:/funcionarios";
     }

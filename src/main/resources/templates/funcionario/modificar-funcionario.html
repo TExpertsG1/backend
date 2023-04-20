@@ -42,10 +42,9 @@
             <p>
                 <span>CPF:</span>
                 <input
-                        disabled
+                        readonly
                         id="cpf"
                         name="cpf"
-                        required="required"
                         th:value="${funcionario.cpf}"
                         type="text"
                 />
@@ -79,6 +78,15 @@
                         th:value="${funcionario.imagem}"
                         type="text"
                 />
+            </p>
+            <p>
+                <span>Cargo:</span>
+                <select id="idcargos" name="idcargos">
+                    <option th:each="cargo : ${cargoMap}"
+                            th:text="${cargo.value}"
+                            th:value="${cargo.key}"
+                            th:selected="${funcionario.idcargos == cargo.key}"></option>
+                </select>
             </p>
             <p>
                 <span>Data de Nascimento:</span>

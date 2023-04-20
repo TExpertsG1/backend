@@ -61,6 +61,15 @@
                 <input id="imagem" name="imagem" required type="text"/>
             </p>
             <p>
+                <span>Cargo:</span>
+                <select id="idcargos" name="idcargos">
+                    <option th:each="cargo : ${cargoMap}"
+                            th:value="${cargo.key}"
+                            th:text="${cargo.value}"></option>
+                  </select>
+            </p>
+            <p>
+
                 <span>Data de Nascimento:</span>
                 <input
                         id="data_nascimento"
@@ -83,7 +92,6 @@
                 <input
                         id="data_demissao"
                         name="data_demissao"
-                        required
                         type="date"
                 />
             </p>
@@ -105,7 +113,6 @@
                 <input
                         id="complemento"
                         name="complemento"
-                        required
                         type="text"
                 />
             </p>

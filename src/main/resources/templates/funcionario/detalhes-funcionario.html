@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
     <link rel="stylesheet" th:href="@{/css/sistema/styleTable.css}"/>
-    <title>Detalhes do funcionário</title>
+    <title>Detalhes do Funcionário</title>
 </head>
 <body>
-<h2>Detalhes do funcionário</h2>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
 
-<img alt="Imagem do funcionário" th:src="@{${funcionario.imagem}}"><br/>
-<b>CPF: </b><span th:text="${funcionario.cpf}"></span><br/>
-<b>Id Cargos: </b><span th:text="${funcionario.idcargos}"></span><br/>
-<b>CNPJ: </b><span th:text="${funcionario.hotel_cnpj}"></span><br/>
-<b>Nome: </b><span th:text="${funcionario.nome}"></span><br/>
-<b>Data de Nascimento: </b><span th:text="${funcionario.data_nascimento}"></span><br/>
-<b>Data de Admissão: </b><span th:text="${funcionario.data_admissao}"></span><br/>
-<b>Data de Demissão: </b><span th:text="${funcionario.data_demissao}"></span><br/>
-<b>Logradouro: </b><span th:text="${funcionario.logradouro}"></span><br/>
-<b>Número: </b><span th:text="${funcionario.numero}"></span><br/>
-<b>Complemento: </b><span th:text="${funcionario.complemento}"></span><br/>
-<b>Bairro: </b><span th:text="${funcionario.bairro}"></span><br/>
-<b>Cidade: </b><span th:text="${funcionario.cidade}"></span><br/>
-<b>UF: </b><span th:text="${funcionario.uf}"></span><br/>
-<b>CEP: </b><span th:text="${funcionario.cep}"></span><br/><br/>
-<b>Senha </b><span th:text="${funcionario.senha}"></span><br/><br/>
-<a href="/funcionarios">Voltar</a>
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
+            </div>
+            <h3 class="i-name">Funcionário</h3>
+            <p>Detalhes Funcionário</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/funcionarios'"
+        >
+            Voltar
+        </button>
+    </div>
+    <div class="board" style="text-align:justify">
+
+        <img alt="Imagem do funcionário" th:src="@{${funcionario.imagem}}"><br/>
+        <b>CPF: </b><span th:text="${funcionario.cpf}"></span><br/>
+        <b>Id Cargos: </b><span th:text="${funcionario.idcargos}"></span><br/>
+        <b>CNPJ: </b><span th:text="${funcionario.hotel_cnpj}"></span><br/>
+        <b>Nome: </b><span th:text="${funcionario.nome}"></span><br/>
+        <b>Data de Nascimento: </b><span th:text="${funcionario.data_nascimento}"></span><br/>
+        <b>Data de Admissão: </b><span th:text="${funcionario.data_admissao}"></span><br/>
+        <b>Data de Demissão: </b><span th:text="${funcionario.data_demissao}"></span><br/>
+        <b>Logradouro: </b><span th:text="${funcionario.logradouro}"></span><br/>
+        <b>Número: </b><span th:text="${funcionario.numero}"></span><br/>
+        <b>Complemento: </b><span th:text="${funcionario.complemento}"></span><br/>
+        <b>Bairro: </b><span th:text="${funcionario.bairro}"></span><br/>
+        <b>Cidade: </b><span th:text="${funcionario.cidade}"></span><br/>
+        <b>UF: </b><span th:text="${funcionario.uf}"></span><br/>
+        <b>CEP: </b><span th:text="${funcionario.cep}"></span><br/><br/>
+        <b>Senha </b><span th:text="${funcionario.senha}"></span><br/><br/>
+    </div>
+</section>
+
+
 </body>
 </html>
