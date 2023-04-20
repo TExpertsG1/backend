@@ -391,7 +391,9 @@ div.copyright {
       text-align: center;
           }
 .div-contatos {
-      padding: 0px;
+      flex-direction: column;
+      padding: 8px;
+      gap: 36px;
     }
 
 .nomeLogo h1 {

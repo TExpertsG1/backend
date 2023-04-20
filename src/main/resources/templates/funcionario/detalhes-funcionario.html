@@ -14,15 +14,14 @@
 <section
         th:replace="~{Componentes/sistema-section-1 :: section}"
 ></section>
-
 <section id="interface">
     <div class="navegation">
         <div>
             <div>
                 <i class="fas fa-bars" id="menu-btn"></i>
             </div>
-            <h3 class="i-name">Funcionário</h3>
-            <p>Detalhes Funcionário</p>
+            <h3 class="i-name">Funcionários</h3>
+            <p>Cadatro de funcionário</p>
         </div>
         <button
                 class="btn-cad-client"
@@ -31,24 +30,67 @@
             Voltar
         </button>
     </div>
-    <div class="board" style="text-align:justify">
+    <div class="formContainer">
+        <div class="form">
+            <img alt="Imagem do funcionário" th:src="@{${funcionario.imagem}}">
+            <p>
+                <span>CPF:</span>
+                <span th:text="${funcionario.cpf}"></span>
+            </p>
+            <p>
+                <span>CNPJ do Hotel:</span>
+                <span th:text="${funcionario.hotel_cnpj}"></span>
+            </p>
+            <p>
+                <span>Nome:</span>
+                <span th:text="${funcionario.nome}"></span>
+            </p>
+            <p>
+                <span>Cargo:</span>
+                <span th:text="${cargoMap[funcionario.idcargos]}"></span>
+            </p>
+            <p>
 
-        <img alt="Imagem do funcionário" th:src="@{${funcionario.imagem}}"><br/>
-        <b>CPF: </b><span th:text="${funcionario.cpf}"></span><br/>
-        <b>Id Cargos: </b><span th:text="${funcionario.idcargos}"></span><br/>
-        <b>CNPJ: </b><span th:text="${funcionario.hotel_cnpj}"></span><br/>
-        <b>Nome: </b><span th:text="${funcionario.nome}"></span><br/>
-        <b>Data de Nascimento: </b><span th:text="${funcionario.data_nascimento}"></span><br/>
-        <b>Data de Admissão: </b><span th:text="${funcionario.data_admissao}"></span><br/>
-        <b>Data de Demissão: </b><span th:text="${funcionario.data_demissao}"></span><br/>
-        <b>Logradouro: </b><span th:text="${funcionario.logradouro}"></span><br/>
-        <b>Número: </b><span th:text="${funcionario.numero}"></span><br/>
-        <b>Complemento: </b><span th:text="${funcionario.complemento}"></span><br/>
-        <b>Bairro: </b><span th:text="${funcionario.bairro}"></span><br/>
-        <b>Cidade: </b><span th:text="${funcionario.cidade}"></span><br/>
-        <b>UF: </b><span th:text="${funcionario.uf}"></span><br/>
-        <b>CEP: </b><span th:text="${funcionario.cep}"></span><br/><br/>
-        <b>Senha </b><span th:text="${funcionario.senha}"></span><br/><br/>
+                <span>Data de Nascimento:</span>
+                <span th:text="${funcionario.data_nascimento}"></span>
+            </p>
+            <p>
+                <span>Data de Admissão:</span>
+                <span th:text="${funcionario.data_admissao}"></span>
+            </p>
+            <p>
+                <span>Data de Demissão:</span>
+                <span th:text="${funcionario.data_demissao}"></span>
+            </p>
+            <p>
+                <span>Logradouro:</span>
+                <span th:text="${funcionario.logradouro}"></span>
+            </p>
+            <p>
+                <span>Número:</span>
+                <span th:text="${funcionario.numero}"></span>
+            </p>
+            <p>
+                <span>Complemento:</span>
+                <span th:text="${funcionario.complemento}"></span>
+            </p>
+            <p>
+                <span>CEP:</span>
+                <span th:text="${funcionario.cep}"></span>
+            </p>
+            <p>
+                <span>Bairro:</span>
+                <span th:text="${funcionario.bairro}"></span>
+            </p>
+            <p>
+                <span>Cidade:</span>
+                <span th:text="${funcionario.cidade}"></span>
+            </p>
+            <p>
+                <span>UF:</span>
+                <span th:text="${funcionario.uf}"></span>
+            </p>
+        </div>
     </div>
 </section>
 

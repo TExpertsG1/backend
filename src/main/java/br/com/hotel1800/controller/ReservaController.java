@@ -66,6 +66,9 @@ public class ReservaController {
 
     @PostMapping("/cadastrarReserva")
     public String cadastrarReserva(Reserva reserva) {
+        Hospede hospede = hospedeDAO.read(reserva.getHospede_cpf());
+        reserva.setNome(hospede.getNome());
+        reserva.setEmail(hospede.getEmail());
         reservaDAO.create(reserva);
         return "redirect:/reservas";
     }
@@ -86,6 +89,9 @@ public class ReservaController {
 
     @PostMapping("/atualizarReserva")
     public String atualizarReserva(Reserva reserva) {
+        Hospede hospede = hospedeDAO.read(reserva.getHospede_cpf());
+        reserva.setNome(hospede.getNome());
+        reserva.setEmail(hospede.getEmail());
         reservaDAO.update(reserva);
         return "redirect:/reservas";
     }
