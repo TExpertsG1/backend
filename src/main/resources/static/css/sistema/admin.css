@@ -92,6 +92,8 @@ body {
     margin: 314px 0 0 0;
 }
 
+
+
 #interface {
     width: calc(100% - 250px);
     margin-left: 250px;
@@ -447,7 +449,7 @@ table tbody tr td:before {
 
 table tbody tr td button:hover,
 table tbody tr td button:focus {
-    background: #a795fe;
+    background: #756452;
     cursor: pointer;
 }
 

@@ -2,6 +2,7 @@ package br.com.hotel1800.controller;
 
 import br.com.hotel1800.dao.CargoDAO;
 import br.com.hotel1800.dao.FuncionarioDAO;
+import br.com.hotel1800.modelo.Cargo;
 import br.com.hotel1800.modelo.Funcionario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,8 +55,10 @@ public class FuncionarioController {
 
     @GetMapping("/mostrarFuncionario/{cpf}")
     public String buscarFuncionario(@PathVariable String cpf, Model model) {
+        Map<Integer, String> cargoMap = cargoDAO.getCargoMap();
         Funcionario funcionario = funcionarioDAO.read(cpf);
         model.addAttribute("funcionario", funcionario);
+        model.addAttribute("cargoMap", cargoMap);
         return "funcionario/detalhes-funcionario";
     }
 
