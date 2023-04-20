@@ -1,271 +1,271 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <link
+<link
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
         rel="stylesheet"
-    />
-    <link rel="stylesheet" th:href="@{/css/sistema/admin.css}" />
-    <link rel="stylesheet" th:href="@{/styleTable.css}" />
-    <head>
-        <meta charset="UTF-8" />
-        <title>Modificar Hotel</title>
-    </head>
-    <body>
-        <section
-            th:replace="~{Componentes/sistema-section-1 :: section}"
-        ></section>
+/>
+<link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
+<link rel="stylesheet" th:href="@{/css/sistema/styleTable.css}"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Modificar Hotel</title>
+</head>
+<body>
+<section
+        th:replace="~{Componentes/sistema-section-1 :: section}"
+></section>
 
-        <section id="interface">
-            <div class="navegation">
-                <div>
-                    <div>
-                        <i class="fas fa-bars" id="menu-btn"></i>
-                    </div>
-                    <h3 class="i-name">Hoteis</h3>
-                    <p>Modificar hotel</p>
-                </div>
-                <button
-                    class="btn-cad-client"
-                    onclick="window.location.href='/hoteis'"
-                >
-                    Voltar
-                </button>
+<section id="interface">
+    <div class="navegation">
+        <div>
+            <div>
+                <i class="fas fa-bars" id="menu-btn"></i>
             </div>
+            <h3 class="i-name">Hoteis</h3>
+            <p>Modificar hotel</p>
+        </div>
+        <button
+                class="btn-cad-client"
+                onclick="window.location.href='/hoteis'"
+        >
+            Voltar
+        </button>
+    </div>
 
-            <div class="formContainer">
-                <form
-                    class="form"
-                    method="post"
-                    th:action="@{/atualizarHotel}"
-                    th:object="${hotel}"
+    <div class="formContainer">
+        <form
+                class="form"
+                method="post"
+                th:action="@{/atualizarHotel}"
+                th:object="${hotel}"
+        >
+            <p>
+                <span>CNPJ:</span>
+                <input
+                        id="cnpj"
+                        name="cnpj"
+                        required="required"
+                        th:value="${hotel.cnpj}"
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>Nome:</span>
+                <input
+                        id="nome"
+                        name="nome"
+                        required="required"
+                        th:value="${hotel.nome}"
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>Logradouro:</span>
+                <input
+                        id="logradouro"
+                        name="logradouro"
+                        required="required"
+                        th:value="${hotel.nome}"
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>CEP:</span>
+                <input
+                        id="cep"
+                        name="cep"
+                        required="required"
+                        th:value="${hotel.cep}"
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>UF:</span>
+                <select
+                        id="uf"
+                        name="uf"
+                        required="required"
+                        th:value="${hotel.uf}"
+                        type="text"
                 >
-                    <p>
-                        <span>CNPJ:</span>
-                        <input
-                            id="cnpj"
-                            name="cnpj"
-                            required="required"
-                            th:value="${hotel.cnpj}"
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>Nome:</span>
-                        <input
-                            id="nome"
-                            name="nome"
-                            required="required"
-                            th:value="${hotel.nome}"
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>Logradouro:</span>
-                        <input
-                            id="logradouro"
-                            name="logradouro"
-                            required="required"
-                            th:value="${hotel.nome}"
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>CEP:</span>
-                        <input
-                            id="cep"
-                            name="cep"
-                            required="required"
-                            th:value="${hotel.cep}"
-                            type="text"
-                        />
-                    </p>
-                    <p>
-                        <span>UF:</span>
-                        <select
-                            id="uf"
-                            name="uf"
-                            required="required"
-                            th:value="${hotel.uf}"
-                            type="text"
-                        >
-                            <option
-                                th:selected="${hotel.uf == 'AC'}"
-                                value="AC"
-                            >
-                                AC
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'AL'}"
-                                value="AL"
-                            >
-                                AL
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'AP'}"
-                                value="AP"
-                            >
-                                AP
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'AM'}"
-                                value="AM"
-                            >
-                                AM
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'BA'}"
-                                value="BA"
-                            >
-                                BA
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'CE'}"
-                                value="CE"
-                            >
-                                CE
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'DF'}"
-                                value="DF"
-                            >
-                                DF
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'ES'}"
-                                value="ES"
-                            >
-                                ES
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'GO'}"
-                                value="GO"
-                            >
-                                GO
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'MA'}"
-                                value="MA"
-                            >
-                                MA
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'MT'}"
-                                value="MT"
-                            >
-                                MT
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'MS'}"
-                                value="MS"
-                            >
-                                MS
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'MG'}"
-                                value="MG"
-                            >
-                                MG
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'PA'}"
-                                value="PA"
-                            >
-                                PA
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'PB'}"
-                                value="PB"
-                            >
-                                PB
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'PR'}"
-                                value="PR"
-                            >
-                                PR
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'PE'}"
-                                value="PE"
-                            >
-                                PE
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'PI'}"
-                                value="PI"
-                            >
-                                PI
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'RJ'}"
-                                value="RJ"
-                            >
-                                RJ
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'RN'}"
-                                value="RN"
-                            >
-                                RN
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'RS'}"
-                                value="RS"
-                            >
-                                RS
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'RO'}"
-                                value="RO"
-                            >
-                                RO
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'RR'}"
-                                value="RR"
-                            >
-                                RR
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'SC'}"
-                                value="SC"
-                            >
-                                SC
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'SP'}"
-                                value="SP"
-                            >
-                                SP
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'SE'}"
-                                value="SE"
-                            >
-                                SE
-                            </option>
-                            <option
-                                th:selected="${hotel.uf == 'TO'}"
-                                value="TO"
-                            >
-                                TO
-                            </option>
-                        </select>
-                    </p>
+                    <option
+                            th:selected="${hotel.uf == 'AC'}"
+                            value="AC"
+                    >
+                        AC
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'AL'}"
+                            value="AL"
+                    >
+                        AL
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'AP'}"
+                            value="AP"
+                    >
+                        AP
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'AM'}"
+                            value="AM"
+                    >
+                        AM
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'BA'}"
+                            value="BA"
+                    >
+                        BA
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'CE'}"
+                            value="CE"
+                    >
+                        CE
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'DF'}"
+                            value="DF"
+                    >
+                        DF
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'ES'}"
+                            value="ES"
+                    >
+                        ES
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'GO'}"
+                            value="GO"
+                    >
+                        GO
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'MA'}"
+                            value="MA"
+                    >
+                        MA
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'MT'}"
+                            value="MT"
+                    >
+                        MT
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'MS'}"
+                            value="MS"
+                    >
+                        MS
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'MG'}"
+                            value="MG"
+                    >
+                        MG
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'PA'}"
+                            value="PA"
+                    >
+                        PA
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'PB'}"
+                            value="PB"
+                    >
+                        PB
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'PR'}"
+                            value="PR"
+                    >
+                        PR
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'PE'}"
+                            value="PE"
+                    >
+                        PE
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'PI'}"
+                            value="PI"
+                    >
+                        PI
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'RJ'}"
+                            value="RJ"
+                    >
+                        RJ
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'RN'}"
+                            value="RN"
+                    >
+                        RN
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'RS'}"
+                            value="RS"
+                    >
+                        RS
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'RO'}"
+                            value="RO"
+                    >
+                        RO
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'RR'}"
+                            value="RR"
+                    >
+                        RR
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'SC'}"
+                            value="SC"
+                    >
+                        SC
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'SP'}"
+                            value="SP"
+                    >
+                        SP
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'SE'}"
+                            value="SE"
+                    >
+                        SE
+                    </option>
+                    <option
+                            th:selected="${hotel.uf == 'TO'}"
+                            value="TO"
+                    >
+                        TO
+                    </option>
+                </select>
+            </p>
 
-                    <p>
-                        <span>Cidade:</span>
-                        <input
-                            id="cidade"
-                            name="cidade"
-                            required="required"
-                            th:value="${hotel.cidade}"
-                            type="text"
-                        />
-                    </p>
-                    <button class="btn-cad-client" type="submit">Salvar</button>
-                </form>
-            </div>
-        </section>
-    </body>
+            <p>
+                <span>Cidade:</span>
+                <input
+                        id="cidade"
+                        name="cidade"
+                        required="required"
+                        th:value="${hotel.cidade}"
+                        type="text"
+                />
+            </p>
+            <button class="btn-cad-client" type="submit">Salvar</button>
+        </form>
+    </div>
+</section>
+</body>
 </html>

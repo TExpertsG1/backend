@@ -7,7 +7,7 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
-    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <link rel="stylesheet" th:href="@{/css/sistema/styleTable.css}"/>
     <title>Modificar Funcionário</title>
 </head>
 <body>
@@ -42,10 +42,9 @@
             <p>
                 <span>CPF:</span>
                 <input
-                        disabled
+                        readonly
                         id="cpf"
                         name="cpf"
-                        required="required"
                         th:value="${funcionario.cpf}"
                         type="text"
                 />
@@ -69,6 +68,25 @@
                         th:value="${funcionario.nome}"
                         type="text"
                 />
+            </p>
+            <p>
+                <span>Imagem:</span>
+                <input
+                        id="imagem"
+                        name="imagem"
+                        required="required"
+                        th:value="${funcionario.imagem}"
+                        type="text"
+                />
+            </p>
+            <p>
+                <span>Cargo:</span>
+                <select id="idcargos" name="idcargos">
+                    <option th:each="cargo : ${cargoMap}"
+                            th:text="${cargo.value}"
+                            th:value="${cargo.key}"
+                            th:selected="${funcionario.idcargos == cargo.key}"></option>
+                </select>
             </p>
             <p>
                 <span>Data de Nascimento:</span>
@@ -95,7 +113,6 @@
                 <input
                         id="data_demissao"
                         name="data_demissao"
-                        required="required"
                         th:value="${funcionario.data_demissao}"
                         type="date"
                 />
@@ -125,7 +142,6 @@
                 <input
                         id="complemento"
                         name="complemento"
-                        required="required"
                         th:value="${funcionario.complemento}"
                         type="text"
                 />

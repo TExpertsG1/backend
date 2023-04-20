@@ -24,3 +24,28 @@
     margin-top: 20px;
     padding: 8px 12px;
 }
+
+h2 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+b {
+  display: inline-block;
+  width: 150px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+span {
+  display: inline-block;
+  margin-bottom: 10px;
+}

@@ -7,7 +7,7 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" th:href="@{/css/sistema/admin.css}"/>
-    <link rel="stylesheet" th:href="@{/styleTable.css}"/>
+    <link rel="stylesheet" th:href="@{/css/sistema/styleTable.css}"/>
     <title>Cadastrar Funcionário</title>
 </head>
 <body>
@@ -57,6 +57,19 @@
                 <input id="nome" name="nome" required type="text"/>
             </p>
             <p>
+                <span>Imagem:</span>
+                <input id="imagem" name="imagem" required type="text"/>
+            </p>
+            <p>
+                <span>Cargo:</span>
+                <select id="idcargos" name="idcargos">
+                    <option th:each="cargo : ${cargoMap}"
+                            th:value="${cargo.key}"
+                            th:text="${cargo.value}"></option>
+                  </select>
+            </p>
+            <p>
+
                 <span>Data de Nascimento:</span>
                 <input
                         id="data_nascimento"
@@ -79,7 +92,6 @@
                 <input
                         id="data_demissao"
                         name="data_demissao"
-                        required
                         type="date"
                 />
             </p>
@@ -101,7 +113,6 @@
                 <input
                         id="complemento"
                         name="complemento"
-                        required
                         type="text"
                 />
             </p>

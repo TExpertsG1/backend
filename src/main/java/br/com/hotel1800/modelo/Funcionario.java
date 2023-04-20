@@ -35,13 +35,12 @@ public class Funcionario {
     public Funcionario() {
     }
 
-    public Funcionario(String cpf, int idcargos, String hotel_cnpj, String nome, LocalDate data_nascimento,
-                       LocalDate data_admissao, LocalDate data_demissao, String logradouro, int numero, String complemento,
-                       String bairro, String cidade, String uf, String cep, String senha) {
+    public Funcionario(String cpf, int idcargos, String hotel_cnpj, String nome, String imagem, LocalDate data_nascimento, LocalDate data_admissao, LocalDate data_demissao, String logradouro, int numero, String complemento, String bairro, String cidade, String uf, String cep, String senha) {
         this.cpf = cpf;
         this.idcargos = idcargos;
         this.hotel_cnpj = hotel_cnpj;
         this.nome = nome;
+        this.imagem = imagem;
         this.data_nascimento = data_nascimento;
         this.data_admissao = data_admissao;
         this.data_demissao = data_demissao;
@@ -54,6 +53,7 @@ public class Funcionario {
         this.cep = cep;
         this.senha = senha;
     }
+
 
     public String getSenha() {
         return senha;
@@ -182,6 +182,8 @@ public class Funcionario {
     public void setCep(String cep) {
         this.cep = cep;
     }
+
+
 
     @Override
     public String toString() {

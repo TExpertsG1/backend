@@ -67,7 +67,7 @@
 
                     <td th:text="${#strings.substring(reserva.data_check_out, 8, 10) + '/' + #strings.substring(reserva.data_check_out, 5, 7) + '/' + #strings.substring(reserva.data_check_out, 0, 4)}"></td>
 
-                    <td th:text="${listaPreco[contador.index]}"></td>
+                    <td th:text="'R$ ' + ${listaPreco[contador.index]}"></td>
 
                     <td>
                         <form
